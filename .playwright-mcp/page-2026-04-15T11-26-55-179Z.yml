@@ -1,0 +1,732 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "CleanFlowAI" [ref=e5] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e8]:
+            - generic [ref=e9]: CleanFlowAI
+            - generic [ref=e10]: DATA QUALITY PLATFORM
+        - navigation [ref=e11]:
+          - link "Platform" [ref=e12] [cursor=pointer]:
+            - /url: "#platform"
+          - link "Features" [ref=e13] [cursor=pointer]:
+            - /url: "#features"
+          - link "Pipeline" [ref=e14] [cursor=pointer]:
+            - /url: "#pipeline"
+          - link "Pricing" [ref=e15] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "Sign in" [ref=e16] [cursor=pointer]:
+            - /url: /auth/login
+          - link "Request access" [ref=e17] [cursor=pointer]:
+            - /url: /auth/signup
+            - generic [ref=e18]: Request access
+            - img [ref=e19]
+    - main [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]: DQ ENGINE — LIVE
+            - generic [ref=e29]: VOL. 01 · ENTERPRISE EDITION
+          - generic [ref=e30]:
+            - generic [ref=e31]: R1–R34
+            - generic [ref=e32]: ·
+            - generic [ref=e33]: 13 ERP TARGETS
+            - generic [ref=e34]: ·
+            - generic [ref=e35]: COGNITO SECURED
+        - generic [ref=e36]:
+          - heading "Enterprise-grade data quality for every ERP file ." [level=1] [ref=e37]:
+            - generic [ref=e39]: Enterprise-grade
+            - generic [ref=e40]:
+              - generic [ref=e42]: data
+              - generic [ref=e44]: quality
+            - generic [ref=e46]: for
+            - generic [ref=e48]: every
+            - generic [ref=e49]:
+              - generic [ref=e51]: ERP
+              - generic [ref=e53]: file
+            - generic [ref=e56]: .
+          - paragraph [ref=e57]: Upload CSV, Excel, JSON, or Parquet. 34 deterministic rules. AI-assisted suggestions. Auto-fix or quarantine every row — then export clean data or push it straight to your ERP.
+          - generic [ref=e58]:
+            - link "Start free trial" [ref=e59] [cursor=pointer]:
+              - /url: /auth/signup
+              - generic [ref=e60]: Start free trial
+              - img [ref=e61]
+            - link "See it in action" [ref=e63] [cursor=pointer]:
+              - /url: "#platform"
+              - img [ref=e64]
+              - generic [ref=e67]: See it in action
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e75]: customers_q3.csv
+            - generic [ref=e76]: DQ_RUNNING
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: DQ SCORE
+              - generic [ref=e80]: +3.1 vs last run
+            - generic [ref=e81]: "0.0"
+          - generic [ref=e84]:
+            - generic [ref=e85]: RECENT ACTIONS
+            - generic [ref=e86]: R1–R34 · LIVE
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - generic [ref=e90]: A-00142
+              - generic [ref=e91]: name → Title Case
+              - generic [ref=e92]: FIX
+            - generic [ref=e93]:
+              - generic [ref=e95]: A-00143
+              - generic [ref=e96]: country → ISO 3166
+              - generic [ref=e97]: FIX
+            - generic [ref=e98]:
+              - generic [ref=e100]: A-00144
+              - generic [ref=e101]: email → invalid format
+              - generic [ref=e102]: HOLD
+            - generic [ref=e103]:
+              - generic [ref=e105]: A-00145
+              - generic [ref=e106]: phone → E.164
+              - generic [ref=e107]: FIX
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - generic [ref=e110]:
+                - generic [ref=e111]: "247"
+                - generic [ref=e112]: fixed
+              - generic [ref=e113]:
+                - generic [ref=e114]: "13"
+                - generic [ref=e115]: held
+              - generic [ref=e116]:
+                - generic [ref=e117]: 4,208
+                - generic [ref=e118]: rows
+            - generic [ref=e121]: PROCESSING
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]: CONNECTS TO
+          - generic [ref=e126]: 13 ERP systems — QuickBooks live, 12 more rolling out
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - generic [ref=e131]: ◆
+            - text: QUICKBOOKS ONLINE
+          - generic [ref=e132]:
+            - generic [ref=e133]: ◆
+            - text: ORACLE FUSION
+          - generic [ref=e134]:
+            - generic [ref=e135]: ◆
+            - text: SAP ERP
+          - generic [ref=e136]:
+            - generic [ref=e137]: ◆
+            - text: MICROSOFT DYNAMICS
+          - generic [ref=e138]:
+            - generic [ref=e139]: ◆
+            - text: NETSUITE
+          - generic [ref=e140]:
+            - generic [ref=e141]: ◆
+            - text: WORKDAY
+          - generic [ref=e142]:
+            - generic [ref=e143]: ◆
+            - text: INFOR M3
+          - generic [ref=e144]:
+            - generic [ref=e145]: ◆
+            - text: INFOR LN
+          - generic [ref=e146]:
+            - generic [ref=e147]: ◆
+            - text: EPICOR KINETIC
+          - generic [ref=e148]:
+            - generic [ref=e149]: ◆
+            - text: QAD ERP
+          - generic [ref=e150]:
+            - generic [ref=e151]: ◆
+            - text: IFS CLOUD
+          - generic [ref=e152]:
+            - generic [ref=e153]: ◆
+            - text: SAGE INTACCT
+          - generic [ref=e154]:
+            - generic [ref=e155]: ◆
+            - text: QUICKBOOKS ONLINE
+          - generic [ref=e156]:
+            - generic [ref=e157]: ◆
+            - text: ORACLE FUSION
+          - generic [ref=e158]:
+            - generic [ref=e159]: ◆
+            - text: SAP ERP
+          - generic [ref=e160]:
+            - generic [ref=e161]: ◆
+            - text: MICROSOFT DYNAMICS
+          - generic [ref=e162]:
+            - generic [ref=e163]: ◆
+            - text: NETSUITE
+          - generic [ref=e164]:
+            - generic [ref=e165]: ◆
+            - text: WORKDAY
+          - generic [ref=e166]:
+            - generic [ref=e167]: ◆
+            - text: INFOR M3
+          - generic [ref=e168]:
+            - generic [ref=e169]: ◆
+            - text: INFOR LN
+          - generic [ref=e170]:
+            - generic [ref=e171]: ◆
+            - text: EPICOR KINETIC
+          - generic [ref=e172]:
+            - generic [ref=e173]: ◆
+            - text: QAD ERP
+          - generic [ref=e174]:
+            - generic [ref=e175]: ◆
+            - text: IFS CLOUD
+          - generic [ref=e176]:
+            - generic [ref=e177]: ◆
+            - text: SAGE INTACCT
+          - generic [ref=e178]:
+            - generic [ref=e179]: ◆
+            - text: QUICKBOOKS ONLINE
+          - generic [ref=e180]:
+            - generic [ref=e181]: ◆
+            - text: ORACLE FUSION
+          - generic [ref=e182]:
+            - generic [ref=e183]: ◆
+            - text: SAP ERP
+          - generic [ref=e184]:
+            - generic [ref=e185]: ◆
+            - text: MICROSOFT DYNAMICS
+          - generic [ref=e186]:
+            - generic [ref=e187]: ◆
+            - text: NETSUITE
+          - generic [ref=e188]:
+            - generic [ref=e189]: ◆
+            - text: WORKDAY
+          - generic [ref=e190]:
+            - generic [ref=e191]: ◆
+            - text: INFOR M3
+          - generic [ref=e192]:
+            - generic [ref=e193]: ◆
+            - text: INFOR LN
+          - generic [ref=e194]:
+            - generic [ref=e195]: ◆
+            - text: EPICOR KINETIC
+          - generic [ref=e196]:
+            - generic [ref=e197]: ◆
+            - text: QAD ERP
+          - generic [ref=e198]:
+            - generic [ref=e199]: ◆
+            - text: IFS CLOUD
+          - generic [ref=e200]:
+            - generic [ref=e201]: ◆
+            - text: SAGE INTACCT
+      - generic [ref=e204]:
+        - generic [ref=e205]:
+          - generic [ref=e206]: § THE CONSOLE
+          - heading "One workspace. Every file, every run." [level=2] [ref=e207]:
+            - text: One workspace.
+            - text: Every file, every run.
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e214]:
+              - img [ref=e215]
+              - generic [ref=e218]: app.cleanflowai.com/dashboard
+            - generic [ref=e219]: LIVE
+          - generic [ref=e220]:
+            - complementary [ref=e221]:
+              - generic [ref=e223]:
+                - generic [ref=e224]: CleanFlowAI
+                - generic [ref=e225]: Data Quality Platform
+              - generic [ref=e226]: MAIN
+              - list [ref=e227]:
+                - listitem [ref=e228] [cursor=pointer]:
+                  - img [ref=e229]
+                  - generic [ref=e233]: Dashboard
+                - listitem [ref=e234] [cursor=pointer]:
+                  - img [ref=e235]
+                  - generic [ref=e238]: Data Catalog
+                  - generic [ref=e239]: "3"
+                - listitem [ref=e240] [cursor=pointer]:
+                  - img [ref=e241]
+                  - generic [ref=e244]: Jobs
+              - generic [ref=e245]: SETTINGS
+              - list [ref=e246]:
+                - listitem [ref=e247] [cursor=pointer]:
+                  - img [ref=e248]
+                  - generic [ref=e251]: Admin
+              - generic [ref=e252]:
+                - generic [ref=e253]: U
+                - generic [ref=e254]:
+                  - generic [ref=e255]: User
+                  - generic [ref=e256]: user@cleanflowai.com
+            - generic [ref=e257]:
+              - generic [ref=e258]:
+                - generic [ref=e259]:
+                  - heading "Welcome back, User" [level=3] [ref=e260]
+                  - generic [ref=e261]: TUESDAY · 14 APRIL 2026
+                - generic [ref=e262]:
+                  - button "Refresh" [ref=e263] [cursor=pointer]:
+                    - img [ref=e264]
+                    - text: Refresh
+                  - button "Download Report" [ref=e267] [cursor=pointer]:
+                    - img [ref=e268]
+                    - text: Download Report
+              - generic [ref=e270]:
+                - generic [ref=e271]:
+                  - generic [ref=e272]:
+                    - img [ref=e274]
+                    - generic [ref=e277]: TOTAL FILES
+                  - generic [ref=e278]: "0"
+                  - generic [ref=e279]: 100% completion
+                - generic [ref=e280]:
+                  - generic [ref=e281]:
+                    - img [ref=e283]
+                    - generic [ref=e285]: AVG DQ SCORE
+                  - generic [ref=e287]: 0.0%
+                  - generic [ref=e288]: Needs attention
+                - generic [ref=e289]:
+                  - generic [ref=e290]:
+                    - img [ref=e292]
+                    - generic [ref=e295]: PROCESSED
+                  - generic [ref=e296]: "0"
+                  - generic [ref=e297]: all sources
+                - generic [ref=e298]:
+                  - generic [ref=e299]:
+                    - img [ref=e301]
+                    - generic [ref=e303]: QUARANTINED ROWS
+                  - generic [ref=e304]: "0"
+                  - generic [ref=e305]: Requires remediation
+              - generic [ref=e306]:
+                - img [ref=e308]
+                - generic [ref=e310]: 3 files need attention — 3 with quarantined rows
+                - button "View All" [ref=e311] [cursor=pointer]:
+                  - text: View All
+                  - img [ref=e312]
+              - generic [ref=e314]:
+                - generic [ref=e315]:
+                  - generic [ref=e316]: ROW DISTRIBUTION
+                  - generic [ref=e317]:
+                    - img [ref=e318]:
+                      - generic [ref=e322]: 100%
+                      - generic [ref=e323]: TOTAL ROWS
+                    - generic [ref=e324]:
+                      - generic [ref=e325]:
+                        - text: Validated
+                        - generic [ref=e328]: 0%
+                      - generic [ref=e329]:
+                        - text: Quarantined
+                        - generic [ref=e332]: 0%
+                - generic [ref=e333]:
+                  - generic [ref=e334]: SCORE DISTRIBUTION
+                  - generic [ref=e335]:
+                    - generic [ref=e337]:
+                      - generic [ref=e338]: Excellent
+                      - generic [ref=e339]: "0"
+                    - generic [ref=e342]:
+                      - generic [ref=e343]: Good
+                      - generic [ref=e344]: "0"
+                    - generic [ref=e347]:
+                      - generic [ref=e348]: Bad
+                      - generic [ref=e349]: "0"
+                - generic [ref=e351]:
+                  - generic [ref=e352]: RECENT ACTIVITY
+                  - list [ref=e353]:
+                    - listitem [ref=e354]:
+                      - generic [ref=e356]:
+                        - generic [ref=e357]: johnbooks_contacts_3.csv
+                        - generic [ref=e358]: Processed · 2 min ago
+                    - listitem [ref=e359]:
+                      - generic [ref=e361]:
+                        - generic [ref=e362]: customers.csv
+                        - generic [ref=e363]: Processed · 14 min ago
+                    - listitem [ref=e364]:
+                      - generic [ref=e366]:
+                        - generic [ref=e367]: AccountContact.csv
+                        - generic [ref=e368]: Review · 1 hr ago
+                - generic [ref=e369]:
+                  - generic [ref=e370]:
+                    - generic [ref=e371]: DATA PROCESSING TRENDS
+                    - generic [ref=e372]:
+                      - generic [ref=e373] [cursor=pointer]: Day
+                      - generic [ref=e374] [cursor=pointer]: Week
+                      - generic [ref=e375] [cursor=pointer]: Month
+                  - img [ref=e377]
+                - generic [ref=e381]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]: TOP DQ ISSUES
+                    - generic [ref=e384]:
+                      - generic [ref=e385]: "0"
+                      - generic [ref=e386]: TOTAL
+                  - list [ref=e387]:
+                    - listitem [ref=e388]:
+                      - generic [ref=e389]:
+                        - generic [ref=e390]: Null Like Value — Treat As Missing
+                        - generic [ref=e391]: "0"
+                    - listitem [ref=e394]:
+                      - generic [ref=e395]:
+                        - generic [ref=e396]: Bad Text Long
+                        - generic [ref=e397]: "0"
+                    - listitem [ref=e400]:
+                      - generic [ref=e401]:
+                        - generic [ref=e402]: "'S2' Null Value in Non-Nullable Column"
+                        - generic [ref=e403]: "0"
+                    - listitem [ref=e406]:
+                      - generic [ref=e407]:
+                        - generic [ref=e408]: Missing Required Value
+                        - generic [ref=e409]: "0"
+                    - listitem [ref=e412]:
+                      - generic [ref=e413]:
+                        - generic [ref=e414]: Duplicate Primary Key
+                        - generic [ref=e415]: "0"
+      - generic [ref=e421]:
+        - generic [ref=e422]:
+          - generic [ref=e423]: "0"
+          - generic [ref=e424]: deterministic DQ rules (R1–R34)
+        - generic [ref=e425]:
+          - generic [ref=e426]: "0"
+          - generic [ref=e427]: ERP systems supported
+        - generic [ref=e428]:
+          - generic [ref=e429]: "0"
+          - generic [ref=e430]: input formats · CSV, Excel, JSON, Parquet
+        - generic [ref=e431]:
+          - generic [ref=e432]: "0"
+          - generic [ref=e433]: export formats · CSV, Excel, JSON
+      - generic [ref=e436]:
+        - generic [ref=e437]:
+          - generic [ref=e438]: § THE SERVICES
+          - heading "Three services. Calibrated together." [level=2] [ref=e439]:
+            - text: Three services.
+            - text: Calibrated together.
+        - generic [ref=e440]:
+          - article [ref=e441]:
+            - generic [ref=e442]:
+              - generic [ref=e443]: DATA TRANSFORM
+              - heading "Between any ERP format" [level=3] [ref=e444]
+              - paragraph [ref=e445]: Normalize column schemas between QuickBooks, Oracle Fusion, SAP, NetSuite, Dynamics and nine more. Select columns, rename on export, and reshape structure for your target system — no custom scripts.
+              - link "Learn more" [ref=e446] [cursor=pointer]:
+                - /url: "#platform"
+                - generic [ref=e447]: Learn more
+                - img [ref=e448]
+            - img [ref=e452]:
+              - generic [ref=e453]: SCHEMA A · SOURCE
+              - generic [ref=e454]: SCHEMA B · TARGET
+              - generic [ref=e457]: name_full
+              - generic [ref=e460]: addr_1
+              - generic [ref=e463]: country_iso
+              - generic [ref=e466]: amt_usd
+              - generic [ref=e469]: Customer.Name
+              - generic [ref=e472]: Customer.Address
+              - generic [ref=e475]: Customer.Country
+              - generic [ref=e478]: Invoice.Amount
+              - generic [ref=e490]: 13 ERP TARGETS
+          - article [ref=e491]:
+            - generic [ref=e492]:
+              - generic [ref=e493]: DATA QUALITY
+              - heading "Profile, validate, fix" [level=3] [ref=e494]
+              - paragraph [ref=e495]: 34 deterministic rules (R1–R34) cover type, null-rate, uniqueness, required fields and more. LLM-assisted rule suggestions you review and approve. Auto-fix what's safe, quarantine what isn't — every change auditable.
+              - link "Learn more" [ref=e496] [cursor=pointer]:
+                - /url: "#pipeline"
+                - generic [ref=e497]: Learn more
+                - img [ref=e498]
+            - img [ref=e502]:
+              - generic [ref=e503]: R1–R34 · VALIDATING
+              - generic [ref=e504]: 94.2% DQ SCORE
+              - generic [ref=e635]: 35 OF 40 · PASS
+              - generic [ref=e636]: 5 · QUARANTINE
+          - article [ref=e637]:
+            - generic [ref=e638]:
+              - generic [ref=e639]: CLEANDATASHIELD™
+              - heading "Premium protection layer" [level=3] [ref=e640]
+              - paragraph [ref=e641]: Enterprise privacy and security on top of the DQ pipeline. Protects sensitive fields before data moves between systems. Available on the Enterprise tier.
+              - link "Learn more" [ref=e642] [cursor=pointer]:
+                - /url: "#pricing"
+                - generic [ref=e643]: Learn more
+                - img [ref=e644]
+            - img [ref=e648]:
+              - generic [ref=e649]: CLEANDATASHIELD™ · REDACTION ACTIVE
+              - generic [ref=e650]: PREMIUM
+              - generic [ref=e652]: FIELD
+              - generic [ref=e653]: RAW INPUT
+              - generic [ref=e654]: REDACTED OUTPUT
+              - generic [ref=e655]:
+                - generic [ref=e657]: FULL NAME
+                - generic [ref=e658]: Sarah J. Chen
+                - generic [ref=e659]: ██████████
+              - generic [ref=e663]:
+                - generic [ref=e665]: EMAIL
+                - generic [ref=e666]: sarah.chen@acme.io
+                - generic [ref=e667]: "****@***.io"
+              - generic [ref=e671]:
+                - generic [ref=e673]: SSN
+                - generic [ref=e674]: 512-48-9071
+                - generic [ref=e675]: "***-**-****"
+              - generic [ref=e679]:
+                - generic [ref=e681]: CARD
+                - generic [ref=e682]: 4532 0912 6691 8234
+                - generic [ref=e683]: "**** **** **** 8234"
+              - generic [ref=e687]:
+                - generic [ref=e689]: PHONE
+                - generic [ref=e690]: +1 415 555 0188
+                - generic [ref=e691]: +1 *** *** ****
+              - generic [ref=e696]:
+                - generic [ref=e701]: SOC 2 TYPE II
+                - generic [ref=e706]: HIPAA
+                - generic [ref=e711]: GDPR
+                - generic [ref=e716]: PCI DSS
+      - generic [ref=e719]:
+        - generic [ref=e720]:
+          - generic [ref=e721]: § THE METHOD
+          - heading "Six stages. One flow." [level=2] [ref=e722]:
+            - text: Six stages.
+            - text: One flow.
+        - generic [ref=e723]:
+          - img
+          - generic [ref=e724]:
+            - generic [ref=e725]:
+              - generic [ref=e726]:
+                - img [ref=e729]
+                - generic [ref=e733]: "01"
+              - generic [ref=e734]:
+                - generic [ref=e735]: STAGE 01
+                - heading "Upload" [level=3] [ref=e736]
+                - paragraph [ref=e737]: Drop CSV, Excel, JSON, Parquet — or import from QuickBooks.
+            - generic [ref=e738]:
+              - generic [ref=e739]:
+                - img [ref=e742]
+                - generic [ref=e750]: "02"
+              - generic [ref=e751]:
+                - generic [ref=e752]: STAGE 02
+                - heading "Profile" [level=3] [ref=e753]
+                - paragraph [ref=e754]: Type guess, null rate, unique ratio, confidence — sampled.
+            - generic [ref=e755]:
+              - generic [ref=e756]:
+                - img [ref=e759]
+                - generic [ref=e769]: "03"
+              - generic [ref=e770]:
+                - generic [ref=e771]: STAGE 03
+                - heading "Configure" [level=3] [ref=e772]
+                - paragraph [ref=e773]: Pick rules R1–R34, accept LLM suggestions, set required fields.
+            - generic [ref=e774]:
+              - generic [ref=e775]:
+                - img [ref=e778]
+                - generic [ref=e782]: "04"
+              - generic [ref=e783]:
+                - generic [ref=e784]: STAGE 04
+                - heading "Execute" [level=3] [ref=e785]
+                - paragraph [ref=e786]: DQ_RUNNING → NORMALIZING. Deterministic, auditable pipeline.
+            - generic [ref=e787]:
+              - generic [ref=e788]:
+                - img [ref=e791]
+                - generic [ref=e797]: "05"
+              - generic [ref=e798]:
+                - generic [ref=e799]: STAGE 05
+                - heading "Review" [level=3] [ref=e800]
+                - paragraph [ref=e801]: Clean, fixed, quarantined — plus a full DQ report in JSON.
+            - generic [ref=e802]:
+              - generic [ref=e803]:
+                - img [ref=e806]
+                - generic [ref=e811]: "06"
+              - generic [ref=e812]:
+                - generic [ref=e813]: STAGE 06
+                - heading "Export" [level=3] [ref=e814]
+                - paragraph [ref=e815]: Download CSV, Excel or JSON — or push direct to ERP.
+      - generic [ref=e818]:
+        - generic [ref=e819]:
+          - generic [ref=e820]: § PRINCIPLES
+          - heading "Four principles. One philosophy." [level=2] [ref=e821]:
+            - text: Four principles.
+            - text: One philosophy.
+        - generic [ref=e823]:
+          - figure "Product Principle CLEANFLOWAI · PRD v1.0" [ref=e824]:
+            - generic [ref=e825]: "\""
+            - blockquote [ref=e826]: One pipeline. Thirty-four rules. Every row accounted for — clean, fixed, or quarantined.
+            - generic [ref=e828]:
+              - generic [ref=e829]: Product Principle
+              - generic [ref=e830]: CLEANFLOWAI · PRD v1.0
+          - figure "Design Principle ENGINEERING DOCS" [ref=e831]:
+            - generic [ref=e832]: "\""
+            - blockquote [ref=e833]: Upload a CSV. Get back a DQ report. No ETL glue, no custom scripts, no surprises.
+            - generic [ref=e835]:
+              - generic [ref=e836]: Design Principle
+              - generic [ref=e837]: ENGINEERING DOCS
+          - figure "Rule Engine Doctrine DQ_ENGINE v1.0" [ref=e838]:
+            - generic [ref=e839]: "\""
+            - blockquote [ref=e840]: LLM suggests. Human approves. Pipeline executes deterministically — always.
+            - generic [ref=e842]:
+              - generic [ref=e843]: Rule Engine Doctrine
+              - generic [ref=e844]: DQ_ENGINE v1.0
+          - figure "Quarantine Policy CLEANFLOWAI · PRD v1.0" [ref=e845]:
+            - generic [ref=e846]: "\""
+            - blockquote [ref=e847]: If we can't fix it, we quarantine it. If we quarantine it, we explain why.
+            - generic [ref=e849]:
+              - generic [ref=e850]: Quarantine Policy
+              - generic [ref=e851]: CLEANFLOWAI · PRD v1.0
+          - figure [ref=e852]:
+            - generic [ref=e853]: "\""
+            - blockquote [ref=e854]: One pipeline. Thirty-four rules. Every row accounted for — clean, fixed, or quarantined.
+            - generic [ref=e856]:
+              - generic [ref=e857]: Product Principle
+              - generic [ref=e858]: CLEANFLOWAI · PRD v1.0
+          - figure [ref=e859]:
+            - generic [ref=e860]: "\""
+            - blockquote [ref=e861]: Upload a CSV. Get back a DQ report. No ETL glue, no custom scripts, no surprises.
+            - generic [ref=e863]:
+              - generic [ref=e864]: Design Principle
+              - generic [ref=e865]: ENGINEERING DOCS
+          - figure [ref=e866]:
+            - generic [ref=e867]: "\""
+            - blockquote [ref=e868]: LLM suggests. Human approves. Pipeline executes deterministically — always.
+            - generic [ref=e870]:
+              - generic [ref=e871]: Rule Engine Doctrine
+              - generic [ref=e872]: DQ_ENGINE v1.0
+          - figure [ref=e873]:
+            - generic [ref=e874]: "\""
+            - blockquote [ref=e875]: If we can't fix it, we quarantine it. If we quarantine it, we explain why.
+            - generic [ref=e877]:
+              - generic [ref=e878]: Quarantine Policy
+              - generic [ref=e879]: CLEANFLOWAI · PRD v1.0
+      - generic [ref=e882]:
+        - generic [ref=e883]:
+          - generic [ref=e884]: § THE TERMS
+          - heading "Three tiers. One promise." [level=2] [ref=e885]:
+            - text: Three tiers.
+            - text: One promise.
+        - generic [ref=e886]:
+          - generic [ref=e887]:
+            - generic [ref=e888]: Free
+            - generic [ref=e889]:
+              - generic [ref=e890]: $
+              - generic [ref=e891]: "0"
+              - generic [ref=e892]: / forever
+            - generic [ref=e893]: Try CleanFlowAI with a single file at a time
+            - list [ref=e895]:
+              - listitem [ref=e896]:
+                - img [ref=e897]
+                - generic [ref=e900]: CSV & Excel upload
+              - listitem [ref=e901]:
+                - img [ref=e902]
+                - generic [ref=e905]: R1–R34 deterministic rules
+              - listitem [ref=e906]:
+                - img [ref=e907]
+                - generic [ref=e910]: DQ report (JSON)
+              - listitem [ref=e911]:
+                - img [ref=e912]
+                - generic [ref=e915]: Viewer role only
+            - link "Start free" [ref=e916] [cursor=pointer]:
+              - /url: /auth/signup
+              - generic [ref=e917]: Start free
+              - img [ref=e918]
+          - generic [ref=e920]:
+            - generic [ref=e921]: MOST CHOSEN
+            - generic [ref=e922]: Pro
+            - generic [ref=e923]:
+              - generic [ref=e924]: Contact
+              - generic [ref=e925]: for pricing
+            - generic [ref=e926]: Data teams running Data Transform + Data Quality
+            - list [ref=e928]:
+              - listitem [ref=e929]:
+                - img [ref=e930]
+                - generic [ref=e933]: All 4 input formats (+ Parquet)
+              - listitem [ref=e934]:
+                - img [ref=e935]
+                - generic [ref=e938]: LLM-assisted custom rules
+              - listitem [ref=e939]:
+                - img [ref=e940]
+                - generic [ref=e943]: QuickBooks connector · live import & export
+              - listitem [ref=e944]:
+                - img [ref=e945]
+                - generic [ref=e948]: ERP transform on export
+              - listitem [ref=e949]:
+                - img [ref=e950]
+                - generic [ref=e953]: Owner / Admin / Editor / Viewer roles
+            - link "Request access" [ref=e954] [cursor=pointer]:
+              - /url: /auth/signup
+              - generic [ref=e955]: Request access
+              - img [ref=e956]
+          - generic [ref=e958]:
+            - generic [ref=e959]: Enterprise
+            - generic [ref=e960]:
+              - generic [ref=e961]: Custom
+              - generic [ref=e962]: contact sales
+            - generic [ref=e963]: Regulated customers needing CleanDataShield™
+            - list [ref=e965]:
+              - listitem [ref=e966]:
+                - img [ref=e967]
+                - generic [ref=e970]: CleanDataShield™ privacy layer
+              - listitem [ref=e971]:
+                - img [ref=e972]
+                - generic [ref=e975]: All 13 ERP integrations as they ship
+              - listitem [ref=e976]:
+                - img [ref=e977]
+                - generic [ref=e980]: SSO · audit logs · API access
+              - listitem [ref=e981]:
+                - img [ref=e982]
+                - generic [ref=e985]: Dedicated success engineer
+            - link "Book a call" [ref=e986] [cursor=pointer]:
+              - /url: /auth/signup
+              - generic [ref=e987]: Book a call
+              - img [ref=e988]
+      - generic [ref=e993]:
+        - generic [ref=e994]: AN INVITATION
+        - heading "Bring us your messiest file." [level=2] [ref=e995]
+        - paragraph [ref=e996]: Cognito-secured sign-up. 34 deterministic rules. A DQ report on every run.
+        - generic [ref=e997]:
+          - link "Upload a file" [ref=e998] [cursor=pointer]:
+            - /url: /auth/signup
+            - generic [ref=e999]: Upload a file
+            - img [ref=e1000]
+          - link "Talk to an engineer" [ref=e1002] [cursor=pointer]:
+            - /url: mailto:hello@cleanflowai.com
+            - generic [ref=e1003]: Talk to an engineer
+    - contentinfo [ref=e1005]:
+      - generic [ref=e1006]:
+        - generic [ref=e1007]:
+          - generic [ref=e1008]:
+            - link "CleanFlowAI" [ref=e1009] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e1012]:
+                - generic [ref=e1013]: CleanFlowAI
+                - generic [ref=e1014]: DATA QUALITY PLATFORM
+            - paragraph [ref=e1015]: A data quality and transformation platform for ERP data. Profile columns, apply 34 deterministic rules, auto-fix or quarantine every row, and push clean output to your ERP.
+          - generic [ref=e1016]:
+            - generic [ref=e1017]:
+              - generic [ref=e1018]: Product
+              - list [ref=e1019]:
+                - listitem [ref=e1020]:
+                  - link "Dashboard" [ref=e1021] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [ref=e1022]:
+                  - link "Data Catalog" [ref=e1023] [cursor=pointer]:
+                    - /url: /files
+                - listitem [ref=e1024]:
+                  - link "Jobs" [ref=e1025] [cursor=pointer]:
+                    - /url: /jobs
+                - listitem [ref=e1026]:
+                  - link "Admin" [ref=e1027] [cursor=pointer]:
+                    - /url: /admin
+                - listitem [ref=e1028]:
+                  - link "Pipeline" [ref=e1029] [cursor=pointer]:
+                    - /url: "#pipeline"
+            - generic [ref=e1030]:
+              - generic [ref=e1031]: Resources
+              - list [ref=e1032]:
+                - listitem [ref=e1033]:
+                  - link "Documentation" [ref=e1034] [cursor=pointer]:
+                    - /url: "#platform"
+                - listitem [ref=e1035]:
+                  - link "Features" [ref=e1036] [cursor=pointer]:
+                    - /url: "#features"
+                - listitem [ref=e1037]:
+                  - link "Field guide" [ref=e1038] [cursor=pointer]:
+                    - /url: "#pipeline"
+                - listitem [ref=e1039]:
+                  - link "Pricing" [ref=e1040] [cursor=pointer]:
+                    - /url: "#pricing"
+            - generic [ref=e1041]:
+              - generic [ref=e1042]: Company
+              - list [ref=e1043]:
+                - listitem [ref=e1044]:
+                  - link "About" [ref=e1045] [cursor=pointer]:
+                    - /url: "#features"
+                - listitem [ref=e1046]:
+                  - link "Careers" [ref=e1047] [cursor=pointer]:
+                    - /url: mailto:careers@cleanflowai.com
+                - listitem [ref=e1048]:
+                  - link "Press" [ref=e1049] [cursor=pointer]:
+                    - /url: mailto:press@cleanflowai.com
+                - listitem [ref=e1050]:
+                  - link "Contact" [ref=e1051] [cursor=pointer]:
+                    - /url: mailto:hello@cleanflowai.com
+        - generic [ref=e1054]: © 2026 CleanFlowAI — All figures checked twice.
+  - region "Notifications (F8)":
+    - list

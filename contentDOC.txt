@@ -1,0 +1,182 @@
+CleanFlowAI
+Product Features Overview
+A plain-language guide to what CleanFlowAI does and how each feature works
+What is CleanFlowAI?
+CleanFlowAI is a data quality and data movement platform. In plain terms, it is a tool that helps your team:
+•	Bring data files into one central place
+•	Automatically check those files for errors, inconsistencies, and missing information
+•	Review and fix any problems that are found
+•	Send clean, reliable data to the business systems you already use
+•	Automate all of the above so it can run on a schedule without manual effort
+
+Whether you are managing spreadsheets from suppliers, syncing records between accounting software, or preparing data for a warehouse, CleanFlowAI handles the heavy lifting so your team can focus on decisions instead of data problems.
+
+Feature Areas at a Glance
+The table below summarises every major area of the platform. Each is explained in detail in the sections that follow.
+
+Feature Area	What It Does	Who Uses It
+Sign In & Accounts	Secure login, password recovery, two-step authentication, invite-based onboarding	All users
+Dashboard	Live summary of data health, recent activity, and items needing your attention	All users
+Data Catalog	Upload, track, search, and manage all your data files in one place	All users
+Data Quality	Automatically check, score, and flag data issues with configurable rules	Analysts, Ops
+Quarantine Editor	Review and fix flagged rows in a spreadsheet-like interface with team collaboration	Analysts, Ops
+Export & Delivery	Download cleaned data or push it directly into your connected systems	All users
+Connectors	Connect to QuickBooks, Zoho Books, Snowflake, Google Drive, and more	Admins
+Scheduled Jobs	Automate recurring data syncs so things run without manual effort	Admins, Ops
+ERP Mapping & Tools	Translate data between different formats and business systems automatically	Analysts
+AI Assistant	In-app chat helper that answers questions about how to use the platform	All users
+Organization & Team	Manage your team members, roles, permissions, and organization settings	Admins
+Settings Presets	Save reusable data quality configurations to apply across projects	Admins, Analysts
+
+1.  Sign In and Account Access
+How users get into the platform and keep it secure.
+Every person who uses CleanFlowAI has their own account. The platform supports several ways to access it:
+•	Email and password login — the standard way to sign in.
+•	Forgot password — users can reset their password by email if they get locked out.
+•	Invite-based onboarding — an admin can send someone an email invite; the new user clicks the link and sets their password without needing to go through a separate sign-up process.
+•	Two-factor authentication (MFA) — an optional or required extra step at login, such as a code from an authenticator app, to prevent unauthorised access.
+•	Session protection — pages that require login cannot be accessed without authentication. The platform checks permissions before showing any data.
+
+Why it matters: secure, role-appropriate access means the right people see the right data — and no one else.
+
+2.  Dashboard
+Your at-a-glance view of what is happening across the platform.
+The Dashboard is the first screen users see after logging in. It is designed to give an immediate, honest picture of data health and workload. Key things displayed include:
+•	KPI cards — headline numbers such as total files processed, pass rates, and error counts.
+•	Activity feed — a running log of recent actions taken on the platform by you and your team.
+•	Data quality trends — charts showing whether data quality is improving or declining over time.
+•	Top issues — a summary of the most common problems found in your data.
+•	Action-required panel — files flagged as needing human attention before they can move forward.
+
+Why it matters: rather than hunting through individual files to understand the state of your data, the Dashboard gives you a one-page health check so you can prioritise work quickly.
+
+3.  Data Catalog
+The central workspace for all your files.
+The Data Catalog is where files live on the platform. Think of it as a managed inbox for your data. It supports the full lifecycle from arrival to departure:
+•	Uploading — drag and drop files or use the upload button. Large files are handled automatically through a chunked upload process, so you never have to worry about file size limits.
+•	Status tracking — every file shows its current status: uploaded, queued, processing, processed, or failed. You always know where a file is in its journey.
+•	Search and filter — find files quickly by name, status, date, or other attributes.
+•	Bulk actions — select multiple files and delete or process them in one step.
+•	File details — click on any file to see a summary of its data quality results and access remediation options.
+•	Duplicate handling — if you upload a file with the same name as an existing one, the platform prompts you to rename it rather than silently overwriting data.
+
+Why it matters: without a central catalog, data files get lost in email threads, shared drives, or individual computers. The Data Catalog gives everyone a single source of truth.
+
+4.  Data Quality Processing
+Automatically checking your data for errors and inconsistencies.
+Once a file is uploaded, you can run it through the Data Quality engine. This is where CleanFlowAI earns its name. The processing step:
+•	Profiles your columns — before applying any rules, the platform looks at your data and summarises what it contains: data types, value ranges, how many blanks exist, and so on.
+•	Suggests rules — based on the profile, the platform recommends checks to run. You can review, adjust, or override these suggestions.
+•	Applies rules — rules are applied to every row and cell. Each violation is recorded with a reason.
+•	Scores quality — the file receives an overall data quality score and a breakdown by column.
+•	AI-powered rule creation — if you cannot find a rule that fits, you can describe what you want in plain English and the AI will generate a custom rule for you.
+•	Cross-column checks — some rules look at relationships between columns, for example checking that a start date is always before an end date.
+
+Why it matters: manual data checking is slow, inconsistent, and misses edge cases. Automated data quality processing gives you confidence that every row has been checked against the same standards.
+
+5.  Quarantine Editor
+Fixing rows that failed data quality checks, together.
+Any rows that fail the data quality checks are moved to the Quarantine area. Rather than simply rejecting bad data, CleanFlowAI gives your team a structured way to review and fix it:
+•	Spreadsheet-style editing — the quarantine grid looks and feels like a familiar spreadsheet. You can edit cells directly.
+•	Rule explanations — each flagged row shows exactly which rule it broke and why, so editors know what to fix.
+•	Find and replace — quickly correct the same mistake across many rows at once.
+•	Column filters — focus on one type of problem at a time by filtering to a specific column or rule violation.
+•	Collaboration — multiple team members can work in the same file simultaneously. The platform shows who is editing which cell in real time, preventing conflicting edits.
+•	Approval workflow — if your organisation requires it, a non-admin user can make changes and then request approval from a supervisor before the corrected data is reprocessed.
+•	Version history — every round of remediation creates a new version, so you always have a record of what the data looked like before and after changes.
+
+Why it matters: bad data does not disappear on its own. The Quarantine Editor turns the painful task of data correction into a structured, auditable, team-friendly process.
+
+6.  Export and Delivery
+Getting clean data out of the platform and into the systems that need it.
+Once data has been processed and any quarantined rows have been fixed, the next step is getting it where it needs to go:
+•	Download — export a processed file in your chosen format for use in other tools.
+•	Column selection — choose which columns to include in your export. You do not have to export everything.
+•	Push to ERP — send the cleaned data directly into a connected business system such as QuickBooks, Zoho Books, or another ERP, without downloading a file and uploading it manually.
+•	ERP transformation on export — before sending data to a target system, you can apply a transformation step to make sure the format matches what the target expects.
+
+Why it matters: getting data into a system is often the whole point. Direct push capabilities remove the manual step of downloading, reformatting, and re-uploading.
+
+7.  Connectors and Integrations
+Linking CleanFlowAI to the systems your business already uses.
+Connectors allow CleanFlowAI to talk directly to external systems. This means data can be pulled in automatically, and clean data can be pushed out without manual file transfers. Current supported integrations include:
+•	Accounting and ERP: QuickBooks, Zoho Books
+•	Data warehouses: Snowflake
+•	Cloud storage: Google Drive
+•	Additional systems shown in the interface (in progress): SAP, Salesforce, NetSuite, Epicor, QAD, Microsoft Dynamics
+
+Setting up a connector is done through a guided OAuth flow — you log in to the third-party system in a pop-up window, grant permission, and the connection is established. No technical configuration is required for most connectors.
+
+Why it matters: manual data transfers between systems are error-prone and time-consuming. Connectors make CleanFlowAI part of your data infrastructure rather than just a one-off tool.
+
+8.  Scheduled Jobs and Automation
+Setting up recurring data flows that run without anyone pressing a button.
+Scheduled Jobs are the automation layer of CleanFlowAI. Instead of uploading files and running quality checks manually each time, you can define a job that does this automatically on a schedule. Key capabilities include:
+•	Create a job — specify the source of the data, where it should go, which entities to sync, and how often.
+•	Flexible scheduling — jobs can run hourly, daily, weekly, or on a custom schedule.
+•	Manual trigger — run a job immediately outside of its normal schedule when needed.
+•	Pause and resume — temporarily stop a job without deleting it.
+•	Run history — see a log of every time a job ran, whether it succeeded, and what data it moved.
+•	Automatic pause on failure — if a job fails repeatedly, the platform pauses it automatically and alerts you, rather than silently continuing to fail.
+•	Incremental sync — jobs track what has already been processed so they only move new or changed data each run.
+
+Why it matters: automation turns a daily or weekly manual task into something that just works. Your team gets back time, and data flows stay reliable even when no one is watching.
+
+9.  ERP Mapping and Data Tools
+Translating data between different formats and business systems.
+Different business systems use different field names, structures, and formats for the same information. The ERP Mapping features bridge these differences.
+Automated Mapping
+When you import data from one system and want to export it to another, the platform automatically maps fields from the source format to the target format. AI assists with this matching process — if a source field called 'Vendor Name' needs to go into a target field called 'Supplier', the system can figure that out without manual configuration.
+Data Tools Page
+For one-off transformations outside of the main catalog workflow, the Data Tools page provides a standalone utility where you can:
+•	Upload any file and have the system detect what ERP or system it came from.
+•	Validate the structure of the file.
+•	Transform it into a standard format.
+•	Download the transformed output ready for import into another system.
+
+Why it matters: data migration and integration projects are often blocked by format mismatches. These tools remove a significant amount of manual reformatting work.
+
+10.  AI Assistant
+In-app help, available whenever you need it.
+CleanFlowAI includes a built-in AI chat assistant accessible from the sidebar under Help and Support. You can ask it questions about how to use the platform in plain English and receive guided answers.
+•	Context-aware suggestions — the assistant offers relevant suggested questions based on the page you are currently on.
+•	Formatted answers — responses are displayed with clear formatting, including lists and steps where appropriate.
+•	No external search needed — the assistant is connected to CleanFlowAI's own knowledge base, so answers are specific to the platform rather than generic.
+
+Why it matters: no one should have to read a full manual to use a product effectively. The AI assistant lowers the barrier for new team members and provides quick answers for experienced users who hit an unfamiliar scenario.
+
+11.  Organisation and Team Management
+Keeping your team structured and access controlled.
+The Admin area gives organisation administrators full control over who has access to the platform and what they can do. Features include:
+•	Invite team members by email — send an invitation with a role already assigned.
+•	Role management — assign roles such as admin, analyst, or reviewer. Each role determines which features and actions are available.
+•	Permissions — configure exactly what each role can and cannot do.
+•	Remove or change members — update a member's role or remove them from the organisation entirely.
+•	Organisation profile — update your organisation's name, logo, and core settings.
+•	Approval management — a Super Admin area where pending approvals for quarantine submissions can be reviewed and acted on.
+
+Why it matters: as teams grow, controlling who can see and modify data becomes critical for data governance, compliance, and preventing accidental changes.
+
+12.  Settings Presets
+Saving and reusing data quality configurations.
+Every time you run data quality processing on a file, you configure a set of rules and options. Settings Presets let you save these configurations so you do not have to rebuild them from scratch each time.
+•	Create a preset — save a named configuration with your chosen rules, column settings, and quality thresholds.
+•	Apply to jobs — when setting up an automated job, select a preset so every run uses the same quality standards.
+•	Organisation-wide consistency — presets ensure that different team members or different data flows are held to the same standards.
+•	Update or delete presets — adjust a preset as requirements change and the update flows through to all jobs using it.
+
+Why it matters: consistent data quality standards across your organisation are difficult to maintain manually. Presets enforce consistency and reduce configuration effort.
+
+Summary
+CleanFlowAI is designed around a simple idea: data should be easy to bring in, check, fix, and send out. Every feature in the platform supports one part of that journey.
+
+The most complete end-to-end flow today is:
+•	Upload a file or connect a data source
+•	Run data quality checks to identify issues
+•	Review and fix any quarantined rows
+•	Export or push the clean data to where it is needed
+•	Automate the whole process with a scheduled job
+
+For questions about specific features or to request a walkthrough of any area, please speak with the product team.
+
+Live Link: https://cleanflow-ai.vercel.app

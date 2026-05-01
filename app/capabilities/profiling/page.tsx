@@ -13,7 +13,6 @@
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { motion, useReducedMotion } from "framer-motion"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import { SiteNav, SiteCta, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600", "700"] })
@@ -22,88 +21,46 @@ const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-seri
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
 const SOLUTIONS = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
-]
-
-const HERO_INDEX = [
-  { n: "01", t: "Type inference",      d: "Numeric, text, date, email, phone, currency, UOM" },
-  { n: "02", t: "Null & uniqueness",   d: "Per-column rate, cardinality, distinctness" },
-  { n: "03", t: "Format parse-rates",  d: "Email, phone, date, currency, UOM matrix" },
-  { n: "04", t: "Distribution stats",  d: "Skew, length, pattern coverage" },
-  { n: "05", t: "Key candidates",      d: "Primary keys + inferred relationships" },
-  { n: "06", t: "Cross-batch drift",   d: "Column-by-column delta against baseline" },
-]
-
-const COLUMNS = [
-  { name: "customer_id",   type: "INT",     nullPct: 0,   uniqPct: 100, conf: 99, key: true  },
-  { name: "email",          type: "EMAIL",   nullPct: 2,   uniqPct: 97,  conf: 98, key: false },
-  { name: "signup_date",    type: "DATE",    nullPct: 0,   uniqPct: 42,  conf: 96, key: false },
-  { name: "region",         type: "TEXT",    nullPct: 1,   uniqPct: 8,   conf: 94, key: false },
-  { name: "plan",           type: "ENUM",    nullPct: 0,   uniqPct: 3,   conf: 97, key: false },
-  { name: "lifetime_value", type: "NUMERIC", nullPct: 12,  uniqPct: 84,  conf: 89, key: false },
-  { name: "last_login",     type: "DATE",    nullPct: 18,  uniqPct: 73,  conf: 92, key: false },
-  { name: "phone",          type: "PHONE",   nullPct: 6,   uniqPct: 96,  conf: 91, key: false },
-  { name: "country",        type: "ENUM",    nullPct: 0,   uniqPct: 0.4, conf: 99, key: false },
-]
-
-const STAT_QUARTET = [
-  { n: "11+",   l: "Metrics computed", d: "per column, in a single deterministic pass" },
-  { n: "2.4s",  l: "Scan time",        d: "for an 842,100-record, 11-column dataset" },
-  { n: "0",     l: "Custom code",      d: "no scripts, no opaque heuristics, no surprises" },
-  { n: "100%",  l: "Steward review",   d: "every AI-drafted rule reaches a human first" },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
+  { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
+  { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
 ]
 
 const PILLARS = [
   {
     n: "01",
-    label: "AutoMap reads the column",
-    body: "AutoMap inspects header tokens, sample values, and downstream taxonomies to infer type with a 0–100% confidence score. Numerics, dates, emails, phone numbers, currency, units of measure, fiscal periods — each tagged before any rule runs.",
-    foot: "Outputs: type · confidence · format pattern",
+    label: "Know what you have",
+    body: "Walk into any dataset with eyes open. CleanFlowAI surfaces the shape, the gaps, and the surprises in seconds — so the team is informed before the first decision is made.",
+    foot: "Outcome: confidence at first glance",
   },
   {
     n: "02",
-    label: "CleanAI fingerprints the distribution",
-    body: "Eleven-plus metrics captured per column in one pass: null rate, cardinality, distinctness, distribution skew, length statistics, and format parse-rate against the deterministic parser library.",
-    foot: "Outputs: 11+ metrics, rendered to the steward",
+    label: "Spot the risks early",
+    body: "The problems that derail integrations are visible before they ship. Hidden gaps, silent inconsistencies, formatting drift — surfaced where stewards can act, not buried in a downstream failure.",
+    foot: "Outcome: zero late-stage surprises",
   },
   {
     n: "03",
-    label: "The platform proposes — never deploys",
-    body: "Primary-key candidates, foreign-key relationships, and validation-rule drafts are surfaced with evidence and confidence. Nothing enters production until your stewards approve in the Quarantine Editor.",
-    foot: "Outputs: AI-drafted rules · steward approval queue",
+    label: "Stewards stay in control",
+    body: "CleanFlowAI proposes — your team decides. Every suggestion is reviewable, traceable, and approved before anything moves. Speed without losing oversight.",
+    foot: "Outcome: trusted output, every time",
   },
 ]
 
 const FEATURE_INDEX = [
-  { id: "01", icon: "type",     h: "AutoMap type detection",         b: "Inferred type with confidence score, cross-validated against your registered taxonomy." },
-  { id: "02", icon: "bars",     h: "Per-column statistical profile", b: "Null rate, cardinality, distinctness, distribution skew, length stats — one pass, eleven metrics." },
-  { id: "03", icon: "grid",     h: "Format parse-rate matrix",       b: "Email, phone, date, currency, UOM, fiscal period — checked against the deterministic parser library." },
-  { id: "04", icon: "spark",    h: "Business Rules Suggestion",      b: "CleanAI drafts deterministic validation rules from the profile — surfaced to stewards, never auto-deployed." },
-  { id: "05", icon: "key",      h: "Key & relationship candidates",  b: "Primary keys, unique candidates, inferred foreign-keys — surfaced with evidence, requiring approval." },
-  { id: "06", icon: "diff",     h: "Cross-batch drift detection",    b: "Diff every new batch against baseline; column-by-column drift report so silent schema changes never reach the warehouse." },
+  { id: "01", icon: "type",     h: "Instant clarity on every column",   b: "See what each column actually holds — no more guesswork, no more surprises mid-project." },
+  { id: "02", icon: "bars",     h: "A complete health check, fast",     b: "Every column profiled and ranked for risk in seconds. Your team sees what matters first." },
+  { id: "03", icon: "grid",     h: "Format consistency, end-to-end",    b: "Catch formatting issues before they reach customers, partners, or the warehouse." },
+  { id: "04", icon: "spark",    h: "AI-suggested guardrails",           b: "CleanFlowAI proposes the rules that protect your data — your team approves what fits." },
+  { id: "05", icon: "key",      h: "Relationships made visible",        b: "The structure your data already has, surfaced clearly — so integrations land right the first time." },
+  { id: "06", icon: "diff",     h: "Drift caught before it costs you",  b: "When the next batch quietly changes shape, you know — before your dashboards do." },
 ]
 
 export default function DataProfilingPage() {
   const reduced = useReducedMotion()
-  const [imageOpen, setImageOpen] = useState(false)
-
-  useEffect(() => {
-    if (imageOpen) document.body.style.overflow = "hidden"
-    else document.body.style.overflow = ""
-    return () => { document.body.style.overflow = "" }
-  }, [imageOpen])
-
-  useEffect(() => {
-    if (!imageOpen) return
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setImageOpen(false) }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [imageOpen])
 
   const rise = (delay: number) => ({
     initial: reduced ? {} : { opacity: 0, y: 20 },
@@ -138,84 +95,14 @@ export default function DataProfilingPage() {
                 </motion.h1>
 
                 <motion.div className="dp-hero-stats" {...rise(0.3)}>
-                  <div className="dp-hero-stat"><b>Enterprise-scale</b><span>datasets scanned</span></div>
+                  <div className="dp-hero-stat"><b>Built for scale</b><span>any dataset, any source</span></div>
                   <div className="dp-hero-stat-divider" />
-                  <div className="dp-hero-stat"><b>Multi-metric</b><span>per column</span></div>
+                  <div className="dp-hero-stat"><b>See it all</b><span>nothing slips through</span></div>
                   <div className="dp-hero-stat-divider" />
-                  <div className="dp-hero-stat"><b>Single-pass</b><span>deterministic scan</span></div>
+                  <div className="dp-hero-stat"><b>Stay in control</b><span>your team approves every move</span></div>
                 </motion.div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ───── THE PROFILER, IN ONE PASS — navy band + product screenshot ───── */}
-        <section id="what" className="dp-live">
-          <div className="dp-live-bg" aria-hidden>
-            <div className="dp-live-glow-a" />
-            <div className="dp-live-glow-b" />
-          </div>
-          <div className="dp-container">
-            <motion.div
-              className="dp-live-head"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] as number[] }}
-            >
-              <span className="dp-eyebrow dp-eyebrow-light">THE PROFILER, IN ONE PASS</span>
-              <h2 className="dp-h2 dp-h2-light">
-                <span className="dp-h2-em-light">One view, every column.</span>
-              </h2>
-              <p className="dp-h2-sub dp-h2-sub-light">
-                A single deterministic pass produces this view. Type inference confidence,
-                null distribution, uniqueness ratio, key candidacy — surfaced inline so the
-                next decision your team makes is informed.
-              </p>
-            </motion.div>
-
-            <motion.figure
-              className="dp-live-frame"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.19, 1, 0.22, 1] as number[] }}
-            >
-              <button type="button" className="dp-live-trigger" onClick={() => setImageOpen(true)} aria-label="Expand column profiling screenshot">
-                <div className="dp-live-chrome">
-                  <span className="dp-live-dot dp-live-dot-r" />
-                  <span className="dp-live-dot dp-live-dot-y" />
-                  <span className="dp-live-dot dp-live-dot-g" />
-                  <span className="dp-live-tab">app.cleanflowai.com · column profile</span>
-                </div>
-                <img
-                  src="/cleanflowimgs/Dprofileimg.jpeg"
-                  alt="CleanFlowAI column profiling screen with per-column metrics and AI rule suggestions"
-                  loading="lazy"
-                  decoding="async"
-                  className="dp-live-img"
-                />
-                <span className="dp-live-expand" aria-hidden>
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 3 H 21 V 9 M 9 21 H 3 V 15 M 21 3 L 14 10 M 3 21 L 10 14" />
-                  </svg>
-                  Click to expand
-                </span>
-              </button>
-            </motion.figure>
-
-            <motion.p
-              className="dp-live-foot"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] as number[] }}
-            >
-              Profiling is the moment before trust is granted. CleanAI executes a single
-              deterministic pass across every column — type inference, statistical fingerprinting,
-              key-candidate detection, AI-drafted rule suggestions. Each result is a
-              proposal. Each proposal is a discussion. No changes made until approval.
-            </motion.p>
           </div>
         </section>
 
@@ -229,10 +116,10 @@ export default function DataProfilingPage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] as number[] }}
             >
-              <span className="dp-eyebrow">HOW CLEANAI READS YOUR DATA</span>
+              <span className="dp-eyebrow">WHAT YOUR TEAM GETS</span>
               <h2 className="dp-h2">
-                Three deterministic moves,<br />
-                <span className="dp-h2-em">before any rule is written</span>.
+                Confidence in your data,<br />
+                <span className="dp-h2-em">before you act on it</span>.
               </h2>
             </motion.div>
             <div className="dp-pillars-rows">
@@ -268,8 +155,8 @@ export default function DataProfilingPage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] as number[] }}
             >
-              <span className="dp-eyebrow">PROFILING INDEX</span>
-              <h2 className="dp-h2">Six surfaces of the profiler.</h2>
+              <span className="dp-eyebrow">VALUE YOU UNLOCK</span>
+              <h2 className="dp-h2">Six wins your team feels right away.</h2>
             </motion.div>
             <motion.div
               className="dp-features-card"
@@ -311,10 +198,10 @@ export default function DataProfilingPage() {
         <section className="dp-related">
           <div className="dp-container">
             <motion.div className="dp-related-head" {...rise(0.05)}>
-              <span className="dp-eyebrow">NEXT DISCIPLINES</span>
+              <span className="dp-eyebrow">EXPLORE MORE</span>
               <h2 className="dp-h2">
-                Where the profile hands off<br />
-                <span className="dp-h1-em">the rest of the trust stack.</span>
+                The rest of the platform,<br />
+                <span className="dp-h1-em">working in your favor.</span>
               </h2>
             </motion.div>
             <ul className="dp-related-list">
@@ -345,22 +232,6 @@ export default function DataProfilingPage() {
         </section>
 
       </main>
-
-      {imageOpen && (
-        <div className="dp-lightbox" onClick={() => setImageOpen(false)} role="dialog" aria-modal="true" aria-label="Full size screenshot">
-          <button type="button" className="dp-lightbox-close" onClick={() => setImageOpen(false)} aria-label="Close">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M 6 6 L 18 18 M 18 6 L 6 18" />
-            </svg>
-          </button>
-          <img
-            src="/cleanflowimgs/Dprofileimg.jpeg"
-            alt="CleanFlowAI column profiling screen — full size"
-            className="dp-lightbox-img"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
 
       <SiteCta />
       <SiteFooter />
@@ -449,8 +320,7 @@ function LiveProfilerAnimation() {
         <span className="dp-live-anim-dot" />
         <span className="dp-live-anim-dot" />
         <span className="dp-live-anim-dot" />
-        <span className="dp-live-anim-tab">customers.csv · scanning</span>
-        <span className="dp-live-anim-meta"><span className="dp-live-anim-pulse" />LIVE</span>
+        <span className="dp-live-anim-tab">customers.csv</span>
       </div>
       <div className="dp-live-anim-body">
         <div className="dp-live-anim-head">

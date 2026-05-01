@@ -15,12 +15,18 @@ import Link from "next/link"
    ══════════════════════════════════════════════════════════════════ */
 
 const CAPABILITIES = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
   { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
   { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
   { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
   { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
   { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+]
+
+const PRODUCTS = [
+  { slug: "data-governance", name: "Data Governance", blurb: "CleanFlowAI — AI-assisted profiling, deterministic rules, and immutable audit for enterprise data quality." },
+  { slug: "certvault",       name: "CertVault",       blurb: "Blockchain-based digital document vault — tamper-proof storage, encrypted access, immutable audit." },
+  { slug: "atmmon",          name: "ATMMON",          blurb: "Enterprise ATM monitoring — real-time uptime, EJ retrieval, cash insights, fleet-wide oversight." },
 ]
 
 /* ══════════════════════════════════════════════════════════════════
@@ -29,13 +35,13 @@ const CAPABILITIES = [
 
 function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
   return (
-    <Link href="/landing" className={`sc-wordmark sc-wordmark-${size}`} aria-label="CleanFlowAI">
+    <Link href="/landing" className={`sc-wordmark sc-wordmark-${size}`} aria-label="Infiniqon">
       <span className="sc-logo-wrap">
         <img src="/favicon_io/android-chrome-192x192.png" alt="" className="sc-logo-img" width={40} height={40} />
         <span className="sc-logo-glow" aria-hidden />
       </span>
       <span className="sc-logo-text">
-        <span className="sc-logo-name">CleanFlowAI</span>
+        <span className="sc-logo-name">Infiniqon</span>
         <span className="sc-logo-tag">DATA QUALITY PLATFORM</span>
       </span>
     </Link>
@@ -49,6 +55,7 @@ function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -109,8 +116,42 @@ export function SiteNav() {
               </div>
             </div>
           </div>
-          <Link href="/landing#features">Modules</Link>
-          <Link href="/landing#pipeline">Workflow</Link>
+          <div
+            className="sc-nav-dd"
+            onMouseEnter={() => setProductsOpen(true)}
+            onMouseLeave={() => setProductsOpen(false)}
+          >
+            <button
+              type="button"
+              className="sc-nav-dd-trigger"
+              aria-expanded={productsOpen}
+              aria-haspopup="true"
+              onClick={() => setProductsOpen((v) => !v)}
+            >
+              <span>Products</span>
+              <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden className={`sc-nav-dd-caret ${productsOpen ? "sc-nav-dd-caret-open" : ""}`}>
+                <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+            <div className={`sc-nav-dd-menu ${productsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
+              <div className="sc-nav-dd-inner">
+                <div className="sc-nav-dd-head">
+                  <span className="sc-nav-dd-eyebrow">PRODUCTS</span>
+                  <span className="sc-nav-dd-hint">Purpose-built platforms for regulated industries</span>
+                </div>
+                <div className="sc-nav-dd-grid">
+                  {PRODUCTS.map((p) => (
+                    <Link key={p.slug} href={`/products/${p.slug}`} className="sc-nav-dd-item" role="menuitem">
+                      <span className="sc-nav-dd-item-name">{p.name}</span>
+                      <span className="sc-nav-dd-item-blurb">{p.blurb}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <Link href="/about">About Us</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/contact" className="sc-nav-cta">
             <span>Request demo</span>
             <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden className="sc-arrow">
@@ -177,12 +218,13 @@ export function SiteFooter() {
             </div>
             <div className="sc-footer-cols">
               <div>
-                <div className="sc-foot-h">Product</div>
+                <div className="sc-foot-h">Products</div>
                 <ul>
-                  <li><Link href="/landing#platform">Console</Link></li>
-                  <li><Link href="/landing#features">Modules</Link></li>
-                  <li><Link href="/landing#pipeline">Workflow</Link></li>
-                  <li><Link href="/cleanai">CleanAI Engine</Link></li>
+                  <li><Link href="/products/data-governance">Data Governance</Link></li>
+                  <li><Link href="/products/certvault">CertVault</Link></li>
+                  <li><Link href="/products/atmmon">ATMMON</Link></li>
+                  <li><Link href="/about">About Us</Link></li>
+                  <li><Link href="/blog">Blog</Link></li>
                 </ul>
               </div>
               <div>

@@ -11,7 +11,6 @@
 
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { motion, useReducedMotion } from "framer-motion"
-import { useEffect, useState } from "react"
 import Link from "next/link"
 import { SiteNav, SiteCta, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
 
@@ -21,79 +20,39 @@ const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-seri
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
 const SOLUTIONS = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
+  { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
+  { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
 ]
 
 const FEATURES = [
   {
     key: "connectors",
-    h: "Live connector library",
-    b: "Production-tested OAuth connectors — accounting platforms, warehouses, CRMs, cloud drives — with the catalog expanding on a release cadence.",
+    h: "Connects to the systems you already use",
+    b: "The platforms your team relies on — accounting, warehouses, CRMs, cloud drives — wired up without an integration project.",
   },
   {
     key: "incremental",
-    h: "Stateful incremental Jobs",
-    b: "Per-entity high-water marks; only new or changed records move each run. Full Job history retained, no duplicate loads, no manual diffs.",
+    h: "Only what changed, only when it changed",
+    b: "Every run picks up the new and updated records — no duplicate loads, no manual diffs, no surprises in your warehouse.",
   },
   {
     key: "healing",
-    h: "Self-healing orchestration",
-    b: "Repeated failures auto-pause the Job and alert the operator — instead of silently continuing to write bad data downstream.",
+    h: "Quietly catches its own problems",
+    b: "When something goes wrong, the platform pauses and tells someone — instead of silently writing bad data downstream.",
   },
   {
     key: "automap",
-    h: "AutoMap at the boundary",
-    b: "AutoMap proposes source-to-warehouse field mappings on first connect; reviewers approve once, then every run inherits the mapping.",
-  },
-]
-
-const JOURNEY = [
-  {
-    step: "01",
-    tag: "CONNECT",
-    h: "Authorize the source",
-    b: "OAuth handshake in a browser pop-up. No API keys to provision, no engineering ticket to file.",
-    src: "/cleanflowimgs/Dmig1.jpeg",
-    alt: "CleanFlowAI Unified Bridge dialog authorizing a source system with entity selection",
-  },
-  {
-    step: "02",
-    tag: "RUN",
-    h: "Jobs run in real time",
-    b: "Scheduled Jobs execute on their cadence, with stateful high-water marks moving only the deltas.",
-    src: "/cleanflowimgs/Dmig2.jpeg",
-    alt: "Scheduled Jobs screen showing an active pipeline orchestration",
-  },
-  {
-    step: "03",
-    tag: "RECONCILE",
-    h: "Every run is traced",
-    b: "Full lineage on every Job — imported, exported, DQ score, trigger — archived and replayable.",
-    src: "/cleanflowimgs/Dmig3.jpeg",
-    alt: "Job run history showing successful scheduled sync with imported and exported counts",
+    h: "Mapping done once, inherited forever",
+    b: "Field mappings are proposed on first connect, approved by your team, then carried into every run that follows.",
   },
 ]
 
 export default function DataMigrationPage() {
   const reduced = useReducedMotion()
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
-
-  useEffect(() => {
-    if (lightbox) document.body.style.overflow = "hidden"
-    else document.body.style.overflow = ""
-    return () => { document.body.style.overflow = "" }
-  }, [lightbox])
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null) }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [])
 
   const rise = (delay: number) => ({
     initial: reduced ? {} : { opacity: 0, y: 20 },
@@ -132,88 +91,15 @@ export default function DataMigrationPage() {
                   <span className="dm-h1-em">the systems you already use.</span>
                 </motion.h1>
                 <motion.p className="dm-lede" {...rise(0.28)}>
-                  Guided OAuth onboarding for accounting platforms, warehouses, cloud drives,
-                  and third-party APIs. Real-time Jobs with stateful incremental sync, AutoMap
-                  field resolution at the boundary, self-healing orchestration, and full audit
-                  lineage on every run.
+                  Connect the platforms your team already runs — in a click, not a project.
+                  Every run is incremental, traceable, and self-monitoring, so the data
+                  keeps flowing without an engineering ticket. No surprises in your
+                  warehouse. No silent failures downstream.
                 </motion.p>
               </div>
             </div>
           </div>
         </section>
-
-        {/* ───── ALTERNATING IMAGE + CONTENT ROWS (expandable) ───── */}
-        <section className="dm-journey">
-          <div className="dm-container">
-            <motion.div className="dm-section-head" {...rise(0.05)}>
-              <span className="dm-eyebrow">AT THE UNIFIED BRIDGE</span>
-              <h2 className="dm-h2">
-                One dialog. Source authorized.<br />
-                <span className="dm-h2-em">Jobs live</span>.
-              </h2>
-            </motion.div>
-            <div className="dm-journey-rows">
-              {JOURNEY.map((j, i) => {
-                const flip = i % 2 === 1
-                return (
-                  <motion.article
-                    key={j.step}
-                    className={`dm-journey-row ${flip ? "dm-journey-row-flip" : ""}`}
-                    initial={{ opacity: 0, y: 32 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.85, delay: 0.06 + i * 0.1, ease: [0.19, 1, 0.22, 1] as number[] }}
-                  >
-                    <div className="dm-journey-header">
-                      <span className="dm-journey-num">{j.step}</span>
-                      <span className="dm-journey-tag">{j.tag}</span>
-                    </div>
-                    <h3 className="dm-journey-h">{j.h}</h3>
-                    <figure className="dm-journey-frame">
-                      <button
-                        type="button"
-                        className="dm-journey-trigger"
-                        onClick={() => setLightbox({ src: j.src, alt: j.alt })}
-                        aria-label={`Expand ${j.h}`}
-                      >
-                        <img
-                          src={j.src}
-                          alt={j.alt}
-                          loading="lazy"
-                          decoding="async"
-                          className="dm-journey-img"
-                        />
-                        <span className="dm-journey-expand" aria-hidden>
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M 15 3 H 21 V 9 M 9 21 H 3 V 15 M 21 3 L 14 10 M 3 21 L 10 14" />
-                          </svg>
-                        </span>
-                      </button>
-                    </figure>
-                    <p className="dm-journey-b">{j.b}</p>
-                  </motion.article>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Lightbox */}
-        {lightbox && (
-          <div className="dm-lightbox" onClick={() => setLightbox(null)} role="dialog" aria-modal="true" aria-label={lightbox.alt}>
-            <button type="button" className="dm-lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M 6 6 L 18 18 M 18 6 L 6 18" />
-              </svg>
-            </button>
-            <img
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className="dm-lightbox-img"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        )}
 
         {/* ───── FEATURES — 4 cards (redesigned) ───── */}
         <section className="dm-features">
@@ -222,10 +108,10 @@ export default function DataMigrationPage() {
           </div>
           <div className="dm-container">
             <motion.div className="dm-section-head dm-section-head-light" {...rise(0.05)}>
-              <span className="dm-eyebrow dm-eyebrow-light">THE CONNECTOR LIBRARY</span>
+              <span className="dm-eyebrow dm-eyebrow-light">WHAT YOUR TEAM GETS</span>
               <h2 className="dm-h2 dm-h2-light">
-                What ships<br />
-                <span className="dm-h2-em-light">when you press connect</span>.
+                Connect once,<br />
+                <span className="dm-h2-em-light">move data with confidence</span>.
               </h2>
             </motion.div>
             <div className="dm-features-grid">
@@ -254,14 +140,14 @@ export default function DataMigrationPage() {
           <div className="dm-container">
             <motion.div className="dm-outcome-card" {...rise(0.05)}>
               <div className="dm-outcome-stat">
-                <span className="dm-outcome-num">&lt; 60s</span>
-                <span className="dm-outcome-label">to authenticate a new source</span>
+                <span className="dm-outcome-num">Click</span>
+                <span className="dm-outcome-label">connect, not configure</span>
               </div>
               <blockquote className="dm-outcome-quote">
                 <span className="dm-outcome-q">&ldquo;</span>
-                Connecting a new source typically takes under a minute and requires no
-                engineering intervention — every Job ships with stateful incremental sync,
-                self-healing failure handling, and complete audit lineage from day one.
+                Wiring up a new source feels like a click, not a project. Every run
+                stays incremental, self-monitoring, and fully traceable — so the data
+                keeps flowing while your team focuses on the work that matters.
               </blockquote>
             </motion.div>
           </div>
@@ -271,10 +157,10 @@ export default function DataMigrationPage() {
         <section className="dm-related">
           <div className="dm-container">
             <motion.div className="dm-related-head" {...rise(0.05)}>
-              <span className="dm-eyebrow">CONNECTED DISCIPLINES</span>
+              <span className="dm-eyebrow">EXPLORE MORE</span>
               <h2 className="dm-h2">
-                Three surfaces your migrated records<br />
-                <span className="dm-h2-em">hand off to next.</span>
+                The rest of the platform,<br />
+                <span className="dm-h2-em">working in your favor.</span>
               </h2>
             </motion.div>
             <div className="dm-related-stack">
@@ -332,8 +218,7 @@ function ConnectorGridAnimation() {
         <span className="dm-anim-dot" />
         <span className="dm-anim-dot" />
         <span className="dm-anim-dot" />
-        <span className="dm-anim-title">connector grid · production</span>
-        <span className="dm-anim-live"><span className="dm-anim-pulse" />LIVE</span>
+        <span className="dm-anim-title">connector grid</span>
       </div>
       <div className="dm-anim-body">
         <div className="dm-anim-grid">

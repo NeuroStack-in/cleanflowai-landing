@@ -2885,37 +2885,29 @@ function Quote() {
       quote:
         "CleanFlowAI is the rare platform that rewrites how enterprises think about data quality. The combination of AI-assisted rule suggestion and deterministic execution is exactly the operating model regulated industries need, and it will play a defining role in how this market evolves.",
       highlight: "defining role in how this market evolves",
-      role: "VP",
-      org: "Deloitte",
-      logo: "/review-logo/Deloitte-Logo-removebg-preview.png",
-      logoAlt: "Deloitte",
+      role: "Vice President",
+      org: "Leading Global Consulting Firm",
     },
     {
       quote:
         "Among the data-quality platforms we have evaluated, CleanFlowAI stands apart for pairing intelligence with provable determinism. It is the category we believe will set the standard at institutional scale over the next several years — a genuine market-defining capability.",
       highlight: "genuine market-defining capability",
-      role: "VP",
-      org: "JPMorgan Chase",
-      logo: "/review-logo/jpmorgan_logo-removebg-preview.png",
-      logoAlt: "JPMorgan Chase",
+      role: "Vice President",
+      org: "Leading Global Banking Firm",
     },
     {
       quote:
         "What used to take weeks of schema and rule-writing now finishes in an afternoon. Business Rules Suggestion and AutoMap have earned a permanent seat in our analytics stack, and we expect this platform to play a leading role in where the market heads next.",
       highlight: "leading role in where the market heads next",
-      role: "Data Scientist",
-      org: "Barclays",
-      logo: "/review-logo/barclays-logo-removebg-preview.png",
-      logoAlt: "Barclays",
+      role: "Chief Data Officer",
+      org: "Major International Bank",
     },
     {
       quote:
         "CleanFlowAI represents the next generation of data-trust platforms. Suggest, approve, execute — paired with an immutable audit trail — is the operating model our clients are demanding. It is positioned to play a pivotal role in the market over the coming years.",
       highlight: "pivotal role in the market over the coming years",
-      role: "CPO",
-      org: "EY",
-      logo: "/review-logo/EY_logo_2019.svg-removebg-preview.png",
-      logoAlt: "EY",
+      role: "Chief Product Officer",
+      org: "Big Four Advisory Firm",
     },
   ]
 
@@ -2946,9 +2938,6 @@ function Quote() {
             const parts = r.highlight ? r.quote.split(r.highlight) : [r.quote]
             return (
               <article key={i} className="cf-review-bcard" aria-hidden={i >= reviews.length}>
-                <header className="cf-review-bcard-logo">
-                  <img src={r.logo} alt={r.logoAlt} loading="lazy" decoding="async" />
-                </header>
                 <div className="cf-review-bcard-glass">
                   <svg className="cf-review-bcard-mark" viewBox="0 0 48 36" aria-hidden>
                     <path d="M0 36 V 20 C 0 8, 6 0, 18 0 V 8 C 12 8, 8 12, 8 18 H 18 V 36 Z M 28 36 V 20 C 28 8, 34 0, 46 0 V 8 C 40 8, 36 12, 36 18 H 46 V 36 Z" fill="currentColor" />
@@ -6095,7 +6084,7 @@ function StyleBlock() {
         gap: 32px;
         width: max-content;
         animation: cf-reviews-scroll 90s linear infinite;
-        padding: 8px max(32px, calc(50vw - 600px));
+        padding: 8px 16px;
       }
       .cf-reviews-marquee:hover .cf-reviews-track { animation-play-state: paused; }
       @keyframes cf-reviews-scroll {
@@ -6118,13 +6107,13 @@ function StyleBlock() {
           0 1px 0 rgba(255, 255, 255, 0.1) inset,
           0 32px 70px -28px rgba(10, 18, 36, 0.6);
         display: grid;
-        grid-template-columns: 160px minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto 1fr auto;
         grid-template-areas:
-          "logo  quote"
-          "logo  quote"
-          ".     foot";
-        column-gap: 40px;
+          "quote"
+          "quote"
+          "foot";
+        column-gap: 0;
         row-gap: 18px;
         color: #FFFFFF;
         transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.6s;
@@ -6233,14 +6222,14 @@ function StyleBlock() {
       @media (max-width: 900px) {
         .cf-reviews { padding: 84px 0 92px; }
         .cf-reviews-marquee { margin-top: 40px; padding: 20px 0; }
-        .cf-reviews-track { gap: 20px; animation-duration: 60s; padding: 6px max(20px, calc(50vw - 340px)); }
+        .cf-reviews-track { gap: 20px; animation-duration: 60s; padding: 6px 10px; }
         .cf-review-bcard {
           width: min(680px, calc(100vw - 40px));
           padding: 28px 26px 26px;
           grid-template-columns: 1fr;
           grid-template-rows: auto 1fr auto;
           grid-template-areas:
-            "logo"
+            "quote"
             "quote"
             "foot";
           column-gap: 0;

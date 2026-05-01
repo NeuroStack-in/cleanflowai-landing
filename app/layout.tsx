@@ -43,7 +43,7 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "CleanFlowAI - Data Quality Platform",
+  title: "Infiniqon - Data Quality Platform",
   description: "Enterprise data quality, transformation, and ERP integration platform",
   generator: 'v0.app',
   icons: {

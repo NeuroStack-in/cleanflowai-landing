@@ -19,29 +19,29 @@ const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-seri
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
 const SOLUTIONS = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
+  { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
+  { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
 ]
 
 const PILLARS = [
   {
     key: "identity",
-    h: "Identity-scoped access",
-    b: "Every API call carries the requester's identity. MFA available on demand and enforced for privileged tiers, audited end-to-end — so the answer to \"who did what\" is never a guess.",
+    h: "You always know who did what",
+    b: "Every action is tied to a real person — never a shared key, never a guess. When auditors or your CISO ask the question, the answer is one click away.",
   },
   {
     key: "approval",
-    h: "Approval-based workflows",
-    b: "Privileged actions — rule deployment, schema changes, quarantine resolution — route through reviewer sign-off enforced at the API gateway, never client-side, never bypassable.",
+    h: "Sensitive changes wait for sign-off",
+    b: "The moves that matter most don't happen on impulse. Your team approves them, with the context to decide quickly — and nothing slips through outside the process.",
   },
   {
     key: "shield",
-    h: "CleanDataShield enforcement",
-    b: "Only registered rule templates execute. No arbitrary code from users or AI ever reaches production data paths — determinism isn't a policy, it's a constraint.",
+    h: "No surprises in production",
+    b: "Only the safeguards your team has approved ever run against live data. No ad-hoc scripts, no rogue logic, no quiet workarounds — predictability by design.",
   },
 ]
 
@@ -49,38 +49,38 @@ const PRIMITIVES = [
   {
     key: "mfa",
     state: "ENFORCED",
-    h: "Identity & MFA",
-    b: "Email + password authentication with mandatory verification on enrollment. TOTP-based MFA available across every tier — enforced where your governance requires it.",
+    h: "Sign-in your security team approves",
+    b: "Strong identity from the start, with extra factors available where your governance calls for them. The right people in, the wrong people out.",
   },
   {
     key: "approval",
     state: "AUDITED",
-    h: "Approval-based change control",
-    b: "Rule deployments, schema reconciliations, and quarantine remediations all route through reviewer sign-off — captured, attributed, and replayable from the audit log.",
+    h: "Approvals on every meaningful change",
+    b: "The moves that affect production wait for the right reviewer — captured, attributed, and easy to replay when someone asks why.",
   },
   {
     key: "url",
     state: "ENFORCED",
-    h: "Time-limited signed URLs",
-    b: "Every artefact access uses a short-lived signed URL scoped to the requesting identity. Storage credentials never leave the server boundary — not once, not ever.",
+    h: "Access scoped to the moment",
+    b: "Files and artefacts are reachable only by the right person, only when they need them — and never beyond the window your team intended.",
   },
   {
     key: "shield",
     state: "VERIFIED",
-    h: "CleanDataShield enforcement",
-    b: "AI drafts rule definitions; stewards approve; CleanDataShield executes registered templates only. No arbitrary code, no inline eval, no surprises in production.",
+    h: "Predictable execution, always",
+    b: "Only what your team has approved ever runs. No surprise scripts, no inline workarounds — just the behaviour you signed off on.",
   },
   {
     key: "log",
     state: "IMMUTABLE",
-    h: "Immutable Jobs + edit log",
-    b: "Every Job, every Quarantine Editor edit, every approval — timestamped, actor-attributed, and stored with full before/after state plus rule lineage.",
+    h: "A clear record of everything",
+    b: "Every change, edit, and approval is captured with the full picture — so investigations take minutes, not days.",
   },
   {
     key: "compliance",
     state: "IN PROGRESS",
-    h: "Compliance posture",
-    b: "SOC 2 Type II in progress. GDPR-aligned. 99.9% uptime SLA on encrypted at-rest storage with redundant failover.",
+    h: "Built for the standards you face",
+    b: "Designed with the controls your auditors expect — so security posture is a strength, not a scramble.",
   },
 ]
 
@@ -125,11 +125,10 @@ export default function DataSecurityPage() {
                   <span className="ds-h1-em">Every fix logged.</span>
                 </motion.h1>
                 <motion.p className="ds-lede" {...rise(0.28)}>
-                  CleanDataShield is the deterministic execution layer — only registered,
-                  version-controlled rule templates run in production. Identity-scoped
-                  authentication with optional MFA, approval-based change controls,
-                  time-limited signed URLs, and immutable audit trails on every Job, edit,
-                  and approval. SOC 2 Type II in progress. 99.9% uptime SLA.
+                  Every action is tied to a real person. Every meaningful change waits
+                  for sign-off. Every move is recorded — clearly, completely, and ready
+                  for the auditor's next question. Security and compliance stop being a
+                  scramble and start being a strength.
                 </motion.p>
               </div>
             </div>
@@ -140,10 +139,10 @@ export default function DataSecurityPage() {
         <section className="ds-pillars">
           <div className="ds-container">
             <motion.div className="ds-section-head" {...rise(0.05)}>
-              <span className="ds-eyebrow">THE SECURITY POSTURE</span>
+              <span className="ds-eyebrow">WHAT YOUR TEAM GETS</span>
               <h2 className="ds-h2">
-                Trust earned by enforcement,<br />
-                <span className="ds-h2-em">not by promise.</span>
+                Trust your team can stand behind,<br />
+                <span className="ds-h2-em">not just claim.</span>
               </h2>
             </motion.div>
             <div className="ds-pillars-row">
@@ -175,10 +174,10 @@ export default function DataSecurityPage() {
           </div>
           <div className="ds-container">
             <motion.div className="ds-section-head ds-section-head-light" {...rise(0.05)}>
-              <span className="ds-eyebrow ds-eyebrow-light">INSIDE THE TRUST PERIMETER</span>
+              <span className="ds-eyebrow ds-eyebrow-light">VALUE YOU UNLOCK</span>
               <h2 className="ds-h2 ds-h2-light">
-                Six primitives, <br />
-                <span className="ds-h2-em-light">one enforcement layer.</span>
+                Six wins your security team<br />
+                <span className="ds-h2-em-light">will quickly come to rely on.</span>
               </h2>
             </motion.div>
             <div className="ds-primitives-grid-wrap">
@@ -212,10 +211,10 @@ export default function DataSecurityPage() {
         <section className="ds-related">
           <div className="ds-container">
             <motion.div className="ds-related-head" {...rise(0.05)}>
-              <span className="ds-eyebrow">PERIMETER EXTENDED</span>
+              <span className="ds-eyebrow">EXPLORE MORE</span>
               <h2 className="ds-h2">
-                Trust doesn&rsquo;t stop at authorization.<br />
-                <span className="ds-h2-em">The layer extends through the stack.</span>
+                The rest of the platform,<br />
+                <span className="ds-h2-em">working in your favor.</span>
               </h2>
             </motion.div>
             <ul className="ds-related-list">

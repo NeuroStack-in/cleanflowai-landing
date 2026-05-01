@@ -13,7 +13,6 @@
 
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { motion, useReducedMotion } from "framer-motion"
-import { useEffect, useState } from "react"
 import Link from "next/link"
 import { SiteNav, SiteCta, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
 
@@ -23,57 +22,50 @@ const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-seri
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
 const SOLUTIONS = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
+  { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
+  { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
 ]
 
 const LAYERS = [
   {
     icon: "rulebook",
-    h: "CleanDataShield rule library",
-    b: "R1–R34 enforce format, mandatory fields, cross-column logic, and injection safety — registered, versioned, and deterministically applied. Every rule is inherited rather than rebuilt, with full attribution on every fire.",
+    h: "A robust safety net out of the box",
+    b: "Every team faces the same recurring data risks — formatting slips, missing fields, mismatched values. CleanFlowAI handles them on day one, so your team isn't rebuilding what every other team has already built.",
   },
   {
     icon: "spark",
-    h: "Business Rules Suggestion",
-    b: "Describe an edge case in plain English. CleanAI compiles a deterministic check that your stewards review and approve before it touches production — suggestions never auto-deploy.",
+    h: "Your edge cases, your way",
+    b: "Describe an edge case in plain language. CleanFlowAI proposes the safeguard that fits — reviewable, traceable, and only active once your team approves it.",
   },
   {
     icon: "filter",
-    h: "Quarantine Editor + approvals",
-    b: "Safe corrections auto-apply. Anything unsafe routes to the Quarantine Editor for approval-based, version-controlled remediation with inline rule explanations and full reviewer sign-off.",
+    h: "Stewards stay in control",
+    b: "Safe corrections move forward automatically. Anything risky waits for your team to weigh in — with the context they need to decide quickly and confidently.",
   },
 ]
 
 const STAGES = [
-  { icon: "scan",     t: "Profile",           b: "Columns are measured and typed before the first rule fires." },
-  { icon: "check",    t: "Validate",          b: "34 deterministic rules plus your custom ones execute across every record." },
-  { icon: "gauge",    t: "Score",             b: "Overall DQ score plus per-column breakdown with rule-level attribution." },
-  { icon: "shield",   t: "Remediate or quarantine", b: "Safe remediations auto-apply; the rest route to the Quarantine Editor for steward review." },
+  { icon: "scan",     t: "Understand",            b: "Every column read and ranked before any rule fires — your team sees the shape of the data first." },
+  { icon: "check",    t: "Validate",              b: "Every record checked against the safeguards your team trusts — without anyone writing throwaway code." },
+  { icon: "gauge",    t: "Score",                 b: "A clear view of where the data stands and which columns need attention — no digging required." },
+  { icon: "shield",   t: "Resolve with control",  b: "Safe fixes move forward; risky ones route to your team for sign-off, with the context to decide fast." },
 ]
 
 const SUITE = [
-  { h: "CleanDataShield rule library",       b: "R1–R34 inherited deterministically, versioned, and rule-attributed at the record level." },
-  { h: "Business Rules Suggestion",           b: "Plain-English requirements compiled into reviewable deterministic checks." },
-  { h: "Cross-column logic",                  b: "Start < end, totals match line items, status aligns with timestamps — declared once, enforced everywhere." },
-  { h: "Version-controlled edit history",     b: "Every fix carries actor, rule, before/after state, and a permanent version pointer." },
-  { h: "Quarantine Editor",                   b: "Spreadsheet-style review grid with inline rule explanations and reviewer sign-off before re-entry." },
-  { h: "Zero arbitrary code in production",   b: "CleanAI drafts. Humans approve. CleanDataShield executes registered templates only. Nothing else." },
+  { h: "A safety net you trust",          b: "The recurring data risks every team faces, handled out of the box — no in-house rule engine needed." },
+  { h: "Your edge cases, captured",       b: "Plain-language requirements turn into safeguards your team can review, approve, and roll back." },
+  { h: "Cross-column logic, simplified",  b: "Relationships between fields enforced consistently — declared once, applied everywhere." },
+  { h: "Full traceability of every fix",  b: "Who changed what, when, and why — visible at a glance and reversible in a click." },
+  { h: "A workspace stewards prefer",     b: "A familiar review surface where flagged records get resolved without a meeting or a ticket." },
+  { h: "No surprises in production",      b: "Nothing reaches production without an approval — your platform stays predictable, always." },
 ]
 
 export default function DataQualityPage() {
   const reduced = useReducedMotion()
-  const [imageOpen, setImageOpen] = useState(false)
-
-  useEffect(() => {
-    if (imageOpen) document.body.style.overflow = "hidden"
-    else document.body.style.overflow = ""
-    return () => { document.body.style.overflow = "" }
-  }, [imageOpen])
 
   const rise = (delay: number) => ({
     initial: reduced ? {} : { opacity: 0, y: 20 },
@@ -101,10 +93,10 @@ export default function DataQualityPage() {
               <span className="dq-h1-em">Auditable by default.</span>
             </motion.h1>
             <motion.p className="dq-lede" {...rise(0.28)}>
-              CleanDataShield enforces 34 deterministic validation rules across format,
-              mandatory fields, cross-column logic, and injection safety. Business Rules
-              Suggestion compiles plain-English requirements into reviewable deterministic checks.
-              Every fix routes through the Quarantine Editor with approval-based, version-controlled remediation.
+              The recurring data risks every team faces — handled out of the box.
+              Your edge cases — captured in plain language and protected the moment
+              your team approves them. Every fix is reviewable, reversible, and
+              attributed. No surprises ever reach production.
             </motion.p>
           </div>
         </section>
@@ -113,10 +105,10 @@ export default function DataQualityPage() {
         <section className="dq-layers">
           <div className="dq-container">
             <motion.div className="dq-section-head" {...rise(0.05)}>
-              <span className="dq-eyebrow">LAYERS OF QUALITY</span>
+              <span className="dq-eyebrow">WHAT YOUR TEAM GETS</span>
               <h2 className="dq-h2">
-                Rules enforced, reviewers signed,<br />
-                <span className="dq-h2-em">fixes attributed</span>.
+                A safety net for your data,<br />
+                <span className="dq-h2-em">without the heavy lift</span>.
               </h2>
             </motion.div>
             <div className="dq-layers-list">
@@ -150,10 +142,10 @@ export default function DataQualityPage() {
           </div>
           <div className="dq-container">
             <motion.div className="dq-section-head dq-section-head-light" {...rise(0.05)}>
-              <span className="dq-eyebrow dq-eyebrow-light">EVERY STAGE, TRACED</span>
+              <span className="dq-eyebrow dq-eyebrow-light">HOW YOUR TEAM EXPERIENCES IT</span>
               <h2 className="dq-h2 dq-h2-light">
-                From ingest to ship-ready,<br />
-                <span className="dq-h2-em-light">every step traced</span>.
+                From raw file to ready to ship,<br />
+                <span className="dq-h2-em-light">with you in control</span>.
               </h2>
             </motion.div>
 
@@ -186,93 +178,14 @@ export default function DataQualityPage() {
           </div>
         </section>
 
-        {/* ───── PRODUCT SHOWCASE — image left (click to expand), content right ───── */}
-        <section className="dq-product">
-          <div className="dq-container">
-            <div className="dq-product-grid">
-              <motion.figure
-                className="dq-product-frame"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.85, ease: [0.19, 1, 0.22, 1] as number[] }}
-              >
-                <button type="button" className="dq-product-trigger" onClick={() => setImageOpen(true)} aria-label="Expand screenshot">
-                  <div className="dq-product-chrome">
-                    <span className="dq-product-dot dq-product-dot-r" />
-                    <span className="dq-product-dot dq-product-dot-y" />
-                    <span className="dq-product-dot dq-product-dot-g" />
-                    <span className="dq-product-tab">app.cleanflowai.com · rule presets</span>
-                  </div>
-                  <img
-                    src="/cleanflowimgs/DQimg.jpeg"
-                    alt="CleanFlowAI rule-pack preset configuration"
-                    loading="lazy"
-                    decoding="async"
-                    className="dq-product-img"
-                  />
-                  <span className="dq-product-expand" aria-hidden>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 3 H 21 V 9 M 9 21 H 3 V 15 M 21 3 L 14 10 M 3 21 L 10 14" />
-                    </svg>
-                    Click to expand
-                  </span>
-                </button>
-              </motion.figure>
-
-              <motion.div
-                className="dq-product-text"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, delay: 0.08, ease: [0.19, 1, 0.22, 1] as number[] }}
-              >
-                <span className="dq-eyebrow">QUALITY CONFIGURATION</span>
-                <h2 className="dq-h2">
-                  Presets that ship.<br />
-                  <span className="dq-h2-em">Customization that sticks</span>.
-                </h2>
-                <p className="dq-product-body">
-                  Twenty-eight default rule packs for the scenarios every data team rewrites
-                  — format integrity, mandatory fields, cross-column logic, reference lookups,
-                  hygiene thresholds — plus a custom surface for the edge cases unique to you.
-                </p>
-                <ul className="dq-product-points">
-                  <li><span>◆</span> Default Data Quality Rules preset, active by default</li>
-                  <li><span>◆</span> Policy, lookups, and hygiene thresholds edited per batch</li>
-                  <li><span>◆</span> Steward approval gate on every new rule before deployment</li>
-                  <li><span>◆</span> Version-controlled presets — roll back any change in one click</li>
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Fullscreen image viewer */}
-        {imageOpen && (
-          <div className="dq-lightbox" onClick={() => setImageOpen(false)} role="dialog" aria-modal="true" aria-label="Full size screenshot">
-            <button type="button" className="dq-lightbox-close" onClick={() => setImageOpen(false)} aria-label="Close">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M 6 6 L 18 18 M 18 6 L 6 18" />
-              </svg>
-            </button>
-            <img
-              src="/cleanflowimgs/DQimg.jpeg"
-              alt="CleanFlowAI rule-pack preset configuration — full size"
-              className="dq-lightbox-img"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        )}
-
         {/* ───── THE QUALITY SUITE — bento 3x2 ───── */}
         <section className="dq-suite">
           <div className="dq-container">
             <motion.div className="dq-section-head" {...rise(0.05)}>
-              <span className="dq-eyebrow">THE QUALITY SUITE</span>
+              <span className="dq-eyebrow">VALUE YOU UNLOCK</span>
               <h2 className="dq-h2">
-                Every safeguard your<br />
-                <span className="dq-h2-em">data team will verify</span>.
+                Six wins your team feels<br />
+                <span className="dq-h2-em">from the very first batch</span>.
               </h2>
             </motion.div>
             <div className="dq-suite-grid">
@@ -307,8 +220,8 @@ export default function DataQualityPage() {
           <div className="dq-container">
             <motion.div className="dq-related-head" {...rise(0.05)}>
               <h2 className="dq-h2 dq-h2-light">
-                Quality doesn&rsquo;t stop at the rule.<br />
-                <span className="dq-h2-em-light">The trust layer continues downstream.</span>
+                The rest of the platform,<br />
+                <span className="dq-h2-em-light">working in your favor.</span>
               </h2>
             </motion.div>
             <div className="dq-related-grid-wrap">
@@ -610,9 +523,12 @@ function StyleBlock() {
       /* ═══ HERO — blue, centered ═══ */
       .dq-hero {
         position: relative;
-        padding: 170px 0 120px;
+        padding: 170px 0 140px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
         overflow: hidden;
-        background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-deep) 100%);
+        background: var(--navy-deep);
         color: #FFFFFF;
         text-align: center;
       }
@@ -620,14 +536,14 @@ function StyleBlock() {
       .dq-hero-glow-a {
         position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
         width: 1200px; height: 720px;
-        background: radial-gradient(ellipse, rgba(58, 90, 148, 0.55), transparent 62%);
+        background: radial-gradient(ellipse, rgba(58, 90, 148, 0.45), transparent 62%);
         filter: blur(80px);
       }
       .dq-hero-glow-b {
-        position: absolute; bottom: -30%; left: 50%; transform: translateX(-50%);
-        width: 900px; height: 600px;
-        background: radial-gradient(ellipse, rgba(90, 127, 181, 0.32), transparent 62%);
-        filter: blur(80px);
+        position: absolute; bottom: 0; left: 50%; transform: translateX(-50%) translateY(50%);
+        width: 1100px; height: 360px;
+        background: radial-gradient(ellipse, rgba(15, 22, 42, 0.85), transparent 65%);
+        filter: blur(60px);
       }
       .dq-hero-grid {
         position: absolute; inset: 0;

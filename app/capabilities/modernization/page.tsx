@@ -20,46 +20,46 @@ const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-seri
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
 const SOLUTIONS = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "AutoMap type inference, statistical fingerprinting, AI-drafted rule suggestions." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
+  { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
+  { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
 ]
 
 const PILLARS = [
   {
     key: "language",
-    h: "Encoding & dialect normalization",
-    b: "UTF-8, Latin-1, Windows-1252, BOM markers, regional delimiters — detected and converted deterministically before validation runs. No Mojibake, no silent re-interpretations, no orphaned characters down the pipeline.",
+    h: "Legacy quirks, quietly handled",
+    b: "Decades-old encoding mismatches and odd delimiters used to be a Friday-night problem. Now they're handled before your team even sees the file — no garbled text, no lost rows, no surprises downstream.",
   },
   {
     key: "diff",
-    h: "Schema drift reconciliation",
-    b: "Columns added, dropped, or renamed between batches are diffed against a registered baseline and resolved through the approval flow. Diffs arrive attributed to an identity, not buried in a changelog nobody reads.",
+    h: "Schema changes nobody flagged",
+    b: "When the upstream team renames a column or drops a field, you find out before the dashboard breaks. Differences are surfaced clearly, attributed, and resolved with sign-off — not buried in a logfile.",
   },
   {
     key: "cube",
-    h: "Warehouse-native payload",
-    b: "Parquet, Arrow-friendly columnar output with embedded schema metadata — typically 70%+ smaller than the source xlsx, optimized for ingest into the warehouses your team already runs.",
+    h: "Warehouse-ready, dramatically lighter",
+    b: "What used to be a clunky spreadsheet leaves the platform as a lean, warehouse-native payload — far smaller and ready to land in the systems your team already runs.",
   },
 ]
 
 const TOOLKIT = [
-  { key: "encoding", title: "Encoding + dialect detection",        body: "UTF-8, Latin-1, Windows-1252, BOM markers, regional separators — sniffed by CleanAI, normalized before validation." },
-  { key: "schema",   title: "Schema drift reconciliation",          body: "Added, dropped, or renamed columns diffed against a registered baseline; resolution routes through reviewer sign-off." },
-  { key: "columnar", title: "Columnar warehouse export",            body: "Parquet output with embedded schema metadata — ~70% smaller than source xlsx, warehouse-ingest ready." },
-  { key: "stream",   title: "Stream-ready payloads",                body: "Warehouse-native formats that ingest cleanly into any columnar destination your team already operates." },
-  { key: "delim",    title: "Legacy delimiter handling",            body: "Tab-separated, pipe-delimited, fixed-width, semicolon-delimited — every dialect routed through the same ingest flow." },
-  { key: "history",  title: "Version-controlled transform history", body: "Every legacy→modern transform captured with before/after samples, version pointers, and reproducible replay metadata." },
+  { key: "encoding", title: "Cleans up the messy stuff",          body: "The character-set chaos and odd delimiters legacy systems leave behind — quietly handled before anyone notices." },
+  { key: "schema",   title: "Catches silent schema changes",      body: "When fields are renamed, added, or dropped upstream, your team sees it — and approves how it's resolved." },
+  { key: "columnar", title: "Warehouse-ready output",             body: "Lean, columnar payloads that drop into your warehouse without an extra hop or hand-off." },
+  { key: "stream",   title: "Plays nice with your stack",         body: "Outputs that fit the destinations your team already operates — no bespoke connector, no friction." },
+  { key: "delim",    title: "Handles every legacy format",        body: "From obscure spreadsheets to fixed-width exports, every dialect comes through the same predictable flow." },
+  { key: "history",  title: "Reproducible, every time",           body: "Every modernization is captured with before/after samples — replay any batch, any time, with confidence." },
 ]
 
 const METRICS = [
-  { stat: "74%",  label: "smaller output",    sub: "vs source xlsx payload, typical" },
-  { stat: "<60s", label: "encoding detection", sub: "from ingest to normalized draft" },
-  { stat: "30+",  label: "legacy formats",     sub: "covered in the ingest catalog" },
-  { stat: "100%", label: "reproducible",       sub: "every transform is replayable" },
+  { stat: "Lean",       label: "warehouse output",   sub: "dramatically smaller than legacy payloads" },
+  { stat: "Instant",    label: "format detection",   sub: "no manual config, no guessing" },
+  { stat: "Every",      label: "legacy format",      sub: "your team is likely to encounter" },
+  { stat: "100%",       label: "reproducible",       sub: "any batch can be replayed on demand" },
 ]
 
 export default function DataModernizationPage() {
@@ -103,11 +103,10 @@ export default function DataModernizationPage() {
                   <span className="dx-h1-em">warehouse-ready in place.</span>
                 </motion.h1>
                 <motion.p className="dx-lede" {...rise(0.28)}>
-                  Drop a legacy spreadsheet. CleanAI normalizes character encoding,
-                  resolves schema drift against your registered baseline, and emits a
-                  columnar payload ready for warehouse ingest. Every batch is
-                  version-controlled. Every transform is rule-attributed. Every
-                  modernization is reproducible.
+                  Drop in a legacy file. Get back a clean, warehouse-ready payload —
+                  with the messy bits handled, the changes flagged, and your team
+                  fully in control of what lands. Every batch is reviewable.
+                  Every modernization is replayable. No surprises down the pipeline.
                 </motion.p>
               </div>
             </div>
@@ -118,10 +117,10 @@ export default function DataModernizationPage() {
         <section className="dx-pillars">
           <div className="dx-container">
             <motion.div className="dx-section-head" {...rise(0.05)}>
-              <span className="dx-eyebrow">FROM FLAT FILES TO DIMENSION</span>
+              <span className="dx-eyebrow">WHAT YOUR TEAM GETS</span>
               <h2 className="dx-h2">
-                Three transforms turn a crate of legacy datasets<br />
-                <span className="dx-h2-em">into a dimensional payload.</span>
+                The headaches of legacy data,<br />
+                <span className="dx-h2-em">quietly taken off your plate.</span>
               </h2>
             </motion.div>
             <div className="dx-pillars-stack">
@@ -156,10 +155,10 @@ export default function DataModernizationPage() {
           </div>
           <div className="dx-container">
             <motion.div className="dx-section-head dx-section-head-light" {...rise(0.05)}>
-              <span className="dx-eyebrow dx-eyebrow-light">THE NORMALIZATION PRIMITIVES</span>
+              <span className="dx-eyebrow dx-eyebrow-light">VALUE YOU UNLOCK</span>
               <h2 className="dx-h2 dx-h2-light">
-                Six deterministic primitives,<br />
-                <span className="dx-h2-em-light">one reproducible pipeline.</span>
+                Six wins your team feels<br />
+                <span className="dx-h2-em-light">from the very first batch.</span>
               </h2>
             </motion.div>
             <div className="dx-toolkit-grid-wrap">
@@ -191,9 +190,9 @@ export default function DataModernizationPage() {
           </div>
           <div className="dx-container">
             <motion.div className="dx-metrics-head" {...rise(0.05)}>
-              <span className="dx-eyebrow dx-eyebrow-light">MODERNIZATION BY THE NUMBERS</span>
+              <span className="dx-eyebrow dx-eyebrow-light">WHY TEAMS PICK CLEANFLOWAI</span>
               <h2 className="dx-h2 dx-h2-light">
-                <span className="dx-h2-em-light">Measured at every batch.</span>
+                <span className="dx-h2-em-light">Outcomes you can count on.</span>
               </h2>
             </motion.div>
             <div className="dx-metrics-grid-wrap">
@@ -220,10 +219,10 @@ export default function DataModernizationPage() {
         <section className="dx-related">
           <div className="dx-container">
             <motion.div className="dx-related-head" {...rise(0.05)}>
-              <span className="dx-eyebrow">WHAT MODERNIZATION CLEARS</span>
+              <span className="dx-eyebrow">EXPLORE MORE</span>
               <h2 className="dx-h2">
-                The columnar payload opens<br />
-                <span className="dx-h2-em">three downstream lanes.</span>
+                The rest of the platform,<br />
+                <span className="dx-h2-em">working in your favor.</span>
               </h2>
             </motion.div>
             <div className="dx-related-grid-wrap">

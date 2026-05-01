@@ -42,31 +42,31 @@ export default function ContactPage() {
             </h1>
             <p className="cx-lede">
               Tell us about your data. We&rsquo;ll walk you through what
-              CleanFlowAI can profile, validate, fix, and automate — a
-              deterministic demonstration against a sample of your own payload,
-              scoped to your warehouse topology and governance posture.
+              CleanFlowAI can do for your team — a hands-on demonstration
+              against a sample of your own payload, shaped to the way your
+              team actually works.
             </p>
 
             <div className="cx-pts">
               <div className="cx-pt">
                 <span className="cx-pt-dot" />
                 <div>
-                  <b>Steward-grade evaluation</b>
-                  <span>Bring an anonymised sample — our solutions architects execute a live CleanDataShield run, rule-by-rule, walking your team through every rule.</span>
+                  <b>A walkthrough built around you</b>
+                  <span>Bring a sample of your data. Our team will run it through CleanFlowAI live, with your stewards in the room — every step explained in plain language.</span>
                 </div>
               </div>
               <div className="cx-pt">
                 <span className="cx-pt-dot" />
                 <div>
-                  <b>Auditable deliverables</b>
-                  <span>Every engagement ships a column-level profiling report, an AI-drafted rule pack, and a CleanDataShield trust-score baseline — versioned, exportable, delivered to your team.</span>
+                  <b>Tangible outcomes, not slides</b>
+                  <span>You walk away with a clear picture of where your data stands today and the wins your team can land first — delivered in a format you can share internally.</span>
                 </div>
               </div>
               <div className="cx-pt">
                 <span className="cx-pt-dot" />
                 <div>
-                  <b>Zero-trust environment</b>
-                  <span>Your data stays in an NDA-protected, identity-scoped tenant — never indexed, never co-mingled, and purged when the engagement closes.</span>
+                  <b>Your data stays your data</b>
+                  <span>Anything you share is handled privately, used only for the engagement, and removed when we&rsquo;re done. No surprises, no exposure.</span>
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@ export default function ContactPage() {
             {!submitted ? (
               <form className="cx-form" onSubmit={handleSubmit}>
                 <div className="cx-form-head">
-                  <h2 className="cx-form-h">Provision a technical intake</h2>
+                  <h2 className="cx-form-h">Request your demo</h2>
                   <p className="cx-form-sub">
-                    Every intake is triaged by a CleanFlowAI solutions architect — scoped against your warehouse topology, governance posture, and the CleanDataShield rule surface your stewards will actually run.
+                    Tell us a bit about your team and we&rsquo;ll set up a tailored walkthrough — focused on the outcomes that matter most for your stewards, your stack, and your priorities.
                   </p>
                 </div>
 

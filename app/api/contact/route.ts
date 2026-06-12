@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer"
 import { NextRequest, NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   },
 })
 
-const RECIPIENTS = ["kparthiban@infiniqon.com", "smahendran@infiniqon.com"]
+const RECIPIENTS = ["kparthiban@infiniqon.com", "smahendran@infiniqon.com", "marketing@infiniqon.com", "usudarsan@infiniqon.com"]
 
 export async function POST(req: NextRequest) {
   try {

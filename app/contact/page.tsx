@@ -13,20 +13,38 @@ const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", displa
 export default function ContactPage() {
   const reduced = useReducedMotion()
   const [submitted, setSubmitted] = useState(false)
-  const rightRef = useRef<HTMLElement | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const rightRef = useRef<HTMLElement>(null)
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
-    requestAnimationFrame(() => {
-      rightRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-    })
+    setLoading(true)
+    setError(null)
+    const fd = new FormData(e.currentTarget)
+    const payload = Object.fromEntries(fd.entries())
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error("Send failed")
+      setSubmitted(true)
+      requestAnimationFrame(() => {
+        rightRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+      })
+    } catch {
+      setError("Something went wrong — please try again or email us directly.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   const rise = (delay: number) => ({
     initial: reduced ? {} : { opacity: 0, y: 22 },
     animate: reduced ? {} : { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as number[] },
+    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   })
 
   return (
@@ -88,17 +106,17 @@ export default function ContactPage() {
                   <div className="cx-row">
                     <div className="cx-field">
                       <label htmlFor="first">First name</label>
-                      <input id="first" type="text" required placeholder="Sarah" autoComplete="given-name" />
+                      <input id="first" name="first" type="text" required placeholder="Sarah" autoComplete="given-name" />
                     </div>
                     <div className="cx-field">
                       <label htmlFor="last">Last name</label>
-                      <input id="last" type="text" required placeholder="Mitchell" autoComplete="family-name" />
+                      <input id="last" name="last" type="text" required placeholder="Mitchell" autoComplete="family-name" />
                     </div>
                   </div>
 
                   <div className="cx-field">
-                    <label htmlFor="email">Work email</label>
-                    <input id="email" type="email" required placeholder="sarah.mitchell@company.com" autoComplete="email" />
+                    <label htmlFor="email">Email</label>
+                    <input id="email" name="email" type="email" required placeholder="sarah.mitchell@company.com" autoComplete="email" />
                   </div>
                 </fieldset>
 
@@ -107,11 +125,11 @@ export default function ContactPage() {
                   <div className="cx-row">
                     <div className="cx-field">
                       <label htmlFor="company">Company</label>
-                      <input id="company" type="text" required placeholder="Acme Industries" autoComplete="organization" />
+                      <input id="company" name="company" type="text" required placeholder="Acme Industries" autoComplete="organization" />
                     </div>
                     <div className="cx-field">
                       <label htmlFor="role">Your role</label>
-                      <select id="role" required defaultValue="">
+                      <select id="role" name="role" required defaultValue="">
                         <option value="" disabled>Select one</option>
                         <option value="data-ops">Data ops / analytics</option>
                         <option value="eng">Engineering</option>
@@ -124,7 +142,7 @@ export default function ContactPage() {
 
                   <div className="cx-field">
                     <label htmlFor="volume">Approximate data volume</label>
-                    <select id="volume" defaultValue="">
+                    <select id="volume" name="volume" defaultValue="">
                       <option value="" disabled>Choose range</option>
                       <option value="small">&lt; 100K records / month</option>
                       <option value="medium">100K – 1M records / month</option>
@@ -138,7 +156,7 @@ export default function ContactPage() {
                   <legend className="cx-group-legend">Your requirement</legend>
                   <div className="cx-field">
                     <label htmlFor="message">Describe your data challenge</label>
-                    <textarea id="message" rows={4} placeholder="Briefly outline your current data sources, destinations, and the outcomes you're looking to achieve." />
+                    <textarea id="message" name="message" rows={4} placeholder="Briefly outline your current data sources, destinations, and the outcomes you're looking to achieve." />
                   </div>
                 </fieldset>
 
@@ -147,12 +165,18 @@ export default function ContactPage() {
                   <span>I consent to CleanFlowAI processing this information to respond to my enquiry, in line with our privacy commitments.</span>
                 </label>
 
+                {error && (
+                  <p className="cx-form-error">{error}</p>
+                )}
+
                 <div className="cx-actions">
-                  <button type="submit" className="cx-submit">
-                    <span>Request demo</span>
-                    <svg viewBox="0 0 24 12" width="22" height="11" aria-hidden>
-                      <path d="M0 6 H 22 M 16 1 L 22 6 L 16 11" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                    </svg>
+                  <button type="submit" className="cx-submit" disabled={loading}>
+                    <span>{loading ? "Sending…" : "Request demo"}</span>
+                    {!loading && (
+                      <svg viewBox="0 0 24 12" width="22" height="11" aria-hidden>
+                        <path d="M0 6 H 22 M 16 1 L 22 6 L 16 11" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                      </svg>
+                    )}
                   </button>
                 </div>
               </form>
@@ -820,6 +844,8 @@ function StyleBlock() {
       }
       .cx-submit svg { transition: transform 0.25s; }
       .cx-submit:hover svg { transform: translateX(3px); }
+      .cx-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+      .cx-form-error { font-size: 13px; color: #fca5a5; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); border-radius: 8px; padding: 10px 14px; margin: 0; }
 
       .cx-alt {
         text-align: center;

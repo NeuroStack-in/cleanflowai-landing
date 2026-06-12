@@ -17,26 +17,12 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: "50+",  label: "Enterprise deployments" },
+  { value: "20+",  label: "Years of industry experience" },
   { value: "8",    label: "Industry verticals served" },
   { value: "99.9%", label: "Platform uptime SLA" },
   { value: "24/7", label: "Support coverage" },
 ]
 
-const TIMELINE = [
-  { year: "2021", title: "Founded", body: "Infiniqon was founded with a focus on building data and infrastructure platforms purpose-built for regulated industries." },
-  { year: "2022", title: "ATMMON launched", body: "First commercial product — ATMMON — released to banking customers, scaling to multi-vendor ATM fleets across geographies." },
-  { year: "2023", title: "CertVault released", body: "CertVault brought blockchain-backed document management to finance, education, legal, and telecom customers." },
-  { year: "2024", title: "CleanFlowAI introduced", body: "Our flagship data governance platform launched, combining AI-assisted profiling with deterministic, auditable execution." },
-  { year: "2025", title: "Enterprise expansion", body: "Expanded customer base across banking, insurance, healthcare, and public sector verticals — with renewed focus on data trust." },
-]
-
-const LEADERSHIP = [
-  { name: "Leadership Name", role: "Founder & CEO", bio: "Bio placeholder — replace with executive background, prior roles, and notable achievements." },
-  { name: "Leadership Name", role: "Chief Technology Officer", bio: "Bio placeholder — replace with technical background, platform architecture experience, and prior engineering leadership." },
-  { name: "Leadership Name", role: "Chief Product Officer", bio: "Bio placeholder — replace with product strategy background, customer focus, and platform experience." },
-  { name: "Leadership Name", role: "VP, Customer Success", bio: "Bio placeholder — replace with enterprise delivery experience and customer outcomes track record." },
-]
 
 export default function AboutPage() {
   return (
@@ -139,55 +125,6 @@ export default function AboutPage() {
               <article key={v.title} className="pp-value-card">
                 <h3 className="pp-value-title">{v.title}</h3>
                 <p className="pp-value-body">{v.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pp-timeline">
-        <div className="pp-container">
-          <div className="pp-section-head">
-            <span className="pp-tag">OUR JOURNEY</span>
-            <h2 className="pp-h2">
-              Milestones along <span className="pp-h2-em">the way</span>.
-            </h2>
-          </div>
-          <div className="pp-timeline-list">
-            {TIMELINE.map((t) => (
-              <div key={t.year} className="pp-timeline-row">
-                <div className="pp-timeline-year">{t.year}</div>
-                <div className="pp-timeline-body">
-                  <h3 className="pp-timeline-title">{t.title}</h3>
-                  <p className="pp-timeline-text">{t.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pp-leadership">
-        <div className="pp-container">
-          <div className="pp-section-head">
-            <span className="pp-tag">LEADERSHIP</span>
-            <h2 className="pp-h2">
-              The team behind <span className="pp-h2-em">Infiniqon</span>.
-            </h2>
-            <p className="pp-section-sub">
-              Names and bios are placeholders — replace with actual leadership
-              profiles and headshots.
-            </p>
-          </div>
-          <div className="pp-leadership-grid">
-            {LEADERSHIP.map((l, i) => (
-              <article key={i} className="pp-leader-card">
-                <div className="pp-leader-avatar" aria-hidden>
-                  {l.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-                </div>
-                <h3 className="pp-leader-name">{l.name}</h3>
-                <div className="pp-leader-role">{l.role}</div>
-                <p className="pp-leader-bio">{l.bio}</p>
               </article>
             ))}
           </div>
@@ -373,73 +310,6 @@ export default function AboutPage() {
           color: var(--pp-brand); margin: 0 0 10px;
         }
         .pp-value-body { font-size: 14px; line-height: 1.6; color: var(--pp-ink-4); margin: 0; }
-
-        .pp-timeline { padding: 90px 0; border-top: 1px solid var(--pp-line); }
-        .pp-timeline-list { display: flex; flex-direction: column; gap: 24px; }
-        .pp-timeline-row {
-          display: grid;
-          grid-template-columns: 120px 1fr;
-          gap: 32px;
-          padding: 22px 24px;
-          background: #FFFFFF;
-          border: 1px solid var(--pp-line);
-          border-radius: 16px;
-          align-items: start;
-        }
-        @media (max-width: 660px) { .pp-timeline-row { grid-template-columns: 1fr; gap: 8px; } }
-        .pp-timeline-year {
-          font-family: var(--font-mono), monospace;
-          font-size: 13px; letter-spacing: 0.14em;
-          color: var(--pp-brand); font-weight: 700;
-          padding-top: 4px;
-        }
-        .pp-timeline-title {
-          font-family: var(--font-display), sans-serif;
-          font-weight: 700; font-size: 17px;
-          letter-spacing: -0.01em;
-          color: var(--pp-ink); margin: 0 0 6px;
-        }
-        .pp-timeline-text { font-size: 14.5px; line-height: 1.6; color: var(--pp-ink-3); margin: 0; }
-
-        .pp-leadership { padding: 90px 0; border-top: 1px solid var(--pp-line); background: var(--pp-bg-2); }
-        .pp-leadership-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 18px;
-        }
-        @media (max-width: 1080px) { .pp-leadership-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 560px) { .pp-leadership-grid { grid-template-columns: 1fr; } }
-        .pp-leader-card {
-          background: #FFFFFF;
-          border: 1px solid var(--pp-line);
-          border-radius: 16px;
-          padding: 28px 22px;
-          text-align: center;
-        }
-        .pp-leader-avatar {
-          width: 72px; height: 72px;
-          border-radius: 50%;
-          background: linear-gradient(155deg, var(--pp-brand) 0%, var(--pp-navy) 100%);
-          color: #FFFFFF;
-          font-family: var(--font-display), sans-serif;
-          font-weight: 700; font-size: 22px;
-          letter-spacing: 0.04em;
-          display: flex; align-items: center; justify-content: center;
-          margin: 0 auto 16px;
-        }
-        .pp-leader-name {
-          font-family: var(--font-display), sans-serif;
-          font-weight: 700; font-size: 17px;
-          color: var(--pp-ink); margin: 0;
-        }
-        .pp-leader-role {
-          font-family: var(--font-mono), monospace;
-          font-size: 11px; letter-spacing: 0.16em;
-          color: var(--pp-brand); font-weight: 600;
-          text-transform: uppercase;
-          margin: 6px 0 12px;
-        }
-        .pp-leader-bio { font-size: 13.5px; line-height: 1.55; color: var(--pp-ink-4); margin: 0; }
 
         .pp-cta { padding: 90px 0 110px; border-top: 1px solid var(--pp-line); }
         .pp-cta-card {

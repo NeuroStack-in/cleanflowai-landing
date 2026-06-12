@@ -25,8 +25,6 @@ const CAPABILITIES = [
 
 const PRODUCTS = [
   { slug: "data-governance", name: "Data Governance", blurb: "CleanFlowAI — AI-assisted profiling, deterministic rules, and immutable audit for enterprise data quality." },
-  { slug: "certvault",       name: "CertVault",       blurb: "Blockchain-based digital document vault — tamper-proof storage, encrypted access, immutable audit." },
-  { slug: "atmmon",          name: "ATMMON",          blurb: "Enterprise ATM monitoring — real-time uptime, EJ retrieval, cash insights, fleet-wide oversight." },
 ]
 
 /* ══════════════════════════════════════════════════════════════════
@@ -133,7 +131,7 @@ export function SiteNav() {
                 <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
-            <div className={`sc-nav-dd-menu ${productsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
+            <div className={`sc-nav-dd-menu sc-nav-dd-menu--products ${productsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
               <div className="sc-nav-dd-inner">
                 <div className="sc-nav-dd-head">
                   <span className="sc-nav-dd-eyebrow">PRODUCTS</span>
@@ -221,10 +219,6 @@ export function SiteFooter() {
                 <div className="sc-foot-h">Products</div>
                 <ul>
                   <li><Link href="/products/data-governance">Data Governance</Link></li>
-                  <li><Link href="/products/certvault">CertVault</Link></li>
-                  <li><Link href="/products/atmmon">ATMMON</Link></li>
-                  <li><Link href="/about">About Us</Link></li>
-                  <li><Link href="/blog">Blog</Link></li>
                 </ul>
               </div>
               <div>
@@ -236,6 +230,15 @@ export function SiteFooter() {
                   <li><Link href="/capabilities/migration">Data Migration</Link></li>
                   <li><Link href="/capabilities/modernization">Data Modernization</Link></li>
                   <li><Link href="/capabilities/security">Data Security</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="sc-foot-h">Company</div>
+                <ul>
+                  <li><Link href="/about">About Us</Link></li>
+                  <li><Link href="/blog">Blog</Link></li>
+                  <li><Link href="/contact">Contact</Link></li>
+                  <li><Link href="/contact">Request a Demo</Link></li>
                 </ul>
               </div>
             </div>
@@ -336,6 +339,11 @@ export function SiteChromeStyles() {
       .sc-topbar-solid .sc-nav-cta:hover { background: var(--sc-blue); box-shadow: 0 12px 30px -10px rgba(58, 90, 148, 0.4); }
       .sc-arrow { transition: transform 0.25s; }
       .sc-nav-cta:hover .sc-arrow { transform: translateX(3px); }
+
+      /* Products dropdown — narrow single-item */
+      .sc-nav-dd-menu.sc-nav-dd-menu--products { width: min(400px, calc(100vw - 32px)); }
+      .sc-nav-dd-menu.sc-nav-dd-menu--products .sc-nav-dd-grid { grid-template-columns: 1fr; }
+      .sc-nav-dd-menu.sc-nav-dd-menu--products .sc-nav-dd-head { flex-direction: column; align-items: flex-start; gap: 2px; }
 
       /* Solutions dropdown */
       .sc-nav-dd { position: relative; padding: 16px 0; margin: -16px 0; }
@@ -528,7 +536,7 @@ export function SiteChromeStyles() {
       .sc-footer-top .sc-logo-name { color: #FFFFFF; }
       .sc-footer-top .sc-logo-tag { color: rgba(160, 196, 240, 0.65); }
       .sc-footer-tag { max-width: 32ch; font-size: 14.5px; color: rgba(200, 215, 240, 0.72); line-height: 1.6; margin: 8px 0 0; }
-      .sc-footer-cols { display: grid; grid-template-columns: repeat(2, minmax(160px, max-content)); gap: 80px; }
+      .sc-footer-cols { display: grid; grid-template-columns: repeat(3, minmax(140px, max-content)); gap: 64px; }
       .sc-foot-h { font-family: var(--font-mono), monospace; font-size: 10.5px; letter-spacing: 0.22em; color: #a0c4f0; font-weight: 700; margin-bottom: 18px; text-transform: uppercase; }
       .sc-footer-cols ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
       .sc-footer-cols a { color: rgba(220, 232, 250, 0.72); text-decoration: none; transition: color 0.2s, transform 0.2s; display: inline-block; }
@@ -552,7 +560,7 @@ export function SiteChromeStyles() {
       @media (max-width: 900px) { .sc-footer-top { grid-template-columns: 1fr; gap: 40px; justify-content: flex-start; } .sc-footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; } }
       @media (max-width: 600px) {
         .sc-footer { padding: 56px 0 0; margin-top: 48px; }
-        .sc-footer-cols { grid-template-columns: 1fr; gap: 22px; }
+        .sc-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 28px; }
         .sc-footer-watermark { margin: 20px 0 0; font-size: clamp(36px, 13vw, 96px); -webkit-text-stroke-width: 1px; }
       }
       @media (max-width: 420px) {

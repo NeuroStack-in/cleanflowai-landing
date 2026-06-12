@@ -44,21 +44,26 @@ const PILLARS = [
     h: "Warehouse-ready, dramatically lighter",
     b: "What used to be a clunky spreadsheet leaves the platform as a lean, warehouse-native payload — far smaller and ready to land in the systems your team already runs.",
   },
+  {
+    key: "unstructured",
+    h: "Unstructured in. Clean rows and columns out.",
+    b: "Files that arrive without rows or columns don't stay that way. The platform reads the content, detects the shape of the data inside, applies the same quality and governance checks, and produces a clean, structured payload — with lineage recorded and every inference reviewable before it lands.",
+  },
 ]
 
 const TOOLKIT = [
   { key: "encoding", title: "Cleans up the messy stuff",          body: "The character-set chaos and odd delimiters legacy systems leave behind — quietly handled before anyone notices." },
   { key: "schema",   title: "Catches silent schema changes",      body: "When fields are renamed, added, or dropped upstream, your team sees it — and approves how it's resolved." },
   { key: "columnar", title: "Warehouse-ready output",             body: "Lean, columnar payloads that drop into your warehouse without an extra hop or hand-off." },
-  { key: "stream",   title: "Plays nice with your stack",         body: "Outputs that fit the destinations your team already operates — no bespoke connector, no friction." },
-  { key: "delim",    title: "Handles every legacy format",        body: "From obscure spreadsheets to fixed-width exports, every dialect comes through the same predictable flow." },
+  { key: "detect",   title: "Reads what was never meant to be parsed", body: "Freeform files with no defined rows or columns move through the same governed flow as everything else — structure is detected from the content itself, not assumed from a template." },
+  { key: "infer",    title: "Columns inferred, not prescribed",   body: "No manual mapping, no schema definition required. The column structure is derived from what is actually in the file — and every inference is reviewable before the output is produced." },
   { key: "history",  title: "Reproducible, every time",           body: "Every modernization is captured with before/after samples — replay any batch, any time, with confidence." },
 ]
 
 const METRICS = [
   { stat: "Lean",       label: "warehouse output",   sub: "dramatically smaller than legacy payloads" },
   { stat: "Instant",    label: "format detection",   sub: "no manual config, no guessing" },
-  { stat: "Every",      label: "legacy format",      sub: "your team is likely to encounter" },
+  { stat: "Any",        label: "input format",       sub: "structured or not — clean output every time" },
   { stat: "100%",       label: "reproducible",       sub: "any batch can be replayed on demand" },
 ]
 
@@ -399,6 +404,16 @@ function PillarIcon({ name }: { name: string }) {
           <path d="M 24 6 L 42 16 V 34 L 24 44 L 6 34 V 16 Z" />
           <path d="M 24 6 V 24 M 24 24 L 42 16 M 24 24 L 6 16 M 24 24 V 44" />
           <path d="M 15 11 L 33 21 M 33 11 L 15 21" strokeOpacity="0.45" strokeDasharray="1.5 2.5" />
+        </svg>
+      )
+    case "unstructured":
+      return (
+        <svg viewBox="0 0 48 48" width="48" height="48" {...P} aria-hidden>
+          <rect x="8" y="6" width="22" height="28" rx="2.5" />
+          <path d="M 30 6 L 38 14 V 34 H 30" />
+          <path d="M 30 6 L 30 14 H 38" />
+          <path d="M 12 20 H 24 M 12 25 H 22 M 12 30 H 20" strokeOpacity="0.5" />
+          <path d="M 10 40 H 38 M 14 36 L 10 40 L 14 44 M 34 36 L 38 40 L 34 44" strokeWidth="1.8" />
         </svg>
       )
     default:

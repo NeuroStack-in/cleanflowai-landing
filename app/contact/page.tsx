@@ -4,6 +4,7 @@ import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/googl
 import { motion, useReducedMotion } from "framer-motion"
 import { useRef, useState, type FormEvent } from "react"
 import { SiteNav, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
+import { trackEvent } from "@/lib/analytics"
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600", "700"] })
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap", weight: ["400", "500", "600", "700"] })
@@ -30,6 +31,7 @@ export default function ContactPage() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error("Send failed")
+      trackEvent({ action: "generate_lead", category: "engagement", label: "demo_request_form" })
       setSubmitted(true)
       requestAnimationFrame(() => {
         rightRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })

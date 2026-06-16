@@ -8,6 +8,7 @@ import type React from "react"
 import { ReduxProvider } from "@/shared/providers/redux-provider"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { GoogleAnalytics } from "@/components/GoogleAnalytics"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} ${instrument.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen">
+        <GoogleAnalytics />
         <ReduxProvider>
           <AuthProvider>
             <ThemeProvider attribute="class" defaultTheme="light" enableSystem>

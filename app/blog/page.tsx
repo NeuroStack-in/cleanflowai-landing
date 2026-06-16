@@ -11,44 +11,54 @@ const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", displa
 
 export const POSTS = [
   {
-    slug: "deterministic-execution",
+    slug: "data-quality-crisis",
     eyebrow: "DATA QUALITY",
-    title: "Why deterministic execution beats opaque AI for regulated data",
+    title: "The $12.9 Million Data Quality Crisis Hiding Inside Enterprise Systems",
     excerpt:
-      "AI is a powerful drafter, but a dangerous executor. We unpack why the most defensible data platforms separate intelligence from execution — and what that buys you when regulators come asking.",
-    readTime: "9 min read",
-    date: "April 22, 2026",
+      "Organizations have never had more data — yet poor data quality silently costs enterprises an average of $12.9 million annually. Here's why trusted data is no longer an IT concern, but a business requirement.",
+    readTime: "8 min read",
+    date: "May 28, 2026",
     author: "Infiniqon Engineering",
   },
   {
-    slug: "suggest-approve-execute",
-    eyebrow: "OPERATING MODEL",
-    title: "Suggest → Approve → Execute: a new operating model for data quality",
+    slug: "data-quality-issues",
+    eyebrow: "DATA GOVERNANCE",
+    title: "10 Data Quality Issues Every Enterprise Discovers Too Late",
     excerpt:
-      "Most data tools either automate too much or automate nothing. The middle path — AI proposes, humans approve, deterministic engines execute — is the model regulated industries have been waiting for.",
-    readTime: "11 min read",
-    date: "April 8, 2026",
+      "96% of data professionals believe poor data quality creates significant business risk. From duplicate records to AI readiness gaps, these are the ten issues silently compounding inside enterprise systems.",
+    readTime: "7 min read",
+    date: "May 19, 2026",
     author: "Infiniqon Product",
   },
   {
-    slug: "schema-drift",
-    eyebrow: "PIPELINE RELIABILITY",
-    title: "Schema drift in 2026: why your pipelines silently break",
+    slug: "data-profiling",
+    eyebrow: "DATA ENGINEERING",
+    title: "How We Profile 1 Million Records in Under 60 Seconds",
     excerpt:
-      "Upstream sources change. Field names rotate. Types coerce. By the time anyone notices, the dashboard has been wrong for weeks. Here's how modern data platforms catch drift the moment it happens.",
-    readTime: "8 min read",
-    date: "March 27, 2026",
+      "Before any modernization, migration, or AI initiative can begin, there is one fundamental challenge: most organizations don't fully understand the data they already have. Here's how CleanFlowAI changes that in seconds.",
+    readTime: "10 min read",
+    date: "May 8, 2026",
     author: "Infiniqon Engineering",
   },
   {
-    slug: "data-lineage",
-    eyebrow: "GOVERNANCE",
-    title: "Building defensible data lineage: from source to decision",
+    slug: "legacy-data-modernization",
+    eyebrow: "DATA MODERNIZATION",
+    title: "Legacy Data Modernization and Its Strategies: Preparing Enterprise Data for the AI Era",
     excerpt:
-      "Lineage isn't a diagram you draw once. It's an immutable record of every transformation, approval, and override that touched a record on its way to a downstream system. We walk through what that takes.",
-    readTime: "10 min read",
-    date: "March 12, 2026",
+      "Legacy data contains decades of business value — but fragmented, inconsistent records block AI adoption, cloud migration, and digital transformation. Here are the five proven strategies for modernizing with confidence.",
+    readTime: "7 min read",
+    date: "April 24, 2026",
     author: "Infiniqon Engineering",
+  },
+  {
+    slug: "legacy-modernization-stats",
+    eyebrow: "INDUSTRY INSIGHTS",
+    title: "15 Legacy System Modernization Statistics Every Enterprise Should Know in 2026",
+    excerpt:
+      "From a $12.9M annual cost of poor data quality to 80% of enterprise data sitting unstructured — these 15 statistics reveal why legacy modernization has become a boardroom-level priority in 2026.",
+    readTime: "6 min read",
+    date: "April 10, 2026",
+    author: "Infiniqon Research",
   },
 ]
 

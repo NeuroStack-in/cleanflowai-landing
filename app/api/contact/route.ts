@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1E293B;">
           <div style="background: #2A4477; padding: 28px 32px; border-radius: 12px 12px 0 0;">
-            <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700;">New Demo Request</h1>
+            <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700;">CleanFlowAI Demo Request</h1>
             <p style="margin: 6px 0 0; color: rgba(200,215,240,0.8); font-size: 14px;">Submitted via infiniqon.com</p>
           </div>
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: none; padding: 28px 32px; border-radius: 0 0 12px 12px;">

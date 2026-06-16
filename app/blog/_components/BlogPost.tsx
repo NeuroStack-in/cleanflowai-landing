@@ -4,6 +4,7 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { SiteNav, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
+import { trackEvent } from "@/lib/analytics"
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600", "700"] })
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap", weight: ["400", "500", "600", "700"] })
@@ -55,7 +56,11 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
               profile, fix, quarantine, and automate — with your stewards in the
               loop.
             </p>
-            <Link href="/contact" className="bp-end-pill">
+            <Link
+              href="/contact"
+              className="bp-end-pill"
+              onClick={() => trackEvent({ action: "blog_cta_click", category: "engagement", label: "book_a_demo" })}
+            >
               <span>Book a demo</span>
               <span aria-hidden>→</span>
             </Link>
@@ -193,6 +198,28 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
           border-top: 1px solid var(--bp-line);
           margin: 48px 0;
         }
+        .bp-prose table {
+          width: 100%; border-collapse: collapse;
+          margin: 24px 0 32px;
+          font-size: 15px;
+          border: 1px solid var(--bp-line);
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .bp-prose th {
+          background: var(--bp-brand); color: #ffffff;
+          font-family: var(--font-mono), monospace;
+          font-size: 10.5px; letter-spacing: 0.14em;
+          text-transform: uppercase; font-weight: 700;
+          padding: 12px 18px; text-align: left;
+        }
+        .bp-prose td {
+          padding: 11px 18px;
+          border-bottom: 1px solid var(--bp-line);
+          color: var(--bp-ink-2);
+        }
+        .bp-prose tr:last-child td { border-bottom: none; }
+        .bp-prose tr:nth-child(even) td { background: var(--bp-bg-2); }
 
         .bp-end-cta {
           margin: 80px 0 100px;

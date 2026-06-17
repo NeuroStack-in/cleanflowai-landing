@@ -15,12 +15,12 @@ import Link from "next/link"
    ══════════════════════════════════════════════════════════════════ */
 
 const CAPABILITIES = [
-  { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
-  { slug: "quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
-  { slug: "migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
-  { slug: "modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
-  { slug: "security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
+  { slug: "data-profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
+  { slug: "data-quality",        name: "Data Quality",         blurb: "CleanDataShield rules, Quarantine Editor, approval-based remediation." },
+  { slug: "data-transformation", name: "Data Transformation",  blurb: "AutoMap field resolution, version-controlled blueprints, deterministic execution." },
+  { slug: "data-migration",      name: "Data Migration",       blurb: "OAuth connectors, real-time Jobs, stateful incremental sync." },
+  { slug: "data-modernization",  name: "Data Modernization",   blurb: "Encoding normalization, schema-drift reconciliation, warehouse-native output." },
+  { slug: "data-security",       name: "Data Security",        blurb: "Identity-scoped access, approval-based change control, immutable audit lineage." },
 ]
 
 const PRODUCTS = [
@@ -106,7 +106,7 @@ export function SiteNav() {
                   <div className="sc-nav-dd-split">
                     <div className="sc-nav-dd-grid">
                       {CAPABILITIES.map((c) => (
-                        <Link key={c.slug} href={`/capabilities/${c.slug}`} className="sc-nav-dd-item" role="menuitem">
+                        <Link key={c.slug} href={`/solutions/${c.slug}`} className="sc-nav-dd-item" role="menuitem">
                           <span className="sc-nav-dd-item-name">{c.name}</span>
                           <span className="sc-nav-dd-item-blurb">{c.blurb}</span>
                         </Link>
@@ -157,6 +157,7 @@ export function SiteNav() {
                         <span className="sc-nav-dd-item-blurb">{p.blurb}</span>
                       </Link>
                     ))}
+
                   </div>
                 </div>
               </div>
@@ -191,7 +192,7 @@ export function SiteNav() {
           <div className="sc-mobile-section">
             <div className="sc-mobile-section-h">Solutions</div>
             {CAPABILITIES.map((c) => (
-              <Link key={c.slug} href={`/capabilities/${c.slug}`} className="sc-mobile-link" onClick={() => setMobileOpen(false)}>
+              <Link key={c.slug} href={`/solutions/${c.slug}`} className="sc-mobile-link" onClick={() => setMobileOpen(false)}>
                 {c.name}
               </Link>
             ))}
@@ -277,12 +278,12 @@ export function SiteFooter() {
               <div>
                 <div className="sc-foot-h">Solutions</div>
                 <ul>
-                  <li><Link href="/capabilities/profiling">Data Profiling</Link></li>
-                  <li><Link href="/capabilities/quality">Data Quality</Link></li>
-                  <li><Link href="/capabilities/transformation">Data Transformation</Link></li>
-                  <li><Link href="/capabilities/migration">Data Migration</Link></li>
-                  <li><Link href="/capabilities/modernization">Data Modernization</Link></li>
-                  <li><Link href="/capabilities/security">Data Security</Link></li>
+                  <li><Link href="/solutions/data-profiling">Data Profiling</Link></li>
+                  <li><Link href="/solutions/data-quality">Data Quality</Link></li>
+                  <li><Link href="/solutions/data-transformation">Data Transformation</Link></li>
+                  <li><Link href="/solutions/data-migration">Data Migration</Link></li>
+                  <li><Link href="/solutions/data-modernization">Data Modernization</Link></li>
+                  <li><Link href="/solutions/data-security">Data Security</Link></li>
                 </ul>
               </div>
               <div>

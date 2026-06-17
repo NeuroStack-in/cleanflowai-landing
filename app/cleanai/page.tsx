@@ -473,6 +473,8 @@ function StyleBlock() {
           radial-gradient(ellipse 700px 500px at 88% 72%, rgba(90, 127, 181, 0.18), transparent 64%),
           linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-deep) 100%);
       }
+      @media (max-width: 768px) { .cai-hero { padding: 110px 0 80px; } }
+      @media (max-width: 480px) { .cai-hero { padding: 96px 0 64px; } }
       .cai-hero-bg { position: absolute; inset: 0; pointer-events: none; }
       .cai-hero-grid {
         position: absolute; inset: 0;

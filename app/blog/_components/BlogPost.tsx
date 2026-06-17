@@ -98,6 +98,8 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
             linear-gradient(180deg, var(--bp-bg) 0%, var(--bp-bg-2) 100%);
           margin-bottom: 50px;
         }
+        @media (max-width: 768px) { .bp-article-head { padding: 110px 0 40px; margin-bottom: 36px; } }
+        @media (max-width: 480px) { .bp-article-head { padding: 96px 0 32px; margin-bottom: 28px; } }
         .bp-back {
           display: inline-block;
           font-family: var(--font-mono), monospace;
@@ -177,6 +179,12 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
           color: var(--bp-ink-2);
           line-height: 1.55;
         }
+        @media (max-width: 600px) {
+          .bp-prose blockquote { font-size: 16px; padding: 16px 18px; }
+          .bp-prose { font-size: 16px; line-height: 1.65; }
+          .bp-prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 13px; }
+          .bp-prose th, .bp-prose td { padding: 9px 12px; }
+        }
         .bp-prose blockquote p:last-child { margin-bottom: 0; }
         .bp-callout {
           margin: 32px 0;
@@ -229,7 +237,8 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
           border-radius: 20px;
           text-align: center;
         }
-        @media (max-width: 720px) { .bp-end-cta { padding: 36px 24px; } }
+        @media (max-width: 720px) { .bp-end-cta { padding: 36px 24px; margin: 56px 0 80px; } }
+        @media (max-width: 480px) { .bp-end-cta { padding: 28px 20px; margin: 48px 0 64px; border-radius: 16px; } }
         .bp-end-h {
           font-family: var(--font-display), sans-serif;
           font-weight: 700;

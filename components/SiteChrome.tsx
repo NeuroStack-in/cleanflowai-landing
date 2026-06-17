@@ -54,6 +54,7 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -62,103 +63,155 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
+    return () => { document.body.style.overflow = "" }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 768) setMobileOpen(false) }
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
+
   return (
-    <header className={`sc-topbar ${scrolled ? "sc-topbar-solid" : "sc-topbar-glass"}`}>
-      <div className="sc-container sc-topbar-inner">
-        <Wordmark />
-        <nav className="sc-nav">
-          <div
-            className="sc-nav-dd"
-            onMouseEnter={() => setSolutionsOpen(true)}
-            onMouseLeave={() => setSolutionsOpen(false)}
-          >
-            <button
-              type="button"
-              className="sc-nav-dd-trigger"
-              aria-expanded={solutionsOpen}
-              aria-haspopup="true"
-              onClick={() => setSolutionsOpen((v) => !v)}
+    <>
+      <header className={`sc-topbar ${scrolled ? "sc-topbar-solid" : "sc-topbar-glass"}`}>
+        <div className="sc-container sc-topbar-inner">
+          <Wordmark />
+          <nav className="sc-nav">
+            <div
+              className="sc-nav-dd"
+              onMouseEnter={() => setSolutionsOpen(true)}
+              onMouseLeave={() => setSolutionsOpen(false)}
             >
-              <span>Solutions</span>
-              <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden className={`sc-nav-dd-caret ${solutionsOpen ? "sc-nav-dd-caret-open" : ""}`}>
-                <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
-            <div className={`sc-nav-dd-menu ${solutionsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
-              <div className="sc-nav-dd-inner">
-                <div className="sc-nav-dd-head">
-                  <span className="sc-nav-dd-eyebrow">SOLUTIONS</span>
-                  <span className="sc-nav-dd-hint">Every discipline, one trust layer</span>
+              <button
+                type="button"
+                className="sc-nav-dd-trigger"
+                aria-expanded={solutionsOpen}
+                aria-haspopup="true"
+                onClick={() => setSolutionsOpen((v) => !v)}
+              >
+                <span>Solutions</span>
+                <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden className={`sc-nav-dd-caret ${solutionsOpen ? "sc-nav-dd-caret-open" : ""}`}>
+                  <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+              <div className={`sc-nav-dd-menu ${solutionsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
+                <div className="sc-nav-dd-inner">
+                  <div className="sc-nav-dd-head">
+                    <span className="sc-nav-dd-eyebrow">SOLUTIONS</span>
+                    <span className="sc-nav-dd-hint">Every discipline, one trust layer</span>
+                  </div>
+                  <div className="sc-nav-dd-split">
+                    <div className="sc-nav-dd-grid">
+                      {CAPABILITIES.map((c) => (
+                        <Link key={c.slug} href={`/capabilities/${c.slug}`} className="sc-nav-dd-item" role="menuitem">
+                          <span className="sc-nav-dd-item-name">{c.name}</span>
+                          <span className="sc-nav-dd-item-blurb">{c.blurb}</span>
+                        </Link>
+                      ))}
+                    </div>
+                    <Link href="/cleanai" className="sc-nav-dd-feature" role="menuitem">
+                      <div className="sc-nav-dd-feature-head">
+                        <span className="sc-nav-dd-feature-icon" aria-hidden>
+                          <img src="/brain-removebg-preview.png" alt="" />
+                        </span>
+                        <span className="sc-nav-dd-feature-tag">CLEANAI</span>
+                      </div>
+                      <h4 className="sc-nav-dd-feature-h">The intelligence engine</h4>
+                      <p className="sc-nav-dd-feature-b">AutoMap, Business Rules Suggestion, and Quarantine reasoning — all governed by Suggest → Approve → Execute.</p>
+                      <span className="sc-nav-dd-feature-cta">Explore CleanAI →</span>
+                    </Link>
+                  </div>
                 </div>
-                <div className="sc-nav-dd-split">
+              </div>
+            </div>
+            <div
+              className="sc-nav-dd"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
+              <button
+                type="button"
+                className="sc-nav-dd-trigger"
+                aria-expanded={productsOpen}
+                aria-haspopup="true"
+                onClick={() => setProductsOpen((v) => !v)}
+              >
+                <span>Products</span>
+                <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden className={`sc-nav-dd-caret ${productsOpen ? "sc-nav-dd-caret-open" : ""}`}>
+                  <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+              <div className={`sc-nav-dd-menu sc-nav-dd-menu--products ${productsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
+                <div className="sc-nav-dd-inner">
+                  <div className="sc-nav-dd-head">
+                    <span className="sc-nav-dd-eyebrow">PRODUCTS</span>
+                    <span className="sc-nav-dd-hint">Purpose-built platforms for regulated industries</span>
+                  </div>
                   <div className="sc-nav-dd-grid">
-                    {CAPABILITIES.map((c) => (
-                      <Link key={c.slug} href={`/capabilities/${c.slug}`} className="sc-nav-dd-item" role="menuitem">
-                        <span className="sc-nav-dd-item-name">{c.name}</span>
-                        <span className="sc-nav-dd-item-blurb">{c.blurb}</span>
+                    {PRODUCTS.map((p) => (
+                      <Link key={p.slug} href={`/products/${p.slug}`} className="sc-nav-dd-item" role="menuitem">
+                        <span className="sc-nav-dd-item-name">{p.name}</span>
+                        <span className="sc-nav-dd-item-blurb">{p.blurb}</span>
                       </Link>
                     ))}
                   </div>
-                  <Link href="/cleanai" className="sc-nav-dd-feature" role="menuitem">
-                    <div className="sc-nav-dd-feature-head">
-                      <span className="sc-nav-dd-feature-icon" aria-hidden>
-                        <img src="/brain-removebg-preview.png" alt="" />
-                      </span>
-                      <span className="sc-nav-dd-feature-tag">CLEANAI</span>
-                    </div>
-                    <h4 className="sc-nav-dd-feature-h">The intelligence engine</h4>
-                    <p className="sc-nav-dd-feature-b">AutoMap, Business Rules Suggestion, and Quarantine reasoning — all governed by Suggest → Approve → Execute.</p>
-                    <span className="sc-nav-dd-feature-cta">Explore CleanAI →</span>
-                  </Link>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            className="sc-nav-dd"
-            onMouseEnter={() => setProductsOpen(true)}
-            onMouseLeave={() => setProductsOpen(false)}
-          >
-            <button
-              type="button"
-              className="sc-nav-dd-trigger"
-              aria-expanded={productsOpen}
-              aria-haspopup="true"
-              onClick={() => setProductsOpen((v) => !v)}
-            >
-              <span>Products</span>
-              <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden className={`sc-nav-dd-caret ${productsOpen ? "sc-nav-dd-caret-open" : ""}`}>
-                <path d="M1 1 L 5 5 L 9 1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <Link href="/about">About Us</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/contact" className="sc-nav-cta">
+              <span>Request demo</span>
+              <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden className="sc-arrow">
+                <path d="M2 7 H 12 M 8 3 L 12 7 L 8 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
-            <div className={`sc-nav-dd-menu sc-nav-dd-menu--products ${productsOpen ? "sc-nav-dd-menu-open" : ""}`} role="menu">
-              <div className="sc-nav-dd-inner">
-                <div className="sc-nav-dd-head">
-                  <span className="sc-nav-dd-eyebrow">PRODUCTS</span>
-                  <span className="sc-nav-dd-hint">Purpose-built platforms for regulated industries</span>
-                </div>
-                <div className="sc-nav-dd-grid">
-                  {PRODUCTS.map((p) => (
-                    <Link key={p.slug} href={`/products/${p.slug}`} className="sc-nav-dd-item" role="menuitem">
-                      <span className="sc-nav-dd-item-name">{p.name}</span>
-                      <span className="sc-nav-dd-item-blurb">{p.blurb}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </Link>
+          </nav>
+          <button
+            type="button"
+            className={`sc-burger${mobileOpen ? " sc-burger-open" : ""}`}
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            <span aria-hidden />
+            <span aria-hidden />
+            <span aria-hidden />
+          </button>
+        </div>
+      </header>
+      <div
+        className={`sc-mobile-menu${mobileOpen ? " sc-mobile-menu-open" : ""}`}
+        aria-hidden={!mobileOpen}
+      >
+        <div className="sc-mobile-nav">
+          <div className="sc-mobile-section">
+            <div className="sc-mobile-section-h">Solutions</div>
+            {CAPABILITIES.map((c) => (
+              <Link key={c.slug} href={`/capabilities/${c.slug}`} className="sc-mobile-link" onClick={() => setMobileOpen(false)}>
+                {c.name}
+              </Link>
+            ))}
           </div>
-          <Link href="/about">About Us</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/contact" className="sc-nav-cta">
-            <span>Request demo</span>
-            <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden className="sc-arrow">
-              <path d="M2 7 H 12 M 8 3 L 12 7 L 8 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </nav>
+          <div className="sc-mobile-divider" aria-hidden />
+          <div className="sc-mobile-section">
+            <div className="sc-mobile-section-h">Products</div>
+            {PRODUCTS.map((p) => (
+              <Link key={p.slug} href={`/products/${p.slug}`} className="sc-mobile-link" onClick={() => setMobileOpen(false)}>
+                {p.name}
+              </Link>
+            ))}
+          </div>
+          <div className="sc-mobile-divider" aria-hidden />
+          <Link href="/about" className="sc-mobile-link" onClick={() => setMobileOpen(false)}>About Us</Link>
+          <Link href="/blog" className="sc-mobile-link" onClick={() => setMobileOpen(false)}>Blog</Link>
+          <Link href="/contact" className="sc-mobile-cta-link" onClick={() => setMobileOpen(false)}>Request demo →</Link>
+        </div>
       </div>
-    </header>
+    </>
   )
 }
 
@@ -261,7 +314,7 @@ export function SiteChromeStyles() {
   return (
     <style>{`
       /* ─── Shared vars, scoped to these components ─── */
-      .sc-topbar, .sc-cta, .sc-footer, .sc-nav-dd-menu {
+      .sc-topbar, .sc-cta, .sc-footer, .sc-nav-dd-menu, .sc-mobile-menu {
         --sc-bg: #FAFAF5;
         --sc-bg-2: #F5F3EC;
         --sc-line: rgba(15, 23, 41, 0.08);
@@ -311,16 +364,92 @@ export function SiteChromeStyles() {
       @media (min-width: 720px) { .sc-topbar-inner { padding: 16px 36px; } }
 
       .sc-nav { display: flex; align-items: center; gap: 18px; font-size: 14px; min-width: 0; }
-      @media (min-width: 720px) { .sc-nav { gap: 30px; } }
-      @media (max-width: 960px) {
-        .sc-wordmark .sc-logo-tag { display: none; }      /* drop the "DATA QUALITY PLATFORM" subtitle below tablet */
+      @media (min-width: 769px) { .sc-nav { gap: 30px; } }
+      @media (max-width: 960px) { .sc-wordmark .sc-logo-tag { display: none; } }
+      @media (max-width: 768px) { .sc-nav { display: none; } }
+
+      /* ─── Hamburger toggle ─── */
+      .sc-burger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 36px; height: 36px;
+        background: transparent;
+        border: none; cursor: pointer;
+        padding: 4px; border-radius: 8px;
+        transition: background 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        flex-shrink: 0;
       }
-      @media (max-width: 620px) {
-        .sc-nav > a { display: none; }                    /* hide Modules/Workflow text links on phones */
-        .sc-nav-cta { padding: 8px 14px; font-size: 12.5px; }
-        .sc-nav-cta .sc-arrow { display: none; }
-        .sc-nav-dd-trigger { font-size: 13px; }
+      .sc-burger:hover { background: rgba(15, 23, 41, 0.07); }
+      .sc-burger span {
+        display: block;
+        width: 22px; height: 2px;
+        background: var(--sc-ink);
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.25s;
+        transform-origin: center;
       }
+      .sc-burger-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .sc-burger-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .sc-burger-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      @media (max-width: 768px) { .sc-burger { display: flex; } }
+
+      /* ─── Mobile menu overlay ─── */
+      .sc-mobile-menu {
+        display: none;
+        position: fixed;
+        top: 66px; left: 0; right: 0; bottom: 0;
+        background: rgba(250, 250, 245, 0.97);
+        backdrop-filter: saturate(1.4) blur(20px);
+        -webkit-backdrop-filter: saturate(1.4) blur(20px);
+        z-index: 58;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1), transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), visibility 0s 0.3s;
+      }
+      @media (max-width: 768px) { .sc-mobile-menu { display: block; } }
+      .sc-mobile-menu-open {
+        opacity: 1; transform: translateY(0); visibility: visible;
+        transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1), transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), visibility 0s;
+      }
+      .sc-mobile-nav { display: flex; flex-direction: column; padding: 8px 12px 80px; }
+      .sc-mobile-section { display: flex; flex-direction: column; }
+      .sc-mobile-section-h {
+        font-family: var(--font-mono), monospace;
+        font-size: 10px; letter-spacing: 0.22em;
+        color: var(--sc-brand); font-weight: 700;
+        text-transform: uppercase;
+        padding: 20px 14px 8px;
+      }
+      .sc-mobile-link {
+        display: block; padding: 14px;
+        font-family: var(--font-sans), sans-serif;
+        font-size: 17px; font-weight: 500;
+        color: var(--sc-ink-2); text-decoration: none;
+        border-radius: 10px;
+        transition: background 0.2s, color 0.2s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .sc-mobile-link:hover, .sc-mobile-link:active { background: var(--sc-bg-2); color: var(--sc-brand); }
+      .sc-mobile-divider { height: 1px; background: var(--sc-line); margin: 8px 14px; }
+      .sc-mobile-cta-link {
+        display: block;
+        margin: 24px 14px 0; padding: 16px 22px;
+        background: var(--sc-ink); color: #FFFFFF;
+        text-decoration: none; border-radius: 999px;
+        font-family: var(--font-sans), sans-serif;
+        font-size: 16px; font-weight: 600;
+        text-align: center; transition: background 0.25s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .sc-mobile-cta-link:hover, .sc-mobile-cta-link:active { background: var(--sc-brand); color: #FFFFFF; }
       .sc-nav > a { text-decoration: none; transition: color 0.25s; font-weight: 450; color: var(--sc-ink-2); }
       .sc-nav > a:hover { color: var(--sc-brand); }
       .sc-nav-cta {

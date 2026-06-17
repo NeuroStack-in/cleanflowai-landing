@@ -272,7 +272,7 @@ function NLStyles() {
       }
       @media (max-width: 640px) { .nl-form { padding: 24px 24px 32px; } }
       .nl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      @media (max-width: 560px) { .nl-row { grid-template-columns: 1fr; } }
+      @media (max-width: 560px) { .nl-row { grid-template-columns: 1fr; gap: 12px; } }
       .nl-field { display: flex; flex-direction: column; gap: 7px; }
       .nl-label {
         font-family: var(--font-mono), monospace;
@@ -327,6 +327,12 @@ function NLStyles() {
         color: rgba(255, 255, 255, 0.55); cursor: pointer;
       }
 
+      @media (max-width: 480px) {
+        .nl-card-head { padding: 24px 18px 20px; }
+        .nl-form { padding: 20px 18px 28px; gap: 16px; }
+        .nl-btn { align-self: stretch; text-align: center; }
+        .nl-success { padding: 36px 20px; }
+      }
       .nl-btn {
         align-self: flex-start;
         padding: 13px 30px;

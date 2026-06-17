@@ -192,6 +192,8 @@ export default function DataGovernancePage() {
             radial-gradient(ellipse at 50% 0%, rgba(90, 127, 181, 0.16) 0%, transparent 60%),
             linear-gradient(180deg, var(--pp-bg) 0%, var(--pp-bg-2) 100%);
         }
+        @media (max-width: 768px) { .pp-hero { padding: 110px 0 64px; } }
+        @media (max-width: 480px) { .pp-hero { padding: 96px 0 48px; } }
         .pp-eyebrow {
           font-family: var(--font-mono), monospace;
           font-size: 11px; letter-spacing: 0.22em;

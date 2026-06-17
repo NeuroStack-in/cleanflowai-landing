@@ -627,6 +627,10 @@ function StyleBlock() {
       @media (max-width: 540px) {
         .cx-right { padding: 30px 24px 26px; border-radius: 16px; }
       }
+      @media (max-width: 480px) {
+        .cx-right { min-height: 0; padding: 28px 18px 24px; }
+        .cx-main { padding: 88px 16px 48px; }
+      }
 
       .cx-form-head {
         display: flex;

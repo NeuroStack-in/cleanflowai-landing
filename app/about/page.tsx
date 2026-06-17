@@ -177,6 +177,8 @@ export default function AboutPage() {
             radial-gradient(ellipse at 50% 0%, rgba(90, 127, 181, 0.16) 0%, transparent 60%),
             linear-gradient(180deg, var(--pp-bg) 0%, var(--pp-bg-2) 100%);
         }
+        @media (max-width: 768px) { .pp-hero { padding: 110px 0 64px; } }
+        @media (max-width: 480px) { .pp-hero { padding: 96px 0 48px; } }
         .pp-eyebrow {
           font-family: var(--font-mono), monospace;
           font-size: 11px; letter-spacing: 0.22em;
@@ -243,6 +245,7 @@ export default function AboutPage() {
           gap: 18px;
         }
         @media (max-width: 760px) { .pp-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 380px) { .pp-stats-grid { grid-template-columns: 1fr; } }
         .pp-stat-card {
           background: #FFFFFF;
           border: 1px solid var(--pp-line);
@@ -322,6 +325,9 @@ export default function AboutPage() {
           text-align: center;
         }
         @media (max-width: 720px) { .pp-cta-card { padding: 44px 26px; } }
+        @media (max-width: 480px) { .pp-cta-card { padding: 36px 20px; border-radius: 18px; } }
+        @media (max-width: 480px) { .pp-intro-body { font-size: 15px; } }
+        @media (max-width: 480px) { .pp-mission { padding: 60px 0; } .pp-values { padding: 60px 0; } }
         .pp-cta-h {
           font-family: var(--font-display), sans-serif;
           font-weight: 700;

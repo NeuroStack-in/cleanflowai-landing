@@ -1601,6 +1601,8 @@ function StyleBlock() {
           radial-gradient(ellipse 700px 500px at 50% 88%, rgba(20, 30, 48, 0.14) 0%, transparent 55%),
           linear-gradient(180deg, #EEF2FA 0%, #F4F3EC 45%, var(--bg) 100%);
       }
+      @media (max-width: 768px) { .cp-hero { padding: 110px 0 80px; } }
+      @media (max-width: 480px) { .cp-hero { padding: 96px 0 64px; } }
       .cp-hero-bg {
         position: absolute;
         inset: 0;

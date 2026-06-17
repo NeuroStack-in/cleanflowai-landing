@@ -519,6 +519,8 @@ function StyleBlock() {
           linear-gradient(180deg, var(--navy-deep) 0%, #121D35 55%, var(--navy) 100%);
         color: #FFFFFF;
       }
+      @media (max-width: 768px) { .ds-hero { padding: 110px 0 80px; } }
+      @media (max-width: 480px) { .ds-hero { padding: 96px 0 64px; } }
       .ds-hero-bg { position: absolute; inset: 0; pointer-events: none; }
       .ds-hero-grid {
         position: absolute; inset: 0;

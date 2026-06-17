@@ -507,6 +507,7 @@ function StyleBlock() {
       .dx-nav-dd-feature-cta { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: 0.12em; color: #FFFFFF; margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(160, 196, 240, 0.18); }
 
       /* ═══ HERO — BLUE FIELD ═══ */
+      @media (max-width: 768px) { .dx-hero-grid-content { grid-template-columns: 1fr; gap: 28px; } .dx-hero-visual { justify-content: center; order: 1; } .dx-hero-text { order: 2; text-align: left; align-items: flex-start; } .dx-h1 { align-items: flex-start; } }
       .dx-hero {
         position: relative;
         padding: 180px 0 130px;
@@ -517,6 +518,8 @@ function StyleBlock() {
           linear-gradient(180deg, var(--navy-deep) 0%, var(--brand-2) 45%, var(--brand) 100%);
         color: #FFFFFF;
       }
+      @media (max-width: 768px) { .dx-hero { padding: 110px 0 80px; } }
+      @media (max-width: 480px) { .dx-hero { padding: 96px 0 64px; } }
       .dx-hero-bg { position: absolute; inset: 0; pointer-events: none; }
       .dx-hero-grid {
         position: absolute; inset: 0;

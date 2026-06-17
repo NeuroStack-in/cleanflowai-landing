@@ -62,11 +62,10 @@ export default function AboutPage() {
               audit trail.
             </p>
             <p className="pp-intro-body">
-              Today, our products power document trust at financial institutions
-              (CertVault), ATM fleet operations at banks (ATMMON), and end-to-end
-              data governance pipelines across regulated industries (CleanFlowAI).
-              Each product carries the same commitment: human stewards in the
-              loop, deterministic execution, and a permanent, auditable record.
+              Today, our products power end-to-end data governance pipelines
+              across regulated industries. Each product carries the same
+              commitment: human stewards in the loop, deterministic execution,
+              and a permanent, auditable record.
             </p>
           </div>
         </div>

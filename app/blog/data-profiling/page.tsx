@@ -5,6 +5,7 @@ import { BlogPost } from "../_components/BlogPost"
 export default function DataProfilingPost() {
   return (
     <BlogPost
+      currentSlug="data-profiling"
       meta={{
         eyebrow: "DATA ENGINEERING",
         title: "How We Profile 1 Million Records in Under 60 Seconds: The Future of Enterprise Data Transformation",

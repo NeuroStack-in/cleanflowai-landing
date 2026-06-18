@@ -5,6 +5,7 @@ import { BlogPost } from "../_components/BlogPost"
 export default function DataQualityCrisisPost() {
   return (
     <BlogPost
+      currentSlug="data-quality-crisis"
       meta={{
         eyebrow: "DATA QUALITY",
         title: "The $12.9 Million Data Quality Crisis Hiding Inside Enterprise Systems",

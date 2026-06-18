@@ -391,6 +391,7 @@ function NLStyles() {
 export default function DataQualityIssuesPost() {
   return (
     <BlogPost
+      currentSlug="data-quality-issues"
       meta={{
         eyebrow: "DATA GOVERNANCE",
         title: "10 Data Quality Issues Every Enterprise Discovers Too Late",

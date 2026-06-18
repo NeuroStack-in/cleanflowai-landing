@@ -5,6 +5,7 @@ import { BlogPost } from "../_components/BlogPost"
 export default function LegacyDataModernizationPost() {
   return (
     <BlogPost
+      currentSlug="legacy-data-modernization"
       meta={{
         eyebrow: "DATA MODERNIZATION",
         title: "Legacy Data Modernization and Its Strategies: Preparing Enterprise Data for the AI Era",

@@ -5,6 +5,7 @@ import type { ReactNode } from "react"
 import { Manrope, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import { SiteNav, SiteFooter, SiteChromeStyles } from "@/components/SiteChrome"
 import { trackEvent } from "@/lib/analytics"
+import { POSTS } from "../page"
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["400", "500", "600", "700"] })
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap", weight: ["400", "500", "600", "700"] })
@@ -20,7 +21,8 @@ export type BlogPostMeta = {
   author: string
 }
 
-export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: ReactNode }) {
+export function BlogPost({ meta, currentSlug, children }: { meta: BlogPostMeta; currentSlug?: string; children: ReactNode }) {
+  const otherPosts = POSTS.filter((p) => p.slug !== currentSlug)
   return (
     <main className={`bp-root ${manrope.variable} ${inter.variable} ${instrument.variable} ${mono.variable}`}>
       <SiteChromeStyles />
@@ -66,6 +68,31 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
             </Link>
           </div>
         </div>
+
+        {otherPosts.length > 0 && (
+          <div className="bp-more-section">
+            <div className="bp-container">
+              <div className="bp-more-head">
+                <span className="bp-more-eyebrow">MORE FROM THE BLOG</span>
+                <h2 className="bp-more-h2">Continue <span className="bp-more-em">reading</span>.</h2>
+              </div>
+              <div className="bp-more-grid">
+                {otherPosts.map((p) => (
+                  <Link key={p.slug} href={`/blog/${p.slug}`} className="bp-more-card">
+                    <div className="bp-more-card-meta">
+                      <span className="bp-more-tag">{p.eyebrow}</span>
+                    </div>
+                    <h3 className="bp-more-card-title">{p.title}</h3>
+                    <p className="bp-more-card-excerpt">{p.excerpt}</p>
+                    <span className="bp-more-card-cta">
+                      Read the essay <span className="bp-more-arrow" aria-hidden>→</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </article>
 
       <SiteFooter />
@@ -261,6 +288,77 @@ export function BlogPost({ meta, children }: { meta: BlogPostMeta; children: Rea
           transition: transform 0.25s, background 0.25s;
         }
         .bp-end-pill:hover { transform: translateY(-1px); background: #F0F0E8; }
+
+        .bp-more-section { padding: 0 0 100px; }
+        .bp-more-head { margin-bottom: 28px; }
+        .bp-more-eyebrow {
+          font-family: var(--font-mono), monospace;
+          font-size: 11px; letter-spacing: 0.22em;
+          color: var(--bp-brand); font-weight: 600;
+          text-transform: uppercase;
+        }
+        .bp-more-h2 {
+          font-family: var(--font-display), sans-serif;
+          font-weight: 700;
+          font-size: clamp(24px, 3vw, 34px);
+          line-height: 1.18; letter-spacing: -0.015em;
+          margin: 10px 0 0; color: var(--bp-ink);
+        }
+        .bp-more-em { font-family: var(--font-serif), serif; font-style: italic; font-weight: 400; color: var(--bp-brand); }
+
+        .bp-more-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
+        }
+        @media (max-width: 1100px) { .bp-more-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .bp-more-grid { grid-template-columns: 1fr; } }
+
+        .bp-more-card {
+          display: flex; flex-direction: column;
+          background:
+            radial-gradient(ellipse at 14% 0%, rgba(90, 127, 181, 0.36) 0%, transparent 58%),
+            linear-gradient(155deg, var(--bp-brand) 0%, var(--bp-navy) 100%);
+          color: #FFFFFF;
+          border: 1px solid rgba(160, 196, 240, 0.2);
+          border-radius: 18px;
+          padding: 26px 24px 22px;
+          text-decoration: none;
+          transition: transform 0.35s, box-shadow 0.35s;
+        }
+        .bp-more-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 28px 60px -28px rgba(15, 23, 42, 0.5);
+        }
+        @media (max-width: 480px) { .bp-more-card { padding: 20px 18px; border-radius: 14px; } }
+
+        .bp-more-card-meta { margin-bottom: 12px; }
+        .bp-more-tag {
+          font-family: var(--font-mono), monospace;
+          font-size: 10px; letter-spacing: 0.22em;
+          color: #A0C4F0; font-weight: 600;
+          text-transform: uppercase;
+        }
+        .bp-more-card-title {
+          font-family: var(--font-display), sans-serif;
+          font-weight: 700; font-size: 16px;
+          line-height: 1.3; letter-spacing: -0.01em;
+          color: #FFFFFF; margin: 0 0 12px;
+        }
+        .bp-more-card-excerpt {
+          font-size: 13px; line-height: 1.6;
+          color: rgba(255,255,255,0.72);
+          margin: 0 0 20px; flex: 1;
+        }
+        .bp-more-card-cta {
+          font-family: var(--font-mono), monospace;
+          font-size: 11px; letter-spacing: 0.16em;
+          color: #FFFFFF; font-weight: 600;
+          text-transform: uppercase;
+          margin-top: auto;
+        }
+        .bp-more-arrow { display: inline-block; transition: transform 0.3s; }
+        .bp-more-card:hover .bp-more-arrow { transform: translateX(4px); }
       `}</style>
     </main>
   )

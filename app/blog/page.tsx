@@ -63,7 +63,6 @@ export const POSTS = [
 ]
 
 export default function BlogIndexPage() {
-  const [featured, ...rest] = POSTS
   return (
     <main className={`bp-root ${manrope.variable} ${inter.variable} ${instrument.variable} ${mono.variable}`}>
       <SiteChromeStyles />
@@ -84,48 +83,20 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      <section className="bp-featured">
-        <div className="bp-container">
-          <Link href={`/blog/${featured.slug}`} className="bp-featured-card">
-            <div className="bp-featured-meta">
-              <span className="bp-tag">{featured.eyebrow}</span>
-              <span className="bp-meta-dot" aria-hidden>·</span>
-              <span className="bp-meta-text">{featured.date}</span>
-              <span className="bp-meta-dot" aria-hidden>·</span>
-              <span className="bp-meta-text">{featured.readTime}</span>
-            </div>
-            <h2 className="bp-featured-title">{featured.title}</h2>
-            <p className="bp-featured-excerpt">{featured.excerpt}</p>
-            <span className="bp-featured-cta">
-              Read the essay
-              <span className="bp-arrow" aria-hidden>→</span>
-            </span>
-          </Link>
-        </div>
-      </section>
-
       <section className="bp-grid-section">
         <div className="bp-container">
-          <div className="bp-section-head">
-            <span className="bp-tag">MORE FROM THE BLOG</span>
-            <h2 className="bp-h2">
-              Recent <span className="bp-h2-em">essays</span>.
-            </h2>
-          </div>
           <div className="bp-grid">
-            {rest.map((p) => (
+            {POSTS.map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="bp-card">
                 <div className="bp-card-meta">
-                  <span className="bp-tag bp-tag-sm">{p.eyebrow}</span>
-                  <span className="bp-meta-dot" aria-hidden>·</span>
-                  <span className="bp-meta-text">{p.readTime}</span>
+                  <span className="bp-tag">{p.eyebrow}</span>
                 </div>
                 <h3 className="bp-card-title">{p.title}</h3>
                 <p className="bp-card-excerpt">{p.excerpt}</p>
-                <div className="bp-card-foot">
-                  <span className="bp-meta-text">{p.date}</span>
-                  <span className="bp-card-arrow" aria-hidden>→</span>
-                </div>
+                <span className="bp-card-cta">
+                  Read the essay
+                  <span className="bp-arrow" aria-hidden>→</span>
+                </span>
               </Link>
             ))}
           </div>
@@ -187,73 +158,16 @@ export default function BlogIndexPage() {
           display: inline-block;
           font-family: var(--font-mono), monospace;
           font-size: 11px; letter-spacing: 0.22em;
-          color: var(--bp-brand); font-weight: 600;
+          color: #A0C4F0; font-weight: 600;
           text-transform: uppercase;
         }
-        .bp-tag-sm { font-size: 10px; }
-        .bp-meta-dot { color: var(--bp-ink-4); margin: 0 8px; }
-        .bp-meta-text { font-family: var(--font-mono), monospace; font-size: 12px; color: var(--bp-ink-4); letter-spacing: 0.06em; }
+        .bp-meta-dot { color: rgba(255,255,255,0.35); margin: 0 8px; }
+        .bp-meta-text { font-family: var(--font-mono), monospace; font-size: 12px; color: rgba(255,255,255,0.62); letter-spacing: 0.06em; }
 
-        .bp-featured { padding: 60px 0 40px; }
-        .bp-featured-card {
-          display: block;
-          background:
-            radial-gradient(ellipse at 14% 0%, rgba(90, 127, 181, 0.36) 0%, transparent 58%),
-            linear-gradient(155deg, var(--bp-brand) 0%, var(--bp-navy) 100%);
-          color: #FFFFFF;
-          padding: 56px 56px 50px;
-          border-radius: 24px;
-          text-decoration: none;
-          transition: transform 0.4s, box-shadow 0.4s;
-          border: 1px solid rgba(160, 196, 240, 0.2);
-        }
-        @media (max-width: 720px) { .bp-featured-card { padding: 40px 26px; } }
-        @media (max-width: 480px) { .bp-featured-card { padding: 28px 18px; border-radius: 18px; } }
-        @media (max-width: 480px) { .bp-featured-excerpt { font-size: 15px; } }
-        @media (max-width: 620px) { .bp-grid-section { padding: 40px 0 72px; } }
-        @media (max-width: 480px) { .bp-card { padding: 22px 18px; border-radius: 14px; } }
-        .bp-featured-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 30px 70px -30px rgba(15, 23, 42, 0.4);
-        }
-        .bp-featured-meta { display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
-        .bp-featured-card .bp-tag { color: #A0C4F0; }
-        .bp-featured-card .bp-meta-text { color: rgba(255, 255, 255, 0.62); }
-        .bp-featured-card .bp-meta-dot { color: rgba(255, 255, 255, 0.35); }
-        .bp-featured-title {
-          font-family: var(--font-display), sans-serif;
-          font-weight: 700;
-          font-size: clamp(28px, 4vw, 44px);
-          line-height: 1.18; letter-spacing: -0.015em;
-          margin: 0 0 18px;
-          max-width: 880px;
-        }
-        .bp-featured-excerpt {
-          font-size: 17px; line-height: 1.65;
-          color: rgba(255, 255, 255, 0.78);
-          margin: 0 0 24px; max-width: 740px;
-        }
-        .bp-featured-cta {
-          display: inline-flex; align-items: center; gap: 10px;
-          font-family: var(--font-mono), monospace;
-          font-size: 12.5px; letter-spacing: 0.16em;
-          color: #FFFFFF; font-weight: 600;
-          text-transform: uppercase;
-        }
         .bp-arrow { transition: transform 0.3s; display: inline-block; }
-        .bp-featured-card:hover .bp-arrow { transform: translateX(4px); }
 
-        .bp-grid-section { padding: 60px 0 110px; }
-        .bp-section-head { margin-bottom: 36px; }
-        .bp-h2 {
-          font-family: var(--font-display), sans-serif;
-          font-weight: 700;
-          font-size: clamp(26px, 3.2vw, 36px);
-          line-height: 1.18; letter-spacing: -0.015em;
-          margin: 12px 0 0;
-          color: var(--bp-ink);
-        }
-        .bp-h2-em { font-family: var(--font-serif), serif; font-style: italic; font-weight: 400; color: var(--bp-brand); }
+        .bp-grid-section { padding: 40px 0 110px; }
+        @media (max-width: 620px) { .bp-grid-section { padding: 28px 0 72px; } }
 
         .bp-grid {
           display: grid;
@@ -262,45 +176,48 @@ export default function BlogIndexPage() {
         }
         @media (max-width: 980px) { .bp-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .bp-grid { grid-template-columns: 1fr; } }
+
         .bp-card {
           display: flex;
           flex-direction: column;
-          background: #FFFFFF;
-          border: 1px solid var(--bp-line);
-          border-radius: 18px;
-          padding: 28px 26px;
+          background:
+            radial-gradient(ellipse at 14% 0%, rgba(90, 127, 181, 0.36) 0%, transparent 58%),
+            linear-gradient(155deg, var(--bp-brand) 0%, var(--bp-navy) 100%);
+          color: #FFFFFF;
+          border: 1px solid rgba(160, 196, 240, 0.2);
+          border-radius: 20px;
+          padding: 32px 30px 28px;
           text-decoration: none;
-          color: var(--bp-ink);
-          transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+          transition: transform 0.35s, box-shadow 0.35s;
         }
         .bp-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 24px 52px -28px rgba(15, 23, 42, 0.22);
-          border-color: rgba(90, 127, 181, 0.4);
+          transform: translateY(-4px);
+          box-shadow: 0 30px 70px -30px rgba(15, 23, 42, 0.5);
         }
-        .bp-card-meta { display: flex; align-items: center; margin-bottom: 14px; }
+        @media (max-width: 480px) { .bp-card { padding: 24px 20px; border-radius: 16px; } }
+
+        .bp-card-meta { display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
         .bp-card-title {
           font-family: var(--font-display), sans-serif;
-          font-weight: 700; font-size: 19px;
-          line-height: 1.3; letter-spacing: -0.01em;
-          color: var(--bp-ink); margin: 0 0 12px;
-        }
-        .bp-card-excerpt {
-          font-size: 14.5px; line-height: 1.6;
-          color: var(--bp-ink-4); margin: 0 0 18px;
+          font-weight: 700; font-size: clamp(18px, 2vw, 22px);
+          line-height: 1.28; letter-spacing: -0.01em;
+          color: #FFFFFF; margin: 0 0 14px;
           flex: 1;
         }
-        .bp-card-foot {
-          display: flex; align-items: center; justify-content: space-between;
-          padding-top: 14px;
-          border-top: 1px solid var(--bp-line);
+        .bp-card-excerpt {
+          font-size: 14.5px; line-height: 1.65;
+          color: rgba(255,255,255,0.75); margin: 0 0 24px;
+          flex: 1;
         }
-        .bp-card-arrow {
+        .bp-card-cta {
+          display: inline-flex; align-items: center; gap: 10px;
           font-family: var(--font-mono), monospace;
-          color: var(--bp-brand); font-weight: 700;
-          transition: transform 0.3s;
+          font-size: 12px; letter-spacing: 0.16em;
+          color: #FFFFFF; font-weight: 600;
+          text-transform: uppercase;
+          margin-top: auto;
         }
-        .bp-card:hover .bp-card-arrow { transform: translateX(4px); }
+        .bp-card:hover .bp-arrow { transform: translateX(4px); }
       `}</style>
     </main>
   )

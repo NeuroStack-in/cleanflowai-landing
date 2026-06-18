@@ -5,6 +5,7 @@ import { BlogPost } from "../_components/BlogPost"
 export default function LegacyModernizationStatsPost() {
   return (
     <BlogPost
+      currentSlug="legacy-modernization-stats"
       meta={{
         eyebrow: "INDUSTRY INSIGHTS",
         title: "15 Legacy System Modernization Statistics Every Enterprise Should Know in 2026",

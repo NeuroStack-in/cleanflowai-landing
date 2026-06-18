@@ -1,4 +1,51 @@
 import { NextRequest, NextResponse } from "next/server"
+import nodemailer from "nodemailer"
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+})
+
+const RECIPIENTS = ["kparthiban@infiniqon.com", "smahendran@infiniqon.com", "marketing@infiniqon.com", "usudarsan@infiniqon.com"]
+
+async function sendEmail(data: {
+  firstName: string
+  lastName: string
+  email: string
+  company: string
+  jobTitle: string
+  industry: string
+}) {
+  await transporter.sendMail({
+    from: `"Infiniqon Newsletter" <${process.env.GMAIL_USER}>`,
+    to: RECIPIENTS.join(", "),
+    replyTo: data.email,
+    subject: `Newsletter Sign-up — ${data.firstName} ${data.lastName} from ${data.company}`,
+    html: `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1E293B;">
+        <div style="background: #2A4477; padding: 28px 32px; border-radius: 12px 12px 0 0;">
+          <h1 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700;">New Newsletter Sign-up</h1>
+          <p style="margin: 6px 0 0; color: rgba(200,215,240,0.8); font-size: 14px;">Submitted via infiniqon.com</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-top: none; padding: 28px 32px; border-radius: 0 0 12px 12px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 8px 0; color: #6B6F78; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: 600;">${data.firstName} ${data.lastName}</td></tr>
+            <tr><td style="padding: 8px 0; color: #6B6F78;">Email</td><td style="padding: 8px 0;"><a href="mailto:${data.email}" style="color: #2A4477;">${data.email}</a></td></tr>
+            <tr><td style="padding: 8px 0; color: #6B6F78;">Company</td><td style="padding: 8px 0; font-weight: 600;">${data.company}</td></tr>
+            <tr><td style="padding: 8px 0; color: #6B6F78;">Job Title</td><td style="padding: 8px 0;">${data.jobTitle}</td></tr>
+            <tr><td style="padding: 8px 0; color: #6B6F78;">Industry</td><td style="padding: 8px 0;">${data.industry || "Not specified"}</td></tr>
+          </table>
+          <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+            <a href="mailto:${data.email}" style="display: inline-block; padding: 11px 22px; background: #2A4477; color: #ffffff; text-decoration: none; border-radius: 999px; font-size: 13px; font-weight: 600;">Reply to ${data.firstName}</a>
+          </div>
+        </div>
+      </div>
+    `,
+  })
+}
 
 async function saveToHubSpot(data: {
   firstName: string
@@ -82,10 +129,11 @@ export async function POST(req: NextRequest) {
 
     const data = { firstName, lastName, email, company, jobTitle, industry: industry || "" }
 
-    // Save to both HubSpot and Supabase in parallel
-    const [hubspotResult, supabaseResult] = await Promise.allSettled([
+    // Save to HubSpot, Supabase, and send email in parallel
+    const [hubspotResult, supabaseResult, emailResult] = await Promise.allSettled([
       saveToHubSpot(data),
       saveToSupabase(data),
+      sendEmail(data),
     ])
 
     if (hubspotResult.status === "rejected") {
@@ -93,6 +141,9 @@ export async function POST(req: NextRequest) {
     }
     if (supabaseResult.status === "rejected") {
       console.error("[newsletter] Supabase failed:", supabaseResult.reason)
+    }
+    if (emailResult.status === "rejected") {
+      console.error("[newsletter] Email failed:", emailResult.reason)
     }
 
     // Succeed if at least one destination saved the data

@@ -33,22 +33,6 @@ Marketing and product landing site for CleanFlowAI by Infiniqon. Built with Next
 pnpm install
 ```
 
-### Environment variables
-
-Create a `.env.local` file in the root:
-
-```env
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-SUPABASE_URL=your_supabase_url
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
-
-HUBSPOT_API_KEY=your_hubspot_api_key
-
-GMAIL_USER=your_gmail_address
-GMAIL_APP_PASSWORD=your_gmail_app_password
-```
-
 ### Run locally
 
 ```bash

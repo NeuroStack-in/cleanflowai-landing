@@ -34,13 +34,6 @@ export function BlogPost({ meta, currentSlug, children }: { meta: BlogPostMeta; 
             <span className="bp-eyebrow">{meta.eyebrow}</span>
             <h1 className="bp-h1">{meta.title}</h1>
             <p className="bp-subtitle">{meta.subtitle}</p>
-            <div className="bp-meta">
-              <span className="bp-meta-text">{meta.author}</span>
-              <span className="bp-meta-dot" aria-hidden>·</span>
-              <span className="bp-meta-text">{meta.date}</span>
-              <span className="bp-meta-dot" aria-hidden>·</span>
-              <span className="bp-meta-text">{meta.readTime}</span>
-            </div>
           </div>
         </header>
 
@@ -194,6 +187,7 @@ export function BlogPost({ meta, currentSlug, children }: { meta: BlogPostMeta; 
         .bp-prose strong { color: var(--bp-ink); font-weight: 700; }
         .bp-prose em { font-family: var(--font-serif), serif; font-style: italic; color: var(--bp-brand); font-size: 1.04em; }
         .bp-prose a { color: var(--bp-brand); text-decoration: underline; text-underline-offset: 3px; }
+        .bp-prose .bp-heading-link { color: var(--bp-brand); text-decoration: none; }
         .bp-prose blockquote {
           margin: 32px 0;
           padding: 22px 26px;

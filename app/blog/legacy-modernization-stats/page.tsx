@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { BlogPost } from "../_components/BlogPost"
 
 export default function LegacyModernizationStatsPost() {
@@ -133,7 +134,7 @@ export default function LegacyModernizationStatsPost() {
         better outcomes across analytics accuracy, compliance readiness, and AI adoption speed.
       </p>
 
-      <h3>14. Organizations Are Investing in Automated Data Modernization</h3>
+      <h3>14. Organizations Are Investing in Automated <Link href="/solutions/data-modernization">Data Modernization</Link></h3>
       <p>
         Automation is replacing manual mapping, profiling, and transformation processes. The
         organizations moving fastest on modernization are those that have replaced spreadsheet-driven

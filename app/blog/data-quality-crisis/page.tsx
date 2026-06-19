@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { BlogPost } from "../_components/BlogPost"
 
 export default function DataQualityCrisisPost() {
@@ -24,7 +25,7 @@ export default function DataQualityCrisisPost() {
         silently impacts revenue, compliance, decision-making, and AI outcomes.
       </p>
       <p>
-        According to Gartner, poor data quality costs organizations an average of{" "}
+        According to Gartner, poor <Link href="/solutions/data-quality">data quality</Link> costs organizations an average of{" "}
         <strong>$12.9 million annually</strong>. For large enterprises, the financial impact can be
         significantly higher when operational inefficiencies, compliance risks, customer experience
         issues, and failed AI initiatives are factored in.
@@ -37,7 +38,7 @@ export default function DataQualityCrisisPost() {
         </p>
       </div>
 
-      <h2>Why Data Quality Matters More Than Ever</h2>
+      <h2>Why <Link href="/solutions/data-quality" className="bp-heading-link">Data Quality</Link> Matters More Than Ever</h2>
       <p>Poor data quality has a cascading effect across every function in the enterprise. It can result in:</p>
       <ul>
         <li>Inaccurate reporting and forecasting</li>
@@ -99,7 +100,7 @@ export default function DataQualityCrisisPost() {
       <h2>The AI and Analytics Impact in 2026</h2>
       <p>
         Artificial Intelligence is only as good as the data it consumes. Recent industry research
-        shows that data quality and data readiness remain among the leading reasons AI initiatives
+        shows that <Link href="/solutions/data-quality">data quality</Link> and data readiness remain among the leading reasons AI initiatives
         fail to achieve business value. Organizations investing heavily in AI often discover that:
       </p>
       <ul>
@@ -131,7 +132,7 @@ export default function DataQualityCrisisPost() {
       </p>
       <ul>
         <li>
-          <strong>Data Profiling</strong> &mdash; Automatically discover data patterns, anomalies,
+          <strong><Link href="/solutions/data-profiling" className="bp-heading-link">Data Profiling</Link></strong> &mdash; Automatically discover data patterns, anomalies,
           duplicates, and missing values across every column and source.
         </li>
         <li>

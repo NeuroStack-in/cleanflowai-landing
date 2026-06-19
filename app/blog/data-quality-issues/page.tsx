@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, type FormEvent, type ChangeEvent } from "react"
+import Link from "next/link"
 import { BlogPost } from "../_components/BlogPost"
 import { trackEvent } from "@/lib/analytics"
 
@@ -463,7 +464,7 @@ export default function DataQualityIssuesPost() {
       <h3>7. Poor Data Governance</h3>
       <p>
         Lack of ownership increases data quality issues across departments. When no one is accountable
-        for a dataset&rsquo;s accuracy, validation falls through the cracks. Governance isn&rsquo;t just
+        for a dataset&rsquo;s accuracy, validation falls through the cracks. <Link href="/products/data-governance">Governance</Link> isn&rsquo;t just
         a policy &mdash; it&rsquo;s the operational framework that keeps data quality consistent over time.
       </p>
 

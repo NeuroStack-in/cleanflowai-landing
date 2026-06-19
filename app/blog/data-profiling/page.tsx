@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { BlogPost } from "../_components/BlogPost"
 
 export default function DataProfilingPost() {
@@ -35,8 +36,8 @@ export default function DataProfilingPost() {
 
       <h2>What Is Data Profiling?</h2>
       <p>
-        Data profiling is the process of examining, analyzing, and summarizing data to understand its
-        structure, quality, patterns, and business meaning. Think of data profiling as the diagnostic
+        <Link href="/solutions/data-profiling">Data profiling</Link> is the process of examining, analyzing, and summarizing data to understand its
+        structure, quality, patterns, and business meaning. Think of <Link href="/solutions/data-profiling">data profiling</Link> as the diagnostic
         scan performed before any transformation, migration, governance, or analytics initiative begins.
       </p>
       <p>A modern data profiling platform answers critical questions such as:</p>
@@ -177,14 +178,14 @@ export default function DataProfilingPost() {
 
       <blockquote>
         <p>
-          The future of data transformation doesn&rsquo;t begin with migration. It begins with
+          The future of <Link href="/solutions/data-transformation">data transformation</Link> doesn&rsquo;t begin with migration. It begins with
           understanding your data. And that starts with intelligent data profiling.
         </p>
       </blockquote>
 
       <h2>Why Data Profiling Is the Foundation of Everything</h2>
       <p>
-        Every successful data transformation initiative begins with understanding the source data.
+        Every successful <Link href="/solutions/data-transformation">data transformation</Link> initiative begins with understanding the source data.
         Without profiling, mapping errors increase, transformation logic fails, duplicate records
         spread downstream, analytics become unreliable, and AI models learn from poor-quality data.
       </p>

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { BlogPost } from "../_components/BlogPost"
 
 export default function LegacyDataModernizationPost() {
@@ -29,7 +30,7 @@ export default function LegacyDataModernizationPost() {
         business environments.
       </p>
 
-      <h2>What Is Legacy Data Modernization?</h2>
+      <h2>What Is Legacy <Link href="/solutions/data-modernization" className="bp-heading-link">Data Modernization</Link>?</h2>
       <p>
         Legacy Data Modernization is the process of transforming historical and operational data
         from outdated systems into a standardized, governed, and AI-ready format. Modernization
@@ -74,7 +75,7 @@ export default function LegacyDataModernizationPost() {
         and AI outcomes. Left unresolved, they follow the data into the modern platform.
       </p>
 
-      <h2>Five Proven Legacy Data Modernization Strategies</h2>
+      <h2>Five Proven Legacy <Link href="/solutions/data-modernization" className="bp-heading-link">Data Modernization</Link> Strategies</h2>
 
       <h3>1. Start with Data Profiling</h3>
       <p>
@@ -120,7 +121,7 @@ export default function LegacyDataModernizationPost() {
 
       <blockquote>
         <p>
-          Legacy data contains decades of business value. Modernization ensures that value remains
+          Legacy data contains decades of business value. <Link href="/solutions/data-modernization">Modernization</Link> ensures that value remains
           accessible, trusted, and ready for the next generation of enterprise technology.
         </p>
       </blockquote>

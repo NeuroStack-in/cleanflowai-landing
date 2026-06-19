@@ -2053,6 +2053,7 @@ function Features() {
           {items.map((f, i) => (
             <motion.article
               key={f.tag}
+              id={i === 0 ? "confidence" : undefined}
               className={`cf-srv-row ${i % 2 === 1 ? "cf-srv-flip" : ""}`}
               {...riseDelay(0.08 * i)}
             >
@@ -3263,7 +3264,7 @@ function StyleBlock() {
         font-feature-settings: "ss01", "cv11";
       }
 
-      .cf-root section[id] { scroll-margin-top: 90px; }
+      .cf-root section[id], .cf-root article[id] { scroll-margin-top: 90px; }
 
       .cf-root * { box-sizing: border-box; }
 

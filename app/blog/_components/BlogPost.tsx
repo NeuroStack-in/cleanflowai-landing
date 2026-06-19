@@ -187,8 +187,7 @@ export function BlogPost({ meta, currentSlug, children }: { meta: BlogPostMeta; 
         .bp-prose strong { color: var(--bp-ink); font-weight: 700; }
         .bp-prose em { font-family: var(--font-serif), serif; font-style: italic; color: var(--bp-brand); font-size: 1.04em; }
         .bp-prose a { color: var(--bp-brand); text-decoration: underline; text-underline-offset: 3px; }
-        .bp-prose .bp-heading-link { color: var(--bp-brand); text-decoration: none; }
-        .bp-prose blockquote {
+        .bp-prose .bp-heading-link { color: var(--bp-brand); text-decoration: none; }        .bp-prose blockquote {
           margin: 32px 0;
           padding: 22px 26px;
           border-left: 3px solid var(--bp-brand);

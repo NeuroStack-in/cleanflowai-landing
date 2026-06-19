@@ -425,7 +425,7 @@ export default function DataQualityIssuesPost() {
         systems either fail silently or propagate gaps into reports and models that stakeholders rely on.
       </p>
 
-      <h3>2. Duplicate Records</h3>
+      <h3>2. <Link href="/#confidence" className="bp-heading-link">Duplicate Records</Link></h3>
       <p>
         Duplicate customer, patient, or financial records remain among the most costly data quality
         issues enterprises face. A single customer appearing three times in a CRM distorts revenue

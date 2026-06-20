@@ -21,8 +21,8 @@ const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", displa
 
 const SOLUTIONS = [
   { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
-  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Capture data issues before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "Consistent inputs. Predictable outcomes. Zero surprises." },
   { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
   { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
   { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },
@@ -46,7 +46,7 @@ const PILLARS = [
   },
   {
     key: "unstructured",
-    h: "Unstructured in. Clean rows and columns out.",
+    h: "From raw data to ready-to-use insights.",
     b: "Files that arrive without rows or columns don't stay that way. The platform reads the content, detects the shape of the data inside, applies the same quality and governance checks, and produces a clean, structured payload — with lineage recorded and every inference reviewable before it lands.",
   },
 ]
@@ -124,8 +124,8 @@ export default function DataModernizationPage() {
             <motion.div className="dx-section-head" {...rise(0.05)}>
               <span className="dx-eyebrow">WHAT YOUR TEAM GETS</span>
               <h2 className="dx-h2">
-                The headaches of legacy data,<br />
-                <span className="dx-h2-em">quietly taken off your plate.</span>
+                Legacy data challenges resolved quietly,<br />
+                <span className="dx-h2-em">so you can focus on what matters.</span>
               </h2>
             </motion.div>
             <div className="dx-pillars-stack">

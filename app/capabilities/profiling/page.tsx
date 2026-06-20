@@ -22,8 +22,8 @@ const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", displa
 
 const SOLUTIONS = [
   { slug: "profiling",      name: "Data Profiling",       blurb: "Know your data before you trust it — every column, every batch, every time." },
-  { slug: "quality",        name: "Data Quality",         blurb: "Bad records caught before they reach production. Stewards stay in control." },
-  { slug: "transformation", name: "Data Transformation",  blurb: "The same input always produces the same output. No surprises in your pipeline." },
+  { slug: "quality",        name: "Data Quality",         blurb: "Capture data issues before they reach production. Stewards stay in control." },
+  { slug: "transformation", name: "Data Transformation",  blurb: "Consistent inputs. Predictable outcomes. Zero surprises." },
   { slug: "migration",      name: "Data Migration",       blurb: "Move workloads at enterprise scale — without rewriting your stack." },
   { slug: "modernization",  name: "Data Modernization",   blurb: "Legacy data, warehouse-ready. The mess goes in, clean output comes out." },
   { slug: "security",       name: "Data Security",        blurb: "Every change is approved, audited, and reversible. Compliance built in." },

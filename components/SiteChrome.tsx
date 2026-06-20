@@ -293,6 +293,7 @@ export function SiteFooter() {
                   <li><Link href="/blog">Blog</Link></li>
                   <li><Link href="/contact">Contact</Link></li>
                   <li><Link href="/contact">Request a Demo</Link></li>
+                  <li><Link href="/privacy">Privacy Policy</Link></li>
                 </ul>
               </div>
             </div>
@@ -366,7 +367,7 @@ export function SiteChromeStyles() {
 
       .sc-nav { display: flex; align-items: center; gap: 18px; font-size: 14px; min-width: 0; }
       @media (min-width: 769px) { .sc-nav { gap: 30px; } }
-      @media (max-width: 960px) { .sc-wordmark .sc-logo-tag { display: none; } }
+      @media (max-width: 960px) { .sc-wordmark .sc-logo-tag { font-size: 8px; letter-spacing: 0.14em; } }
       @media (max-width: 768px) { .sc-nav { display: none; } }
 
       /* ─── Hamburger toggle ─── */

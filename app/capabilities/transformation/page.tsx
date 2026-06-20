@@ -144,7 +144,7 @@ export default function DataTransformationPage() {
           <div className="dt-container">
             <motion.p {...rise(0.05)}>
               <span className="dt-quote-mark">&ldquo;</span>
-              One source, many destinations. Mapped, not migrated manually.
+              &ldquo;One source. Multiple destinations. Seamless mapping, zero manual migration.&rdquo;
             </motion.p>
           </div>
         </section>

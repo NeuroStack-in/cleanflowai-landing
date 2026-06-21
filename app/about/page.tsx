@@ -17,8 +17,8 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: "20+",  label: "Years of industry experience" },
-  { value: "8",    label: "Industry verticals served" },
+  { value: "25+",  label: "Years of industry experience" },
+  { value: "Multiple", label: "Industry verticals served" },
   { value: "99.9%", label: "Platform uptime SLA" },
   { value: "24/7", label: "Support coverage" },
 ]

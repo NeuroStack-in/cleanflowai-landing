@@ -52,7 +52,7 @@ export function BlogPost({ meta, currentSlug, children }: { meta: BlogPostMeta; 
               loop.
             </p>
             <Link
-              href="/contact"
+              href="/support"
               className="bp-end-pill"
               onClick={() => trackEvent({ action: "blog_cta_click", category: "engagement", label: "book_a_demo" })}
             >

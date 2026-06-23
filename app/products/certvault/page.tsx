@@ -124,7 +124,7 @@ export default function CertVaultPage() {
               Talk to our team — see how CertVault can replace paper-based and
               centrally-stored workflows in your organization.
             </p>
-            <Link href="/contact" className="pp-cta-pill">
+            <Link href="/support" className="pp-cta-pill">
               <span>Book a Demo</span>
               <span className="pp-cta-pill-arrow">→</span>
             </Link>

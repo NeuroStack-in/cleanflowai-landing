@@ -197,7 +197,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="cx-success-h">Request received</h2>
                 <p className="cx-success-sub">
-                  Thanks — our team will review your submission and reach you out.
+                  Thanks — our team will review your submission and reach out to you.
                 </p>
               </motion.div>
             )}

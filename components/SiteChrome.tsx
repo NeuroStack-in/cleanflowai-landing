@@ -164,7 +164,7 @@ export function SiteNav() {
             </div>
             <Link href="/about">About Us</Link>
             <Link href="/blog">Blog</Link>
-            <Link href="/contact" className="sc-nav-cta">
+            <Link href="/support" className="sc-nav-cta">
               <span>Request demo</span>
               <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden className="sc-arrow">
                 <path d="M2 7 H 12 M 8 3 L 12 7 L 8 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -209,7 +209,7 @@ export function SiteNav() {
           <div className="sc-mobile-divider" aria-hidden />
           <Link href="/about" className="sc-mobile-link" onClick={() => setMobileOpen(false)}>About Us</Link>
           <Link href="/blog" className="sc-mobile-link" onClick={() => setMobileOpen(false)}>Blog</Link>
-          <Link href="/contact" className="sc-mobile-cta-link" onClick={() => setMobileOpen(false)}>Request demo →</Link>
+          <Link href="/support" className="sc-mobile-cta-link" onClick={() => setMobileOpen(false)}>Request demo →</Link>
         </div>
       </div>
     </>
@@ -239,7 +239,7 @@ export function SiteCta() {
               We&rsquo;ll show you exactly what CleanFlowAI can fix, quarantine, and automate.
             </p>
             <div className="sc-cta-buttons">
-              <Link href="/contact" className="sc-cta-pill">
+              <Link href="/support" className="sc-cta-pill">
                 <span>Book a discovery call</span>
                 <span className="sc-cta-pill-arrow">→</span>
               </Link>
@@ -291,15 +291,15 @@ export function SiteFooter() {
                 <ul>
                   <li><Link href="/about">About Us</Link></li>
                   <li><Link href="/blog">Blog</Link></li>
-                  <li><Link href="/contact">Contact</Link></li>
-                  <li><Link href="/contact">Request a Demo</Link></li>
+                  <li><Link href="/support">Contact</Link></li>
+                  <li><Link href="/support">Request a Demo</Link></li>
                   <li><Link href="/privacy">Privacy Policy</Link></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="sc-footer-watermark" aria-hidden>CleanFlowAI</div>
+        <div className="sc-footer-watermark" aria-hidden></div>
         <div className="sc-footer-bottom">
           <span>© 2026 CleanFlowAI · All rights reserved.</span>
         </div>
@@ -674,17 +674,25 @@ export function SiteChromeStyles() {
       .sc-footer-cols a:hover { color: #FFFFFF; transform: translateX(2px); }
       .sc-footer-watermark {
         display: block;
+        margin: 56px 0 0;
+        overflow: hidden;
+        pointer-events: none;
+        user-select: none;
+      }
+      .sc-footer-watermark::before {
+        content: "CleanFlowAI";
+        display: block;
         font-family: var(--font-display), sans-serif;
         font-weight: 800;
         font-size: clamp(64px, 14.5vw, 180px);
         letter-spacing: -0.028em;
         line-height: 1;
         text-align: center;
-        margin: 56px 0 0;
-        color: transparent;
+        -webkit-text-fill-color: transparent;
         -webkit-text-stroke: 1.5px rgba(160, 196, 240, 0.34);
-        user-select: none; pointer-events: none;
-        white-space: nowrap; overflow: hidden;
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
       }
       .sc-footer-bottom { display: flex; justify-content: center; align-items: center; padding: 22px 0 28px; margin-top: -10px; }
       .sc-footer-bottom > span { font-family: var(--font-mono), monospace; font-size: 11.5px; letter-spacing: 0.1em; color: rgba(200, 215, 240, 0.55); text-align: center; }
@@ -692,10 +700,11 @@ export function SiteChromeStyles() {
       @media (max-width: 600px) {
         .sc-footer { padding: 56px 0 0; margin-top: 48px; }
         .sc-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-        .sc-footer-watermark { margin: 20px 0 0; font-size: clamp(36px, 13vw, 96px); -webkit-text-stroke-width: 1px; }
+        .sc-footer-watermark { margin: 20px 0 0; }
+        .sc-footer-watermark::before { font-size: clamp(36px, 13vw, 96px); -webkit-text-stroke-width: 1px; }
       }
       @media (max-width: 420px) {
-        .sc-footer-watermark { font-size: clamp(28px, 12vw, 68px); }
+        .sc-footer-watermark::before { font-size: clamp(28px, 12vw, 68px); }
       }
     `}</style>
   )

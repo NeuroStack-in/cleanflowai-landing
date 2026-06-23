@@ -18,7 +18,6 @@ export default function PrivacyPage() {
         <div className="pp-container">
           <span className="pp-eyebrow">Legal</span>
           <h1 className="pp-h1">Privacy Policy</h1>
-          <p className="pp-subtitle">Last updated: June 2026</p>
         </div>
       </div>
 
@@ -170,7 +169,7 @@ export default function PrivacyPage() {
           <p>
             If you have any questions about this Privacy Policy, please contact us at{" "}
             <a href="mailto:marketing@infiniqon.com" className="pp-link">marketing@infiniqon.com</a>{" "}
-            or through our <Link href="/contact" className="pp-link">contact page</Link>.
+            or through our <Link href="/support" className="pp-link">contact page</Link>.
           </p>
         </section>
 

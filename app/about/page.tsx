@@ -140,7 +140,7 @@ export default function AboutPage() {
               Whether you&rsquo;re evaluating a product, exploring a partnership,
               or just want to know more — we&rsquo;d love to hear from you.
             </p>
-            <Link href="/contact" className="pp-cta-pill">
+            <Link href="/support" className="pp-cta-pill">
               <span>Get in touch</span>
               <span className="pp-cta-pill-arrow">→</span>
             </Link>

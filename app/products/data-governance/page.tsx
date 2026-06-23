@@ -156,7 +156,7 @@ export default function DataGovernancePage() {
               We&rsquo;ll show you exactly what CleanFlowAI can profile, fix,
               quarantine, and automate — with your stewards in the loop.
             </p>
-            <Link href="/contact" className="pp-cta-pill">
+            <Link href="/support" className="pp-cta-pill">
               <span>Book a Demo</span>
               <span className="pp-cta-pill-arrow">→</span>
             </Link>

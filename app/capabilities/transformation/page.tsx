@@ -1116,9 +1116,9 @@ function StyleBlock() {
         box-shadow:
           0 1px 0 rgba(255, 255, 255, 0.08) inset,
           0 30px 60px -24px rgba(0, 0, 0, 0.4);
-        display: flex; flex-direction: column; gap: 14px;
+        display: flex; flex-direction: column; gap: 20px;
         height: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
       }
       .dt-ops-tag {
         font-family: var(--font-mono), monospace;

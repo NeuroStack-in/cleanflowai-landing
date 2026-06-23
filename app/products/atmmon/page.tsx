@@ -128,7 +128,7 @@ export default function ATMMONPage() {
               Get a walkthrough tailored to your fleet — uptime, EJ retrieval, cash
               optimization, and reconciliation, end-to-end.
             </p>
-            <Link href="/contact" className="pp-cta-pill">
+            <Link href="/support" className="pp-cta-pill">
               <span>Book a Demo</span>
               <span className="pp-cta-pill-arrow">→</span>
             </Link>

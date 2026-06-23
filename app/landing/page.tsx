@@ -389,7 +389,7 @@ function TopBar() {
           </div>
           <a href="#features">Modules</a>
           <a href="#pipeline">Workflow</a>
-          <a href="/contact" className="cf-nav-cta">
+          <a href="/support" className="cf-nav-cta">
             <span>Request demo</span>
             <Arrow />
           </a>
@@ -691,9 +691,9 @@ function Hero() {
         <motion.p className="cf-hero-sub" {...fadeUp(0.7)}>
           <span className="cf-hero-sub-hi">Profile, validate, fix, and ship clean data.</span>
           <span className="cf-hero-sub-break">
-            From any source to any destination — powered by{" "}
-            <span className="cf-hero-sub-brand">CleanAI</span>, drafting rules,
-            detecting schemas, and auditing every fix. Built for teams that demand precision.
+            <span className="cf-hero-sub-brand">CleanAI</span> powers every step of your data journey — from any source to any destination.
+            Automatically draft rules, detect schemas, and audit every fix with complete visibility.
+            Built for teams that demand precision, reliability, and control.
           </span>
         </motion.p>
 
@@ -960,6 +960,7 @@ function DashPreview() {
           </h2>
         </motion.div>
 
+        <div className="cf-dash-clip">
         <div className="cf-dash-trio">
           {/* LEFT — Data Catalog */}
           <div className="cf-dash-panel cf-dash-panel-left">
@@ -997,6 +998,7 @@ function DashPreview() {
           <div className="cf-dash-panel cf-dash-panel-right">
             <QuarantineEditorMock />
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1836,9 +1838,9 @@ function MetricsStrip() {
         >
           <span className="cf-tag cf-tag-teal cf-fade-up">ENTERPRISE COMMITMENTS</span>
           <h2 className="cf-h2 cf-fade-up" data-delay="1">
-            Built to the standard
+            Built to the standards
             <br />
-            <span className="cf-h2-italic">enterprises verify</span>.
+            <span className="cf-h2-italic">enterprises demand</span>.
           </h2>
           <p className="cf-metrics-desc cf-fade-up" data-delay="2">
             Not feature counts — procurement ready commitments. Throughput
@@ -2011,7 +2013,7 @@ function Features() {
       tag: "DATA QUALITY",
       title: "Confidence in every record",
       body:
-        "Column profiling reads types, ranges, and null distributions before any rule executes — so your team stops inferring what's in the payload. 34 deterministic validators cover format, mandatory fields, and cross-column logic. Describe any edge case in plain English and CleanAI compiles it into a deterministic constraint. Every remediation is traceable, every report audit-ready.",
+        "Column profiling reads types, ranges, and null distributions before any rule executes — so your team stops inferring what's in the payload. 34 deterministic validators cover format, mandatory fields, and cross-column logic. Describe any edge case in plain English and CleanAI compiles it into a deterministic constraint. Every remediation is traceable, every report is audit-ready.",
       icon: <FeatIconB />,
       featured: true,
       href: "#pipeline",
@@ -2028,7 +2030,7 @@ function Features() {
       tag: "SCHEDULED JOBS",
       title: "Automation without surprises",
       body:
-        "Define a flow once — source, target, schedule, entities — and let it run. Incremental sync moves only new data. Auto-pause on repeated failure. Full run history. Hours a week returned to your team; nothing running silently when it shouldn't.",
+        "Define a flow once — source, target, schedule, entities — and let it run. Incremental sync moves only new data. Auto-pause on repeated failure. Full run history. Hours saved every week for your team — nothing runs silently when it shouldn't.",
       icon: <FeatIconC />,
       href: "#features",
     },
@@ -2043,9 +2045,8 @@ function Features() {
             Validate. <span className="cf-h2-italic">Correct</span>. Automate.
           </h2>
           <p className="cf-lede cf-fade-up" data-delay="2">
-            Three continuous movements — across every dataset, every run. How CleanFlowAI
-            transforms malformed data into an artifact your team, and your compliance officer,
-            can trust.
+            Across every dataset and every run, three continuous movements show how CleanFlowAI
+            transforms malformed data into a trusted, audit-ready artifact.
           </p>
         </motion.div>
 
@@ -2584,8 +2585,7 @@ function Pipeline() {
             <span className="cf-h2-italic">End to end</span>.
           </h2>
           <p className="cf-lede cf-fade-up" data-delay="2">
-            The same stages execute on every dataset — manual or scheduled. No black boxes,
-            no surprises. Every stage is observable, every remediation auditable.
+            The same staged execution runs across every dataset — manual or scheduled. No black boxes. No surprises. Every stage is observable, every remediation is auditable.
           </p>
         </motion.div>
 
@@ -3113,7 +3113,7 @@ function CTA() {
               We&rsquo;ll show you exactly what CleanFlowAI can fix, quarantine, and automate.
             </p>
             <div className="cf-cta-buttons">
-              <a href="/contact" className="cf-cta-pill">
+              <a href="/support" className="cf-cta-pill">
                 <span>Book a discovery call</span>
                 <span className="cf-cta-pill-arrow">→</span>
               </a>
@@ -3291,7 +3291,7 @@ function StyleBlock() {
 
       /* ---------- GLOBAL SCROLL SMOOTHNESS ---------- */
       html { scroll-behavior: smooth; }
-      .cf-root { scroll-behavior: smooth; }
+      .cf-root { scroll-behavior: smooth; overflow-x: clip; }
 
       /* ---------- UNIVERSAL FADE-UP FOR TEXT BLOCKS ----------
          Applies a subtle fade+translate to common text containers on
@@ -3339,7 +3339,8 @@ function StyleBlock() {
         align-items: center;
         gap: 8px;
         font-family: var(--font-mono), monospace;
-        font-size: 10.5px;
+        font-size: 12.5px;
+        font-weight: 600;
         letter-spacing: 0.2em;
         color: var(--ink-3);
         text-transform: uppercase;
@@ -4715,6 +4716,7 @@ function StyleBlock() {
 
       /* ---------- DASHBOARD TRIO (left catalog + center dash + right quarantine) ---------- */
 
+      .cf-dash-clip { overflow: hidden; width: 100%; }
       .cf-dash-trio {
         position: relative;
         padding: 70px 0 60px;
@@ -5732,6 +5734,7 @@ function StyleBlock() {
 
       .cf-features {
         padding: 120px 0;
+        overflow: hidden;
       }
 
       /* --- Discipline strip: 6 tiles with live animated icons --- */
@@ -6260,6 +6263,7 @@ function StyleBlock() {
 
       .cf-quote {
         padding: 120px 0;
+        overflow: hidden;
       }
       .cf-quote-em {
         color: #c0d4f0;
@@ -7481,7 +7485,7 @@ function StyleBlock() {
         height: 100%;
         z-index: 0;
         pointer-events: none;
-        overflow: visible;
+        overflow: hidden;
       }
       .cf-pathflow-traveler {
         offset-distance: 0%;

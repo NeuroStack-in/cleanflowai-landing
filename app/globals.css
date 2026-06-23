@@ -146,8 +146,9 @@
 }
 
 html, body {
-  /* prevent any rogue child from pushing the viewport into horizontal scroll */
-  overflow-x: hidden;
+  /* clip (not hidden) — avoids creating a BFC on body which would force
+     overflow-y: auto and produce a second scrollbar on long pages */
+  overflow-x: clip;
   max-width: 100vw;
 }
 

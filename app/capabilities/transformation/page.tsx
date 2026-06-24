@@ -710,6 +710,7 @@ function StyleBlock() {
         color: var(--ink-3);
         margin: 0;
         max-width: 56ch;
+        text-align: justify;
       }
       .dt-hero-visual {
         display: flex; align-items: center; justify-content: center;

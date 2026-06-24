@@ -538,6 +538,7 @@ function StyleBlock() {
         color: var(--ink-3);
         max-width: 44ch;
         margin: 4px 0 0;
+        text-align: justify;
       }
 
       /* 3 proof points */
@@ -661,6 +662,7 @@ function StyleBlock() {
         color: rgba(200, 215, 240, 0.78);
         margin: 0;
         line-height: 1.55;
+        text-align: justify;
       }
 
       .cx-form {
@@ -915,6 +917,7 @@ function StyleBlock() {
         max-width: 36ch;
         line-height: 1.55;
         margin: 0;
+        text-align: justify;
       }
 
       /* Footer (navy + stencil watermark) */

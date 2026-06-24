@@ -232,12 +232,15 @@ export default function PrivacyPage() {
         .pp-body { padding-bottom: 100px; }
 
         .pp-section { margin-bottom: 44px; }
+        .pp-section:last-of-type > p { text-align: left; hyphens: none; }
 
         .pp-section > p, .pp-section > ul {
           font-size: 16px;
           line-height: 1.75;
           color: var(--pp-ink-2);
           margin: 0 0 18px;
+          text-align: justify;
+          hyphens: auto;
         }
 
         .pp-h2 {
@@ -268,6 +271,8 @@ export default function PrivacyPage() {
           line-height: 1.75;
           color: var(--pp-ink-2);
           margin-bottom: 8px;
+          text-align: justify;
+          hyphens: auto;
         }
 
         .pp-link {

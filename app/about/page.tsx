@@ -200,6 +200,7 @@ export default function AboutPage() {
           font-size: clamp(16px, 1.6vw, 19px);
           line-height: 1.6; color: var(--pp-ink-3);
           max-width: 720px; margin-bottom: 0;
+          text-align: justify;
         }
 
         .pp-intro { padding: 70px 0; border-top: 1px solid var(--pp-line); }
@@ -230,11 +231,12 @@ export default function AboutPage() {
           font-style: italic; font-weight: 400; color: var(--pp-brand);
         }
         .pp-intro-body-stack { display: flex; flex-direction: column; gap: 18px; }
-        .pp-intro-body { font-size: 17px; line-height: 1.7; color: var(--pp-ink-3); margin: 0; }
+        .pp-intro-body { font-size: 17px; line-height: 1.7; color: var(--pp-ink-3); margin: 0; text-align: justify; }
         .pp-section-sub {
           font-size: 16px; line-height: 1.65;
           color: var(--pp-ink-3); margin: 16px 0 0;
           max-width: 720px;
+          text-align: justify;
         }
 
         .pp-stats { padding: 70px 0; border-top: 1px solid var(--pp-line); background: var(--pp-bg-2); }
@@ -282,7 +284,7 @@ export default function AboutPage() {
           color: var(--pp-ink);
           margin: 12px 0 16px;
         }
-        .pp-mission-body { font-size: 16px; line-height: 1.65; color: var(--pp-ink-3); margin: 0; }
+        .pp-mission-body { font-size: 16px; line-height: 1.65; color: var(--pp-ink-3); margin: 0; text-align: justify; }
 
         .pp-values { padding: 90px 0; border-top: 1px solid var(--pp-line); background: var(--pp-bg-2); }
         .pp-section-head { margin-bottom: 50px; }
@@ -343,6 +345,7 @@ export default function AboutPage() {
           font-size: 16px; line-height: 1.6;
           color: rgba(255, 255, 255, 0.78);
           max-width: 560px; margin: 0 auto 26px;
+          text-align: center;
         }
         .pp-cta-pill {
           display: inline-flex; align-items: center; gap: 10px;

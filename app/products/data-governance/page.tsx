@@ -43,7 +43,7 @@ const USERS = [
   },
   {
     title: "Public Sector & Compliance-led Enterprises",
-    body: "Where every change must be traceable and every rule justifiable, CleanFlowAI&rsquo;s Suggest → Approve → Execute model becomes the operating standard.",
+    body: "Where every change must be traceable and every rule justifiable, CleanFlowAI’s Suggest → Approve → Execute model becomes the operating standard.",
   },
 ]
 
@@ -216,6 +216,7 @@ export default function DataGovernancePage() {
           font-size: clamp(16px, 1.6vw, 19px);
           line-height: 1.6; color: var(--pp-ink-3);
           max-width: 680px; margin-bottom: 30px;
+          text-align: justify;
         }
 
         .pp-intro { padding: 70px 0; border-top: 1px solid var(--pp-line); }
@@ -245,11 +246,12 @@ export default function DataGovernancePage() {
           font-family: var(--font-serif), serif;
           font-style: italic; font-weight: 400; color: var(--pp-brand);
         }
-        .pp-intro-body { font-size: 17px; line-height: 1.7; color: var(--pp-ink-3); }
+        .pp-intro-body { font-size: 17px; line-height: 1.7; color: var(--pp-ink-3); text-align: justify; }
         .pp-section-sub {
           font-size: 16px; line-height: 1.65;
           color: var(--pp-ink-3); margin: 16px 0 0;
           max-width: 720px;
+          text-align: justify;
         }
 
         .pp-pillars { padding: 90px 0; border-top: 1px solid var(--pp-line); background: var(--pp-bg-2); }
@@ -328,7 +330,7 @@ export default function DataGovernancePage() {
           letter-spacing: -0.01em;
           color: var(--pp-brand); margin: 0 0 12px;
         }
-        .pp-user-body { font-size: 15px; line-height: 1.65; color: var(--pp-ink-3); margin: 0; }
+        .pp-user-body { font-size: 15px; line-height: 1.65; color: var(--pp-ink-3); margin: 0; text-align: justify; }
 
         .pp-cta { padding: 90px 0 110px; border-top: 1px solid var(--pp-line); }
         .pp-cta-card {
@@ -357,6 +359,7 @@ export default function DataGovernancePage() {
           font-size: 16px; line-height: 1.6;
           color: rgba(255, 255, 255, 0.78);
           max-width: 580px; margin: 0 auto 26px;
+          text-align: center;
         }
         .pp-cta-pill {
           display: inline-flex; align-items: center; gap: 10px;

@@ -189,6 +189,7 @@ export default function CertVaultPage() {
           color: var(--pp-ink-3);
           max-width: 640px;
           margin-bottom: 30px;
+          text-align: justify;
         }
         .pp-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
         .pp-cta-pill {
@@ -237,6 +238,7 @@ export default function CertVaultPage() {
           font-size: 17px;
           line-height: 1.7;
           color: var(--pp-ink-3);
+          text-align: justify;
         }
 
         /* Features */
@@ -295,6 +297,7 @@ export default function CertVaultPage() {
         .pp-user-body {
           font-size: 15px; line-height: 1.65;
           color: var(--pp-ink-3); margin: 0;
+          text-align: justify;
         }
 
         /* CTA */
@@ -325,6 +328,7 @@ export default function CertVaultPage() {
           font-size: 16px; line-height: 1.6;
           color: rgba(255, 255, 255, 0.78);
           max-width: 560px; margin: 0 auto 26px;
+          text-align: center;
         }
         .pp-cta .pp-cta-pill { background: #FFFFFF; color: var(--pp-ink); }
         .pp-cta .pp-cta-pill:hover { background: #F0F0E8; }

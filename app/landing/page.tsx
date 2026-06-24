@@ -4488,7 +4488,9 @@ function StyleBlock() {
         color: var(--ink-2);
         max-width: 620px;
         margin: 0 0 36px;
+        text-align: justify;
       }
+      .cf-section-head .cf-lede { text-align: center; }
 
       .cf-cta-row {
         display: flex;
@@ -7225,7 +7227,7 @@ function StyleBlock() {
       }
       .cf-srv-row.cf-srv-flip .cf-srv-body {
         margin-left: auto;
-        text-align: right;
+        text-align: justify;
         hyphens: none;
         word-break: keep-all;
       }
@@ -7260,6 +7262,7 @@ function StyleBlock() {
         color: var(--ink-3);
         margin: 0;
         max-width: 44ch;
+        text-align: justify;
       }
 
       .cf-srv-viz {

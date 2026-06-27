@@ -313,7 +313,7 @@ export default function AboutPage() {
           letter-spacing: -0.01em;
           color: var(--pp-brand); margin: 0 0 10px;
         }
-        .pp-value-body { font-size: 14px; line-height: 1.6; color: var(--pp-ink-4); margin: 0; }
+        .pp-value-body { font-size: 14px; line-height: 1.6; color: var(--pp-ink-4); margin: 0; text-align: justify; hyphens: auto; }
 
         .pp-cta { padding: 90px 0 110px; border-top: 1px solid var(--pp-line); }
         .pp-cta-card {

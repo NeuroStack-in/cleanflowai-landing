@@ -1140,7 +1140,7 @@ function StyleBlock() {
         line-height: 1.7;
         color: rgba(220, 232, 250, 0.85);
         margin: 0 0 10px;
-        max-width: 62ch;
+        max-width: none;
       }
       .dt-ops-viz {
         background: rgba(15, 23, 41, 0.35);

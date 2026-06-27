@@ -2659,7 +2659,6 @@ function Pipeline() {
                     <div className="cf-pf-node-inner">
                       <Icon />
                     </div>
-                    <div className="cf-pf-node-badge">{s.n}</div>
                   </div>
                   <div className="cf-pf-card">
                     <span className="cf-pf-tag">STAGE {s.n}</span>

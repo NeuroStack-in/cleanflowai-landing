@@ -208,6 +208,8 @@ export default function BlogIndexPage() {
           font-size: 14.5px; line-height: 1.65;
           color: rgba(255,255,255,0.75); margin: 0 0 24px;
           flex: 1;
+          text-align: justify;
+          hyphens: auto;
         }
         .bp-card-cta {
           display: inline-flex; align-items: center; gap: 10px;

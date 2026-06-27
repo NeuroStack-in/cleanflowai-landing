@@ -201,8 +201,10 @@ export default function DataQualityPage() {
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.85, delay: 0.08 + row * 0.14, ease: [0.19, 1, 0.22, 1] as number[] }}
                   >
-                    <span className="dq-suite-dot" aria-hidden />
-                    <h3 className="dq-suite-h">{f.h}</h3>
+                    <div className="dq-suite-top">
+                      <span className="dq-suite-dot" aria-hidden />
+                      <h3 className="dq-suite-h">{f.h}</h3>
+                    </div>
                     <p className="dq-suite-b">{f.b}</p>
                   </motion.article>
                 )
@@ -603,6 +605,7 @@ function StyleBlock() {
         max-width: 62ch;
         margin: 4px auto 0;
         text-wrap: pretty;
+        text-align: justify;
       }
       .dq-hero-stats {
         display: inline-flex; align-items: center; gap: 28px;
@@ -1105,12 +1108,11 @@ function StyleBlock() {
       }
       .dq-suite-cell {
         position: relative;
-        padding: 32px 28px 30px;
+        padding: 30px 28px 28px;
         background: #FFFFFF;
         border: 1px solid var(--line);
         border-radius: 16px;
         display: flex; flex-direction: column; gap: 12px;
-        min-height: 230px;
         transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), border-color 0.4s, box-shadow 0.4s;
       }
       .dq-suite-cell::before {
@@ -1125,12 +1127,26 @@ function StyleBlock() {
         box-shadow: 0 26px 54px -22px rgba(42, 68, 119, 0.24);
       }
       .dq-suite-cell:hover::before { opacity: 1; }
-      .dq-suite-dot {
-        width: 10px; height: 10px; border-radius: 50%;
-        background: var(--brand);
-        box-shadow: 0 0 0 4px rgba(42, 68, 119, 0.12);
-        margin-bottom: 4px;
+      .dq-suite-top {
+        display: flex; align-items: center; gap: 13px;
       }
+      .dq-suite-dot {
+        position: relative;
+        width: 32px; height: 32px; border-radius: 9px;
+        background: linear-gradient(150deg, #3a5a94 0%, var(--brand) 55%, #1b2c4e 100%);
+        box-shadow: 0 8px 18px -7px rgba(42, 68, 119, 0.55), 0 0 0 1px rgba(42, 68, 119, 0.12);
+        flex: none;
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .dq-suite-dot::after {
+        content: "";
+        position: absolute; left: 50%; top: 47%;
+        width: 6px; height: 11px;
+        border: solid #FFFFFF;
+        border-width: 0 2.5px 2.5px 0;
+        transform: translate(-50%, -58%) rotate(45deg);
+      }
+      .dq-suite-cell:hover .dq-suite-dot { transform: scale(1.08) rotate(-4deg); }
       .dq-suite-h {
         font-family: var(--font-display), sans-serif;
         font-weight: 700;

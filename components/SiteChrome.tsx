@@ -666,7 +666,7 @@ export function SiteChromeStyles() {
       .sc-footer-top > div:first-child { display: flex; flex-direction: column; gap: 20px; }
       .sc-footer-top .sc-logo-name { color: #FFFFFF; }
       .sc-footer-top .sc-logo-tag { color: rgba(160, 196, 240, 0.65); }
-      .sc-footer-tag { max-width: 32ch; font-size: 14.5px; color: rgba(200, 215, 240, 0.72); line-height: 1.6; margin: 8px 0 0; }
+      .sc-footer-tag { max-width: 34ch; font-size: 14.5px; color: rgba(200, 215, 240, 0.72); line-height: 1.6; margin: 8px 0 0; text-align: justify; hyphens: none; }
       .sc-footer-cols { display: grid; grid-template-columns: repeat(3, minmax(140px, max-content)); gap: 64px; }
       .sc-foot-h { font-family: var(--font-mono), monospace; font-size: 10.5px; letter-spacing: 0.22em; color: #a0c4f0; font-weight: 700; margin-bottom: 18px; text-transform: uppercase; }
       .sc-footer-cols ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }

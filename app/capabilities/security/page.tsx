@@ -511,7 +511,7 @@ function StyleBlock() {
       /* ═══ HERO ═══ */
       .ds-hero {
         position: relative;
-        padding: 180px 0 130px;
+        padding: 130px 0 120px;
         overflow: hidden;
         background:
           radial-gradient(ellipse 900px 600px at 15% 30%, rgba(90, 127, 181, 0.36), transparent 60%),
@@ -575,6 +575,7 @@ function StyleBlock() {
         font-size: 16.5px; line-height: 1.72;
         color: rgba(220, 232, 250, 0.82); margin: 0;
         max-width: 58ch;
+        text-align: justify;
       }
 
       /* ═══ PERIMETER SHIELD ANIMATION ═══ */
@@ -582,7 +583,7 @@ function StyleBlock() {
         margin: 0;
         position: relative;
         width: 100%;
-        max-width: 640px;
+        max-width: 560px;
       }
       .ds-anim svg { width: 100%; height: auto; overflow: visible; }
       .ds-anim-halo { animation: ds-halo-pulse 6s ease-in-out infinite; transform-origin: center; }
@@ -692,7 +693,8 @@ function StyleBlock() {
         line-height: 1.68;
         color: var(--ink-3);
         margin: 0;
-        text-wrap: pretty;
+        text-align: justify;
+        hyphens: auto;
       }
 
       /* ═══ PRIMITIVES — enforcement board ═══ */
@@ -854,7 +856,8 @@ function StyleBlock() {
         line-height: 1.65;
         color: rgba(220, 232, 250, 0.78);
         margin: 0;
-        text-wrap: pretty;
+        text-align: justify;
+        hyphens: auto;
       }
 
       /* ═══ FINAL CTA ═══ */

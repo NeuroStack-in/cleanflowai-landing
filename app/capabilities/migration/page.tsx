@@ -148,6 +148,7 @@ export default function DataMigrationPage() {
                 Wiring up a new source feels like a click, not a project. Every run
                 stays incremental, self-monitoring, and fully traceable — so the data
                 keeps flowing while your team focuses on the work that matters.
+                <span className="dm-outcome-q">&rdquo;</span>
               </blockquote>
             </motion.div>
           </div>
@@ -451,6 +452,7 @@ function StyleBlock() {
         font-size: 16.5px; line-height: 1.68;
         color: var(--ink-3); margin: 0;
         max-width: 56ch;
+        text-align: justify;
       }
 
       /* HERO ANIMATION (connector grid) */

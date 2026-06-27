@@ -281,7 +281,7 @@ export default function DataGovernancePage() {
           letter-spacing: -0.01em;
           color: var(--pp-brand); margin: 0 0 12px;
         }
-        .pp-pillar-body { font-size: 14px; line-height: 1.6; color: var(--pp-ink-4); margin: 0; }
+        .pp-pillar-body { font-size: 14px; line-height: 1.6; color: var(--pp-ink-4); margin: 0; text-align: justify; hyphens: auto; }
 
         .pp-features { padding: 90px 0; border-top: 1px solid var(--pp-line); }
         .pp-features-grid {
@@ -309,7 +309,7 @@ export default function DataGovernancePage() {
           letter-spacing: -0.01em;
           color: var(--pp-ink); margin: 0 0 10px;
         }
-        .pp-feature-body { font-size: 13.8px; line-height: 1.55; color: var(--pp-ink-4); margin: 0; }
+        .pp-feature-body { font-size: 13.8px; line-height: 1.55; color: var(--pp-ink-4); margin: 0; text-align: justify; hyphens: auto; }
 
         .pp-users { padding: 90px 0; border-top: 1px solid var(--pp-line); background: var(--pp-bg-2); }
         .pp-users-grid {

@@ -8,6 +8,23 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-display", displa
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap", weight: ["400", "500", "600", "700"] })
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "500", "600"] })
 
+const TOC = [
+  { id: "introduction", label: "Introduction" },
+  { id: "information-we-collect", label: "Information We Collect" },
+  { id: "how-we-use-information", label: "How We Use Information" },
+  { id: "customer-data-ownership", label: "Customer Data Ownership" },
+  { id: "data-security", label: "Data Security and Protection" },
+  { id: "user-access", label: "User Access and Authentication" },
+  { id: "data-retention", label: "Data Retention and Deletion" },
+  { id: "third-party", label: "Third-Party Integrations" },
+  { id: "ai-processing", label: "AI and Automated Processing" },
+  { id: "compliance", label: "Compliance and Governance" },
+  { id: "cookies", label: "Cookies" },
+  { id: "children-privacy", label: "Children's Privacy" },
+  { id: "changes", label: "Changes to This Policy" },
+  { id: "contact", label: "Contact Us" },
+]
+
 export default function PrivacyPage() {
   return (
     <main className={`pp-root ${manrope.variable} ${inter.variable} ${mono.variable}`}>
@@ -18,158 +35,204 @@ export default function PrivacyPage() {
         <div className="pp-container">
           <span className="pp-eyebrow">Legal</span>
           <h1 className="pp-h1">Privacy Policy</h1>
+          <span className="pp-subtitle">Latest Updated: 1 July 2026</span>
         </div>
       </div>
 
       <div className="pp-container pp-body">
 
-        <section className="pp-section">
+        <nav className="pp-toc" aria-label="Table of Contents">
+          <div className="pp-toc-h">Table of Contents</div>
+          <ol>
+            {TOC.map((t) => (
+              <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>
+            ))}
+          </ol>
+        </nav>
+
+        <section className="pp-section" id="introduction">
+          <h2 className="pp-h2">1. Introduction</h2>
           <p>
-            This Privacy Policy explains how Infiniqon (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;)
-            collects, uses, and protects information you provide when using the CleanFlowAI website
-            (<strong>cleanflowai.com</strong>). By using this site, you agree to the practices described below.
+            CleanFlowAI is committed to protecting the information entrusted to us by our clients
+            and platform users while maintaining the highest standards of data privacy, security,
+            and governance. This Privacy Policy explains how CleanFlowAI collects, processes,
+            stores, and safeguards information when clients and authorized users access and use
+            the platform.
+          </p>
+          <p>
+            Throughout this Privacy Policy, &ldquo;CleanFlowAI&rdquo;, &ldquo;we&rdquo;,
+            &ldquo;our&rdquo;, and &ldquo;us&rdquo; refer to CleanFlowAI and its affiliated
+            services. &ldquo;Client&rdquo;, &ldquo;customer&rdquo;, &ldquo;user&rdquo;, and
+            &ldquo;you&rdquo; refer to any organization, business, individual, or authorized
+            representative using the CleanFlowAI platform. CleanFlowAI processes data solely to
+            deliver data profiling, data quality, data transformation, data augmentation, data
+            migration, data modernization, and data governance services as requested and
+            authorized by the client.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">1. Information We Collect</h2>
-
-          <h3 className="pp-h3">Contact &amp; Demo Request Forms</h3>
+        <section className="pp-section" id="information-we-collect">
+          <h2 className="pp-h2">2. Information We Collect</h2>
           <p>
-            When you submit a contact or demo request form, we collect your name, business email address,
-            company name, and any message you provide. This information is used solely to respond to your
-            inquiry and follow up about CleanFlowAI.
+            We collect account information such as name, business email address, organization
+            details, and authentication information required to access the platform. We may also
+            collect platform usage information to improve platform performance, user experience,
+            operational reliability, and security monitoring.
           </p>
-
-          <h3 className="pp-h3">Newsletter Signup</h3>
           <p>
-            If you subscribe to our newsletter, we collect your email address to send you updates about
-            CleanFlowAI, product news, and data quality insights. You can unsubscribe at any time by
-            contacting us.
-          </p>
-
-          <h3 className="pp-h3">Usage Data</h3>
-          <p>
-            We use Google Analytics 4 to collect anonymised data about how visitors interact with our
-            website — such as pages visited, time spent, and general geographic region. This data does
-            not identify you personally and is used only to improve our website.
+            Customers may upload or connect business data from files, databases, cloud storage
+            platforms, ERP systems, CRM applications, and other enterprise sources. All data
+            processed within CleanFlowAI is protected through enterprise-grade security controls.
+            CleanData Shield helps safeguard customer information through continuous security
+            monitoring, access controls, audit logging, threat detection, and data protection
+            mechanisms, ensuring that customer data remains secure, confidential, and accessible
+            only to authorized users.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">2. How We Use Your Information</h2>
-          <ul className="pp-list">
-            <li>To respond to your enquiries and demo requests</li>
-            <li>To send newsletters you have subscribed to</li>
-            <li>To understand how our website is used and improve it</li>
-            <li>To manage and organise leads within our CRM</li>
-          </ul>
-          <p>We do not sell, rent, or trade your personal information to any third party.</p>
-        </section>
-
-        <section className="pp-section">
-          <h2 className="pp-h2">3. Third-Party Services</h2>
-          <p>We use the following trusted third-party services to operate our website:</p>
-
-          <div className="pp-table-wrap">
-            <table className="pp-table">
-              <thead>
-                <tr>
-                  <th>Service</th>
-                  <th>Purpose</th>
-                  <th>Data Shared</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>HubSpot</strong></td>
-                  <td>CRM — storing and managing contact form leads</td>
-                  <td>Name, email, company, message</td>
-                </tr>
-                <tr>
-                  <td><strong>Supabase</strong></td>
-                  <td>Database — storing form submissions securely</td>
-                  <td>Name, email, company, message</td>
-                </tr>
-                <tr>
-                  <td><strong>Google Analytics 4</strong></td>
-                  <td>Website analytics and usage insights</td>
-                  <td>Anonymised usage data, cookies</td>
-                </tr>
-                <tr>
-                  <td><strong>Vercel</strong></td>
-                  <td>Website hosting and deployment</td>
-                  <td>Standard server logs</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+        <section className="pp-section" id="how-we-use-information">
+          <h2 className="pp-h2">3. How We Use Information</h2>
           <p>
-            Each of these services has its own privacy policy and handles data in accordance with
-            applicable data protection regulations.
+            Information is used to provide platform functionality, authenticate users, perform
+            data processing activities, and improve service performance. We also use operational
+            information to maintain platform security and reliability.
+          </p>
+          <p>
+            Customer data is processed solely to execute data governance workflows, data quality
+            validation, transformation, migration, modernization, and related business operations
+            authorized by the customer.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">4. Cookies</h2>
+        <section className="pp-section" id="customer-data-ownership">
+          <h2 className="pp-h2">4. Customer Data Ownership</h2>
           <p>
-            Our website uses cookies through Google Analytics 4 to collect anonymous usage data.
-            These cookies do not store personally identifiable information. You can disable cookies
-            at any time through your browser settings. Note that disabling cookies may affect how
-            some parts of the website function.
+            Customers retain full ownership of all data uploaded, connected, processed, or
+            generated within CleanFlowAI. We do not claim ownership rights over customer datasets,
+            reports, blueprints, rules, or outputs.
+          </p>
+          <p>
+            CleanFlowAI acts as a trusted data processor and handles customer information only
+            according to authorized instructions and configured workflows within the platform.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">5. Data Retention</h2>
+        <section className="pp-section" id="data-security">
+          <h2 className="pp-h2">5. Data Security and Protection</h2>
           <p>
-            Form submissions are retained in our systems for as long as necessary to manage your
-            enquiry or business relationship. Newsletter email addresses are retained until you
-            unsubscribe. Google Analytics data is retained for 14 months in line with GA4 defaults.
+            CleanFlowAI uses enterprise-grade security controls including encryption in transit,
+            encryption at rest, secure infrastructure, and continuous monitoring. These measures
+            help protect information from unauthorized access, disclosure, or alteration.
+          </p>
+          <p>
+            Security controls are regularly reviewed to maintain a secure operating environment
+            and support customer compliance requirements across regulated industries.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">6. Your Rights</h2>
-          <p>You have the right to:</p>
-          <ul className="pp-list">
-            <li>Request access to the personal data we hold about you</li>
-            <li>Request correction or deletion of your personal data</li>
-            <li>Opt out of newsletter communications at any time</li>
-            <li>Request that we stop processing your data</li>
-          </ul>
+        <section className="pp-section" id="user-access">
+          <h2 className="pp-h2">6. User Access and Authentication</h2>
           <p>
-            To exercise any of these rights, email us at{" "}
-            <a href="mailto:marketing@infiniqon.com" className="pp-link">marketing@infiniqon.com</a>.
-            We will respond within 30 days.
+            CleanFlowAI supports <strong>Multi-Factor Authentication (MFA)</strong> to strengthen
+            account security and reduce the risk of unauthorized access. Additional verification
+            methods help ensure that only approved users can access sensitive information.
+          </p>
+          <p>
+            <strong>Role-Based Access Control (RBAC)</strong> allows organizations to define
+            permissions based on business responsibilities. Users can only access the data,
+            workflows, and functions relevant to their assigned roles.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">7. Data Security</h2>
+        <section className="pp-section" id="data-retention">
+          <h2 className="pp-h2">7. Data Retention and Deletion</h2>
           <p>
-            We take reasonable steps to protect your information. Form submissions are stored
-            securely in Supabase with role-based access controls. We do not store payment information
-            of any kind on our systems.
+            Customer information is retained only for as long as necessary to provide services,
+            meet contractual obligations, and satisfy applicable legal requirements. Retention
+            periods may vary depending on customer configurations and regulatory requirements.
+          </p>
+          <p>
+            Customers may request data export, deletion, or account closure according to
+            applicable agreements and platform policies.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">8. Changes to This Policy</h2>
+        <section className="pp-section" id="third-party">
+          <h2 className="pp-h2">8. Third-Party Integrations</h2>
           <p>
-            We may update this Privacy Policy from time to time. The &ldquo;Last updated&rdquo; date
-            at the top of this page will reflect any changes. Continued use of the website after
-            updates constitutes your acceptance of the revised policy.
+            CleanFlowAI integrates with business applications, databases, cloud storage services,
+            and enterprise platforms to facilitate secure data movement and processing. These
+            integrations operate through authorized connections and approved permissions.
+          </p>
+          <p>
+            We do not sell customer data to third parties and only share information when necessary
+            to provide requested services or comply with legal obligations.
           </p>
         </section>
 
-        <section className="pp-section">
-          <h2 className="pp-h2">9. Contact Us</h2>
+        <section className="pp-section" id="ai-processing">
+          <h2 className="pp-h2">9. AI and Automated Processing</h2>
           <p>
-            If you have any questions about this Privacy Policy, please contact us at{" "}
-            <a href="mailto:marketing@infiniqon.com" className="pp-link">marketing@infiniqon.com</a>{" "}
-            or through our <Link href="/support" className="pp-link">contact page</Link>.
+            CleanFlowAI uses artificial intelligence to assist with data profiling, quality rule
+            recommendations, field mapping, anomaly detection, and workflow automation. AI
+            capabilities are designed to improve efficiency while maintaining user oversight.
+          </p>
+          <p>
+            All AI recommendations remain subject to user review, approval, and control before
+            implementation within production workflows.
+          </p>
+        </section>
+
+        <section className="pp-section" id="compliance">
+          <h2 className="pp-h2">10. Compliance and Governance</h2>
+          <p>
+            CleanFlowAI is built to support the compliance and governance obligations of the
+            regulated industries we serve. The platform provides audit logging, access controls,
+            and traceable, reversible workflows that help customers demonstrate accountability to
+            regulators, auditors, and internal stakeholders.
+          </p>
+          <p>
+            We align our operational and security practices with applicable data protection laws
+            and industry standards, and we support customers in meeting their own regulatory and
+            governance requirements.
+          </p>
+        </section>
+
+        <section className="pp-section" id="cookies">
+          <h2 className="pp-h2">11. Cookies</h2>
+          <p>
+            CleanFlowAI uses cookies to maintain secure sessions, improve platform performance,
+            and enhance user experience.
+          </p>
+        </section>
+
+        <section className="pp-section" id="children-privacy">
+          <h2 className="pp-h2">12. Children&rsquo;s Privacy</h2>
+          <p>
+            CleanFlowAI is intended for business use and is not designed for children or minors.
+            We do not knowingly collect personal information from children.
+          </p>
+        </section>
+
+        <section className="pp-section" id="changes">
+          <h2 className="pp-h2">13. Changes to This Policy</h2>
+          <p>
+            This Privacy Policy may be updated periodically to reflect improvements in our
+            services, legal obligations, or security practices. Updated versions will be published
+            through appropriate communication channels.
+          </p>
+          <p>
+            Continued use of the platform following any updates constitutes acceptance of the
+            revised Privacy Policy.
+          </p>
+        </section>
+
+        <section className="pp-section" id="contact">
+          <h2 className="pp-h2">14. Contact Us</h2>
+          <p>
+            For questions regarding privacy, data protection, or security practices, please
+            contact the CleanFlowAI team through the official support channels provided by
+            Infiniqon, or through our <Link href="/support" className="pp-link">contact page</Link>.
           </p>
         </section>
 
@@ -231,7 +294,34 @@ export default function PrivacyPage() {
 
         .pp-body { padding-bottom: 100px; }
 
-        .pp-section { margin-bottom: 44px; }
+        .pp-toc {
+          margin: 0 0 52px;
+          padding: 24px 28px;
+          background: var(--pp-bg-2);
+          border: 1px solid var(--pp-line);
+          border-radius: 14px;
+        }
+        .pp-toc-h {
+          font-family: var(--font-display), sans-serif;
+          font-weight: 700; font-size: 15px;
+          color: var(--pp-ink); margin: 0 0 14px;
+        }
+        .pp-toc ol {
+          margin: 0; padding-left: 20px;
+          columns: 2; column-gap: 36px;
+        }
+        @media (max-width: 600px) { .pp-toc ol { columns: 1; } }
+        .pp-toc li {
+          margin-bottom: 9px; font-size: 14.5px;
+          line-height: 1.5; break-inside: avoid;
+          color: var(--pp-ink-3);
+        }
+        .pp-toc a {
+          color: var(--pp-brand); text-decoration: none;
+        }
+        .pp-toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+        .pp-section { margin-bottom: 44px; scroll-margin-top: 100px; }
         .pp-section:last-of-type > p { text-align: left; hyphens: none; }
 
         .pp-section > p, .pp-section > ul {
@@ -280,30 +370,6 @@ export default function PrivacyPage() {
           text-decoration: underline;
           text-underline-offset: 3px;
         }
-
-        .pp-table-wrap { margin: 18px 0 22px; overflow-x: auto; }
-        .pp-table {
-          width: 100%; border-collapse: collapse;
-          font-size: 14px;
-          border: 1px solid var(--pp-line);
-          border-radius: 10px;
-          overflow: hidden;
-        }
-        .pp-table th {
-          background: var(--pp-brand); color: #fff;
-          font-family: var(--font-mono), monospace;
-          font-size: 10px; letter-spacing: 0.14em;
-          text-transform: uppercase; font-weight: 700;
-          padding: 11px 16px; text-align: left;
-        }
-        .pp-table td {
-          padding: 11px 16px;
-          border-bottom: 1px solid var(--pp-line);
-          color: var(--pp-ink-2);
-          vertical-align: top;
-        }
-        .pp-table tr:last-child td { border-bottom: none; }
-        .pp-table tr:nth-child(even) td { background: var(--pp-bg-2); }
       `}</style>
     </main>
   )
